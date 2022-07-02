@@ -14,8 +14,8 @@
 		051C1069286EA7EB005D2D14 /* TMDB_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C1068286EA7EB005D2D14 /* TMDB_SwiftUIUITests.swift */; };
 		051C106B286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C106A286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift */; };
 		051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C1079286EA82B005D2D14 /* CircularProgressView.swift */; };
-		05F6A384287005B100F24FA8 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F6A383287005B100F24FA8 /* SegmentedView.swift */; };
 		0528EB732870FB7D0069A403 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0528EB722870FB7D0069A403 /* ContentView.swift */; };
+		05478D18287102440030CE39 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05478D17287102440030CE39 /* SegmentedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,8 @@
 		051C1068286EA7EB005D2D14 /* TMDB_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		051C106A286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		051C1079286EA82B005D2D14 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
-		05F6A383287005B100F24FA8 /* SegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		0528EB722870FB7D0069A403 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		05478D17287102440030CE39 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,6 @@
 				051C105D286EA7EB005D2D14 /* TMDB-SwiftUITests */,
 				051C1067286EA7EB005D2D14 /* TMDB-SwiftUIUITests */,
 				051C104B286EA7E9005D2D14 /* Products */,
-				05F6A3822870058900F24FA8 /* Recovered References */,
 				0528EB712870FB210069A403 /* Recovered References */,
 			);
 			sourceTree = "<group>";
@@ -136,18 +135,16 @@
 		051C1077286EA815005D2D14 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				05478D17287102440030CE39 /* SegmentedView.swift */,
 				051C1079286EA82B005D2D14 /* CircularProgressView.swift */,
-				05F6A383287005B100F24FA8 /* SegmentedView.swift */,
 				0528EB722870FB7D0069A403 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		05F6A3822870058900F24FA8 /* Recovered References */ = {
 		0528EB712870FB210069A403 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				051C104F286EA7E9005D2D14 /* ContentView.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -282,9 +279,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				051C1050286EA7E9005D2D14 /* ContentView.swift in Sources */,
-				05F6A384287005B100F24FA8 /* SegmentedView.swift in Sources */,
 				051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */,
+				05478D18287102440030CE39 /* SegmentedView.swift in Sources */,
 				051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */,
 				0528EB732870FB7D0069A403 /* ContentView.swift in Sources */,
 			);
