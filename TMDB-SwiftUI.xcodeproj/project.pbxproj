@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C104D286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift */; };
-		051C1050286EA7E9005D2D14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C104F286EA7E9005D2D14 /* ContentView.swift */; };
 		051C1052286EA7EB005D2D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051C1051286EA7EB005D2D14 /* Assets.xcassets */; };
 		051C1055286EA7EB005D2D14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051C1054286EA7EB005D2D14 /* Preview Assets.xcassets */; };
 		051C105F286EA7EB005D2D14 /* TMDB_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C105E286EA7EB005D2D14 /* TMDB_SwiftUITests.swift */; };
 		051C1069286EA7EB005D2D14 /* TMDB_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C1068286EA7EB005D2D14 /* TMDB_SwiftUIUITests.swift */; };
 		051C106B286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C106A286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift */; };
 		051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C1079286EA82B005D2D14 /* CircularProgressView.swift */; };
+		0528EB732870FB7D0069A403 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0528EB722870FB7D0069A403 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		051C104A286EA7E9005D2D14 /* TMDB-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDB-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		051C104D286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_SwiftUIApp.swift; sourceTree = "<group>"; };
-		051C104F286EA7E9005D2D14 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		051C1051286EA7EB005D2D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		051C1054286EA7EB005D2D14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		051C105A286EA7EB005D2D14 /* TMDB-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TMDB-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +45,7 @@
 		051C1068286EA7EB005D2D14 /* TMDB_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		051C106A286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		051C1079286EA82B005D2D14 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		0528EB722870FB7D0069A403 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +80,7 @@
 				051C105D286EA7EB005D2D14 /* TMDB-SwiftUITests */,
 				051C1067286EA7EB005D2D14 /* TMDB-SwiftUIUITests */,
 				051C104B286EA7E9005D2D14 /* Products */,
+				0528EB712870FB210069A403 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,8 +134,16 @@
 			isa = PBXGroup;
 			children = (
 				051C1079286EA82B005D2D14 /* CircularProgressView.swift */,
+				0528EB722870FB7D0069A403 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0528EB712870FB210069A403 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,9 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				051C1050286EA7E9005D2D14 /* ContentView.swift in Sources */,
 				051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */,
 				051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */,
+				0528EB732870FB7D0069A403 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
