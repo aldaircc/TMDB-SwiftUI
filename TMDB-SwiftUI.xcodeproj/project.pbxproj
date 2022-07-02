@@ -98,7 +98,6 @@
 			children = (
 				051C1077286EA815005D2D14 /* Views */,
 				051C104D286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift */,
-				051C104F286EA7E9005D2D14 /* ContentView.swift */,
 				051C1051286EA7EB005D2D14 /* Assets.xcassets */,
 				051C1053286EA7EB005D2D14 /* Preview Content */,
 			);
