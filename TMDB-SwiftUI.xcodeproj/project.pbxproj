@@ -15,6 +15,7 @@
 		051C106B286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C106A286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift */; };
 		051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C1079286EA82B005D2D14 /* CircularProgressView.swift */; };
 		0528EB732870FB7D0069A403 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0528EB722870FB7D0069A403 /* ContentView.swift */; };
+		05478D1A28713C610030CE39 /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05478D1928713C610030CE39 /* MovieCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		051C106A286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		051C1079286EA82B005D2D14 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		0528EB722870FB7D0069A403 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		05478D1928713C610030CE39 /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				051C1079286EA82B005D2D14 /* CircularProgressView.swift */,
 				0528EB722870FB7D0069A403 /* ContentView.swift */,
+				05478D1928713C610030CE39 /* MovieCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */,
 				051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */,
 				0528EB732870FB7D0069A403 /* ContentView.swift in Sources */,
+				05478D1A28713C610030CE39 /* MovieCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
