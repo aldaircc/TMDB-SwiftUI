@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct SegmentedView: View {
+    let options: [String]
     var body: some View {
-        Text("Hello, World!")
+        HStack {
+            ForEach(options, id: \.self) { option in
+                Button {
+                    // TO DO
+                } label: {
+                    Text(option)
+                }
+
+            }
+        }
     }
 }
 
 struct SegmentedView_Previews: PreviewProvider {
+    static let options = ["Streaming", "On TV", "For rent", "In Theaters"]
     static var previews: some View {
-        SegmentedView()
+        SegmentedView(options: options)
     }
 }
