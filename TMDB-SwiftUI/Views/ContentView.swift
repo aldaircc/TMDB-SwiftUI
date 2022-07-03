@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text("Hello, World!")
+            SegmentedView(options: ["Streaming", "On TV", "For rent", "In Theaters"])
+                .frame(height: 40)
+        }
     }
 }
 
