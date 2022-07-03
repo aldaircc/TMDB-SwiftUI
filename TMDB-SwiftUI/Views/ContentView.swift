@@ -9,7 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        ScrollView(.horizontal) {
+            HStack(spacing: 20) {
+                MovieCardView()
+                    .frame(width: 100, height: 30)
+                MovieCardView()
+                MovieCardView()
+                MovieCardView()
+                MovieCardView()
+            }
+        }
+        
     }
 }
 
