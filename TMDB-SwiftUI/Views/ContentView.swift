@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         VStack {
-            Text("Hello, World!")
-            SegmentedView(options: ["Streaming", "On TV", "For rent", "In Theaters"])
-                .frame(height: 40)
+            Text("Hello")
+            Picker("Mode", selection: .constant(1)) {
+                Text("Manual").tag(1)
+                Text("Auto").tag(2)
+            }
+            .labelsHidden()
+            .pickerStyle(.segmented)
         }
     }
 }
