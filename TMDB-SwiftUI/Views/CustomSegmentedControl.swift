@@ -17,7 +17,13 @@ public struct CustomSegmentedControl<SelectionValue, Content>: View where Select
     }
     
     public var body: some View {
-        content
+        HStack(spacing: 0) {
+            content
+        }
+        .padding(1)
+        .textCase(.uppercase)
+        .background(RoundedRectangle(cornerRadius: 5).fill(.gray))
+        .frame(idealHeight: 16)
     }
 }
 
