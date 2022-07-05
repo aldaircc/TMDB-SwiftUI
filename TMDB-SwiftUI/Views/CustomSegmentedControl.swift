@@ -7,6 +7,24 @@
 
 import SwiftUI
 
+private struct SelectedSegmentTagKey: EnvironmentKey {
+    static var defaultValue: Any?
+}
+
+private extension EnvironmentValues {
+    var selectedSegmentTag: Any? {
+        get { self[SelectedSegmentTagKey.self] }
+        set { self[SelectedSegmentTagKey.self] = newValue }
+    }
+}
+
+public extension View {
+    func segmentedControlItemTag<SelectionValue: Hashable>(_ tag: SelectionValue) -> some View {
+        //return
+        Text("xxx")
+    }
+}
+
 public struct CustomSegmentedControl<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
     @Binding public var selection: SelectionValue
     private let content: Content
@@ -20,10 +38,12 @@ public struct CustomSegmentedControl<SelectionValue, Content>: View where Select
         HStack(spacing: 0) {
             content
         }
+        .clipShape(RoundedRectangle(cornerRadius: 4))
         .padding(1)
         .textCase(.uppercase)
         .background(RoundedRectangle(cornerRadius: 5).fill(.gray))
         .frame(idealHeight: 16)
+        .environment(\.selectedSegmentTag, $selection)
     }
 }
 
