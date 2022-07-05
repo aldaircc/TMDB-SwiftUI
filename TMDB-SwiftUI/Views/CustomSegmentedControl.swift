@@ -20,8 +20,40 @@ private extension EnvironmentValues {
 
 public extension View {
     func segmentedControlItemTag<SelectionValue: Hashable>(_ tag: SelectionValue) -> some View {
-        //return
-        Text("xxx")
+        return SegmentedControlItemContainer(tag: tag, content: self)
+    }
+}
+
+private struct SegmentedControlItemContainer<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
+    @Environment(\.selectedSegmentTag) var selectedSegmentTag
+    let tag: SelectionValue
+    let content: Content
+    
+    @ViewBuilder var body: some View {
+        content
+            .frame(maxWidth: .infinity)
+            .contentShape(Rectangle())
+            .foregroundColor(isSelected ? .black : .white.opacity(0.8))
+            .background(isSelected ? background : nil)
+            .onTapGesture {
+                select()
+            }
+            .disabled(isSelected)
+    }
+    
+    private var background: some View {
+        RoundedRectangle(cornerRadius: 4)
+            .fill(.white)
+            .padding(.horizontal, -4)
+    }
+    private var isSelected: Bool {
+        let selectedTag = (selectedSegmentTag as? Binding<SelectionValue>)?.wrappedValue
+        return tag == selectedTag
+    }
+    private func select() {
+        if let binding = selectedSegmentTag as? Binding<SelectionValue> {
+            binding.wrappedValue = tag
+        }
     }
 }
 
@@ -59,9 +91,9 @@ struct RootView: View {
     var body: some View {
         VStack {
             CustomSegmentedControl(selection: $mode) {
-                Text("Years")
-                Text("Months")
-                Text("Days")
+                Text("Years").segmentedControlItemTag(LayoutMode.years)
+                Text("Months").segmentedControlItemTag(LayoutMode.months)
+                Text("Days").segmentedControlItemTag(LayoutMode.days)
             }
             .frame(width: 300)
         }

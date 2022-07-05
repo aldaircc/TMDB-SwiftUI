@@ -11,7 +11,8 @@ import SwiftUI
 struct TMDB_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            RootView()
             //CircularProgressView(progress: .constant(10))
 //            SegmentedView(options: ["Streaming", "On TV", "For rent", "In Theaters"])
         }
