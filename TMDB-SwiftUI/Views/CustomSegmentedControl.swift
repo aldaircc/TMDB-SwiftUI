@@ -58,14 +58,17 @@ private struct SegmentedControlItemContainer<SelectionValue, Content>: View wher
         RoundedRectangle(cornerRadius: 4)
             .fill(.white)
             .padding(.horizontal, -4)
+            .matchedGeometryEffect(id: "selection", in: segmentedNamespace ?? namespace)
     }
     private var isSelected: Bool {
         let selectedTag = (selectedSegmentTag as? Binding<SelectionValue>)?.wrappedValue
         return tag == selectedTag
     }
     private func select() {
-        if let binding = selectedSegmentTag as? Binding<SelectionValue> {
-            binding.wrappedValue = tag
+        withAnimation(.easeInOut(duration: 0.2)) {
+            if let binding = selectedSegmentTag as? Binding<SelectionValue> {
+                binding.wrappedValue = tag
+            }
         }
     }
 }
