@@ -122,7 +122,7 @@ struct RootView: View {
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         RootView()
-            .previewLayout(.fixed(width: 100, height: 100))
+            .previewLayout(.fixed(width: 400, height: 100))
     }
 }
 
