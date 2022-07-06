@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text("Hello")
+            Picker("Mode", selection: .constant(1)) {
+                Text("Manual").tag(1)
+                Text("Auto").tag(2)
+            }
+            .labelsHidden()
+            .pickerStyle(.segmented)
+        }
     }
 }
 

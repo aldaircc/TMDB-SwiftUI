@@ -15,6 +15,8 @@
 		051C106B286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C106A286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift */; };
 		051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C1079286EA82B005D2D14 /* CircularProgressView.swift */; };
 		0528EB732870FB7D0069A403 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0528EB722870FB7D0069A403 /* ContentView.swift */; };
+		05478D18287102440030CE39 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05478D17287102440030CE39 /* SegmentedView.swift */; };
+		05EFB4D62873CA8A00EB8166 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EFB4D52873CA8A00EB8166 /* CustomSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		051C106A286EA7EB005D2D14 /* TMDB_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		051C1079286EA82B005D2D14 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		0528EB722870FB7D0069A403 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		05478D17287102440030CE39 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
+		05EFB4D52873CA8A00EB8166 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +137,10 @@
 		051C1077286EA815005D2D14 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				05478D17287102440030CE39 /* SegmentedView.swift */,
 				051C1079286EA82B005D2D14 /* CircularProgressView.swift */,
 				0528EB722870FB7D0069A403 /* ContentView.swift */,
+				05EFB4D52873CA8A00EB8166 /* CustomSegmentedControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,7 +283,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */,
+				05478D18287102440030CE39 /* SegmentedView.swift in Sources */,
 				051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */,
+				05EFB4D62873CA8A00EB8166 /* CustomSegmentedControl.swift in Sources */,
 				0528EB732870FB7D0069A403 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
