@@ -36,6 +36,8 @@ public extension View {
 }
 
 private struct SegmentedControlItemContainer<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
+    @Environment(\.segmentedControlNamespace) var segmentedNamespace
+    @Namespace var namespace
     @Environment(\.selectedSegmentTag) var selectedSegmentTag
     let tag: SelectionValue
     let content: Content
@@ -69,6 +71,7 @@ private struct SegmentedControlItemContainer<SelectionValue, Content>: View wher
 }
 
 public struct CustomSegmentedControl<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
+    @Namespace var namespace
     @Binding public var selection: SelectionValue
     private let content: Content
     
@@ -87,6 +90,7 @@ public struct CustomSegmentedControl<SelectionValue, Content>: View where Select
         .background(RoundedRectangle(cornerRadius: 5).fill(.gray))
         .frame(idealHeight: 16)
         .environment(\.selectedSegmentTag, $selection)
+        .environment(\.segmentedControlNamespace, namespace)
     }
 }
 
