@@ -46,7 +46,7 @@ private struct SegmentedControlItemContainer<SelectionValue, Content>: View wher
         content
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
-            .foregroundColor(isSelected ? .black : .white.opacity(0.8))
+            .foregroundColor(isSelected ? Color("Segmented Text Selected") : .white.opacity(0.8))
             .background(isSelected ? background : nil)
             .onTapGesture {
                 select()
@@ -56,7 +56,7 @@ private struct SegmentedControlItemContainer<SelectionValue, Content>: View wher
     
     private var background: some View {
         RoundedRectangle(cornerRadius: 4)
-            .fill(.white)
+            .fill(Color("Segmented Selected Background"))
             .padding(.horizontal, -4)
             .matchedGeometryEffect(id: "selection", in: segmentedNamespace ?? namespace)
     }
@@ -89,7 +89,7 @@ public struct CustomSegmentedControl<SelectionValue, Content>: View where Select
         }
         .clipShape(RoundedRectangle(cornerRadius: 4))
         .padding(1)
-        .textCase(.uppercase)
+        .textCase(.none)
         .background(RoundedRectangle(cornerRadius: 5).fill(.gray))
         .frame(idealHeight: 16)
         .environment(\.selectedSegmentTag, $selection)
