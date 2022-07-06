@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+private struct SegmentedControlNamespaceKey: EnvironmentKey {
+    static var defaultValue: Namespace.ID?
+}
+
+private extension EnvironmentValues {
+    var segmentedControlNamespace: Namespace.ID? {
+        get { self[SegmentedControlNamespaceKey.self] }
+        set { self[SegmentedControlNamespaceKey.self] = newValue }
+    }
+}
+
 private struct SelectedSegmentTagKey: EnvironmentKey {
     static var defaultValue: Any?
 }
