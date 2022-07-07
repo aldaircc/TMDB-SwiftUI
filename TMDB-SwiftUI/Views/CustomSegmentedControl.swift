@@ -55,9 +55,10 @@ private struct SegmentedControlItemContainer<SelectionValue, Content>: View wher
     }
     
     private var background: some View {
-        RoundedRectangle(cornerRadius: 4)
+        RoundedRectangle(cornerRadius: 0)
             .fill(Color("Segmented Selected Background"))
             .padding(.horizontal, -4)
+            .cornerRadius(10)
             .matchedGeometryEffect(id: "selection", in: segmentedNamespace ?? namespace)
     }
     private var isSelected: Bool {
@@ -90,7 +91,7 @@ public struct CustomSegmentedControl<SelectionValue, Content>: View where Select
         .clipShape(RoundedRectangle(cornerRadius: 4))
         .padding(1)
         .textCase(.none)
-        .background(RoundedRectangle(cornerRadius: 5).fill(.gray))
+        .background(RoundedRectangle(cornerRadius: 10).fill(.gray))
         .frame(idealHeight: 16)
         .environment(\.selectedSegmentTag, $selection)
         .environment(\.segmentedControlNamespace, namespace)
@@ -125,10 +126,3 @@ struct RootView_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 400, height: 100))
     }
 }
-
-
-//struct CustomSegmentedControl_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CustomSegmentedControl(selection: <#T##Binding<_>#>, content: <#T##() -> _#>)
-//    }
-//}
