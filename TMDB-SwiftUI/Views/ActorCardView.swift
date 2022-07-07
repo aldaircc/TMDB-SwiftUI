@@ -16,30 +16,33 @@ struct ActorCardView: View {
                 .frame(width: 117, height: 175, alignment: .center)
                 .background(.yellow)
                 .cornerRadius(10)
-//                .overlay(
-//                    VStack(alignment: .leading) {
-//                        Spacer()
-//                        HStack {
-//                            Text("Gillian Jacobs")
-//                                .font(.system(size: 14))
-//                                .fontWeight(.semibold)
-//                            Spacer()
-//                        }
-//                        .background(Color.white)
-//                        HStack {
-//                            Text("Brianne")
-//                                .font(.system(size: 11))
-//                                .fontWeight(.light)
-//                            Spacer()
-//                        }
-//                        .background(Color.white)
-//                    }
-//                )
+            
+            ZStack(alignment: .leading) {
+                Rectangle()
+                    .fill(.white)
+                    .frame(width: 117, height: 35)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Gillian Jacobs")
+                            .font(.system(size: 12))
+                            .fontWeight(.semibold)
+                    }
+                    .background(Color.white)
+                    HStack {
+                        Text("Brianne")
+                            .font(.system(size: 10))
+                            .fontWeight(.light)
+                        
+                    }
+                }
+                .padding(.horizontal, 5)
+            }
+            .cornerRadius(1)
         }
         .overlay(
-            RoundedRectangle(cornerRadius: 9, style: .circular)
-                .stroke(.white, lineWidth: 1)
-                .shadow(color: .black, radius: 3, x: 2, y: 0)
+            RoundedRectangle(cornerRadius: 9, style: .continuous)
+                .stroke(.white, lineWidth: 0.9)
+                .shadow(color: .black, radius: 10, x: 0, y: 0)
         )
     }
 }
