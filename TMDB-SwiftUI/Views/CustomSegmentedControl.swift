@@ -46,7 +46,7 @@ private struct SegmentedControlItemContainer<SelectionValue, Content>: View wher
         content
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
-            .foregroundColor(isSelected ? Color("Segmented Text Selected") : .white.opacity(0.8))
+            .foregroundColor(Color(isSelected ? "Segmented Text Selected" : "Segmented Text Color"))
             .background(isSelected ? background : nil)
             .onTapGesture {
                 select()
@@ -91,8 +91,10 @@ public struct CustomSegmentedControl<SelectionValue, Content>: View where Select
         .clipShape(RoundedRectangle(cornerRadius: 4))
         .padding(1)
         .textCase(.none)
-        .background(RoundedRectangle(cornerRadius: 10).fill(.gray))
+        .background(RoundedRectangle(cornerRadius: 10).fill(.white))
         .frame(idealHeight: 16)
+        .overlay(RoundedRectangle(cornerRadius: 10)
+            .stroke(lineWidth: 1))
         .environment(\.selectedSegmentTag, $selection)
         .environment(\.segmentedControlNamespace, namespace)
     }
