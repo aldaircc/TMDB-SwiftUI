@@ -9,7 +9,14 @@ import SwiftUI
 
 struct StoryViewerView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            HStack {
+                ProgressView(value: 0.9)
+                    .progressViewStyle(.linear)
+            }
+            .padding(.horizontal)
+            
+        }
     }
 }
 
