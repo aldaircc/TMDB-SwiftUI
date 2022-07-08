@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050852342877BC9700062AB5 /* StoryViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050852332877BC9700062AB5 /* StoryViewerView.swift */; };
 		051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C104D286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift */; };
 		051C1052286EA7EB005D2D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051C1051286EA7EB005D2D14 /* Assets.xcassets */; };
 		051C1055286EA7EB005D2D14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 051C1054286EA7EB005D2D14 /* Preview Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		050852332877BC9700062AB5 /* StoryViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewerView.swift; sourceTree = "<group>"; };
 		051C104A286EA7E9005D2D14 /* TMDB-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDB-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		051C104D286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_SwiftUIApp.swift; sourceTree = "<group>"; };
 		051C1051286EA7EB005D2D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				051C1079286EA82B005D2D14 /* CircularProgressView.swift */,
 				0528EB722870FB7D0069A403 /* ContentView.swift */,
+				050852332877BC9700062AB5 /* StoryViewerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			files = (
 				051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */,
 				051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */,
+				050852342877BC9700062AB5 /* StoryViewerView.swift in Sources */,
 				0528EB732870FB7D0069A403 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
