@@ -41,7 +41,7 @@ struct ActorCardView: View {
         }
         .overlay(
             RoundedRectangle(cornerRadius: 9, style: .continuous)
-                .stroke(.white, lineWidth: 0.9)
+                .stroke(.black.opacity(0.1), lineWidth: 0.4)
                 .shadow(color: .black, radius: 10, x: 0, y: 0)
         )
     }
