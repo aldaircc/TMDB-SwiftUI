@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ActorCardView: View {
+    let name: String
+    let character: String
+    
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("Gillian Jacobs")
+            Image(name)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 117, height: 175, alignment: .center)
@@ -23,13 +26,13 @@ struct ActorCardView: View {
                     .frame(width: 117, height: 35)
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("Gillian Jacobs")
+                        Text(name)
                             .font(.system(size: 12))
                             .fontWeight(.semibold)
                     }
                     .background(Color.white)
                     HStack {
-                        Text("Brianne")
+                        Text(character)
                             .font(.system(size: 10))
                             .fontWeight(.light)
                         
@@ -49,7 +52,7 @@ struct ActorCardView: View {
 
 struct ActorCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ActorCardView()
+        ActorCardView(name: "Gillian Jacobs", character: "Brianne")
             .previewLayout(.fixed(width: 300, height: 400))
     }
 }
