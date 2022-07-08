@@ -7,12 +7,24 @@
 
 import SwiftUI
 
+final class StoryOV: ObservableObject {
+    
+    let timerPublisher = Timer.publish(every: 1, on: .main, in: .default)
+    init() {
+        timerPublisher.connect()
+    }
+}
+
 struct StoryViewerView: View {
+    let stories: [Double]
+    
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                ProgressView(value: 0.9)
-                    .progressViewStyle(.linear)
+            HStack(spacing: 6) {
+                ForEach(stories, id: \.self) { story in
+                    ProgressView(value: story)
+                        .progressViewStyle(.linear)
+                }
             }
             .padding(.horizontal)
             
@@ -21,7 +33,8 @@ struct StoryViewerView: View {
 }
 
 struct StoryViewerView_Previews: PreviewProvider {
+    static let stories = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.12, 0.13, 0.27]
     static var previews: some View {
-        StoryViewerView()
+        StoryViewerView(stories: stories)
     }
 }
