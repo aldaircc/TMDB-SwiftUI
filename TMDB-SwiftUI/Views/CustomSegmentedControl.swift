@@ -7,42 +7,14 @@
 
 import SwiftUI
 
-private struct SegmentedControlNamespaceKey: EnvironmentKey {
-    static var defaultValue: Namespace.ID?
-}
-
-private extension EnvironmentValues {
-    var segmentedControlNamespace: Namespace.ID? {
-        get { self[SegmentedControlNamespaceKey.self] }
-        set { self[SegmentedControlNamespaceKey.self] = newValue }
-    }
-}
-
-private struct SelectedSegmentTagKey: EnvironmentKey {
-    static var defaultValue: Any?
-}
-
-private extension EnvironmentValues {
-    var selectedSegmentTag: Any? {
-        get { self[SelectedSegmentTagKey.self] }
-        set { self[SelectedSegmentTagKey.self] = newValue }
-    }
-}
-
-public extension View {
-    func segmentedControlItemTag<SelectionValue: Hashable>(_ tag: SelectionValue) -> some View {
-        return SegmentedControlItemContainer(tag: tag, content: self)
-    }
-}
-
-private struct SegmentedControlItemContainer<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
+public struct SegmentedControlItemContainer<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
     @Environment(\.segmentedControlNamespace) var segmentedNamespace
     @Namespace var namespace
     @Environment(\.selectedSegmentTag) var selectedSegmentTag
     let tag: SelectionValue
     let content: Content
     
-    @ViewBuilder var body: some View {
+    @ViewBuilder public var body: some View {
         content
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
