@@ -12,7 +12,8 @@ struct TMDB_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            CircularProgressView(progress: .constant(10))
+            //CircularProgressView(progress: .constant(10))
+            StoryViewerView(stories: [0.0])
         }
     }
 }

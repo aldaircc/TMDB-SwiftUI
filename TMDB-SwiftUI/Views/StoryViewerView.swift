@@ -6,28 +6,56 @@
 //
 
 import SwiftUI
+import Combine
 
 final class StoryOV: ObservableObject {
     
     let timerPublisher = Timer.publish(every: 1, on: .main, in: .default)
+    var subscribers = Set<AnyCancellable>()
+    let progressBySecond: Double  = 60/4
+    @Published var progress: Double = 0
     init() {
-        timerPublisher.connect()
+        timerPublisher
+            .autoconnect()
+            .sink { _ in
+                
+                if (self.progress + (self.progressBySecond / 100)) >= 1 {
+                    self.progress = 1
+                    self.subscribers.first?.cancel()
+                } else {
+                    self.progress += self.progressBySecond
+                }
+                
+            }
+            .store(in: &subscribers)
     }
 }
 
 struct StoryViewerView: View {
     let stories: [Double]
+    @ObservedObject var storyOV = StoryOV()
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack(spacing: 6) {
                 ForEach(stories, id: \.self) { story in
-                    ProgressView(value: story)
-                        .progressViewStyle(.linear)
+                    
+                    if story == 0 {
+                        ProgressView(value: storyOV.progress)
+                            .progressViewStyle(.linear)
+                            .animation(.linear(duration: 0.1), value: storyOV.progress)
+                    } else {
+                        ProgressView(value: story)
+                            .progressViewStyle(.linear)
+                    }
+                    
                 }
             }
             .padding(.horizontal)
             
+        }
+        .onReceive(storyOV.$progress) { newValue in
+            print(newValue)
         }
     }
 }
