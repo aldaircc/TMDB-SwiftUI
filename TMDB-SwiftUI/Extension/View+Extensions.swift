@@ -8,7 +8,5 @@
 import SwiftUI
 
 public extension View {
-    func segmentedControlItemTag<SelectionValue: Hashable>(_ tag: SelectionValue) -> some View {
-        return SegmentedControlItemContainer(tag: tag, content: self)
-    }
+    
 }
