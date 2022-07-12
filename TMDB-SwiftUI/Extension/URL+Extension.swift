@@ -8,5 +8,5 @@
 import Foundation
 
 extension URL {
-    
+    static var baseURL = URL(string: "https://api.themoviedb.org/3/")!
 }
