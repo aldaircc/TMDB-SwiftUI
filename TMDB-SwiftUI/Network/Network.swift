@@ -9,11 +9,11 @@ import Foundation
 
 struct Network {
     
-    func getGenres() async throws {
+    func getGenres(_ language: Languages = .english) async throws {
      
         let queryItems = [
             URLQueryItem(name: "api_key", value: ""),
-            URLQueryItem(name: "language", value: "")
+            URLQueryItem(name: "language", value: language.description)
         ]
         
         var components = URLComponents(string: "\(URL.baseURL.absoluteString)genre/movie/list")
