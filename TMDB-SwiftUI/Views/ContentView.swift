@@ -19,6 +19,9 @@ struct ContentView: View {
             .labelsHidden()
             .pickerStyle(.segmented)
         }
+        .task {
+            try? await Network().getGenres()
+        }
     }
 }
 
