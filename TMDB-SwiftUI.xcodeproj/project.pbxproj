@@ -19,6 +19,7 @@
 		051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C1079286EA82B005D2D14 /* CircularProgressView.swift */; };
 		0528EB732870FB7D0069A403 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0528EB722870FB7D0069A403 /* ContentView.swift */; };
 		05478D18287102440030CE39 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05478D17287102440030CE39 /* SegmentedView.swift */; };
+		05E9EA2D287CF79600C8A384 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9EA2C287CF79600C8A384 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		051C1079286EA82B005D2D14 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		0528EB722870FB7D0069A403 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		05478D17287102440030CE39 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
+		05E9EA2C287CF79600C8A384 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		051C104C286EA7E9005D2D14 /* TMDB-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				05E9EA2B287CF78900C8A384 /* Network */,
 				0500AEBF287936A800FF5809 /* Shared */,
 				0500AEBC2879365400FF5809 /* Extension */,
 				051C1077286EA815005D2D14 /* Views */,
@@ -172,6 +175,14 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		05E9EA2B287CF78900C8A384 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				05E9EA2C287CF79600C8A384 /* Network.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +317,7 @@
 			files = (
 				051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */,
 				0500AEBE2879367100FF5809 /* View+Extensions.swift in Sources */,
+				05E9EA2D287CF79600C8A384 /* Network.swift in Sources */,
 				05478D18287102440030CE39 /* SegmentedView.swift in Sources */,
 				051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */,
 				0500AEC1287936C500FF5809 /* SegmentedControlNamespaceKey.swift in Sources */,
