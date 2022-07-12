@@ -9,7 +9,7 @@ import Foundation
 
 struct Network {
     
-    func getGenres(_ language: Languages = .english) async throws {
+    func getGenres(_ language: Languages = .english) async throws -> Genres? {
      
         let queryItems = [
             URLQueryItem(name: "api_key", value: ""),
@@ -22,20 +22,24 @@ struct Network {
         }
         
         guard let finalUrl = components?.url else {
-            return
+            return nil
         }
         
         let (data, response) = try await URLSession.shared.data(from: finalUrl)
         
         guard let urlResponse = response as? HTTPURLResponse else {
-            return
+            return nil
         }
         
-        if urlResponse.statusCode == 200 {
-            print("Correct")
-            print(data)
-        } else {
-            print("Status code \(urlResponse.statusCode): \(urlResponse.description)")
+        guard urlResponse.statusCode == 200 else {
+            return nil
+        }
+        
+        do {
+            return try JSONDecoder().decode(Genres.self, from: data)
+        } catch {
+            print("Error: \(error)")
+            return nil
         }
     }
 }

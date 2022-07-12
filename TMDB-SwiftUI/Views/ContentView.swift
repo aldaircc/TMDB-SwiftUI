@@ -20,7 +20,7 @@ struct ContentView: View {
             .pickerStyle(.segmented)
         }
         .task {
-            try? await Network().getGenres()
+            _ = try? await Network().getGenres(.chinese)
         }
     }
 }

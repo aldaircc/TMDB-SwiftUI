@@ -7,11 +7,15 @@
 
 import Foundation
 
-typealias Genres = [GenreModel]
+typealias Genres = GenreResult
 
 struct GenreModel: Codable {
     let id: Int
     let name: String
+}
+
+struct GenreResult: Codable {
+    let genres: [GenreModel]
 }
 
 enum Languages: CustomStringConvertible {
