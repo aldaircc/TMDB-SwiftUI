@@ -16,12 +16,12 @@ struct Network {
             URLQueryItem(name: "language", value: language.description)
         ]
         
-        var components = URLComponents(string: "\(URL.baseURL.absoluteString)genre/movie/list")
+        var components = URLComponents(string: URL.genre.absoluteString)
         if !queryItems.isEmpty {
             components?.queryItems = queryItems
         }
         
-        guard let finalUrl = components?.url else {
+        guard let finalUrl = components?.url  else {
             return nil
         }
         

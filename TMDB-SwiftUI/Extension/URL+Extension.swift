@@ -9,4 +9,5 @@ import Foundation
 
 extension URL {
     static var baseURL = URL(string: "https://api.themoviedb.org/3/")!
+    static var genre = URL(string: baseURL.absoluteString + "genre/movie/list")!
 }
