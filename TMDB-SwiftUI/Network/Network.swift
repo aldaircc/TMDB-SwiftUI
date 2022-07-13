@@ -10,7 +10,7 @@ import Foundation
 struct Network {
     
     func getGenres(_ language: Languages = .english) async throws -> Genres? {
-     
+        
         let queryItems = [
             URLQueryItem(name: "api_key", value: ""),
             URLQueryItem(name: "language", value: language.description)
@@ -41,5 +41,31 @@ struct Network {
             print("Error: \(error)")
             return nil
         }
+    }
+    
+    func getTrendings(_ page: Int, mediaType: String, timeWindow: String) async -> TrendingResult? {
+        let queryItems = [
+            URLQueryItem(name: "api_key", value: ""),
+            URLQueryItem(name: "page", value: String(describing: page))
+        ]
+        
+        var components = URLComponents(string: "\(URL.trending.absoluteString)\(mediaType)/\(timeWindow)")
+        components?.queryItems = queryItems
+        
+        do {
+            let (data, request) = try await URLSession.shared.data(from: components!.url!)
+            
+            if data.count != 0 {
+                let result = try JSONDecoder().decode(TrendingResult.self, from: data)
+                print(result)
+                return result
+            }
+            
+        } catch {
+            print(error)
+            return nil
+        }
+        
+        return nil
     }
 }
