@@ -7,47 +7,8 @@
 
 import Foundation
 
-enum MediaType: String, Codable {
-    case all
-    case movie
-    case tv
-    case person
-}
-
-enum KnownForDepartment: String, Codable {
-    case acting = "Acting"
-    case directing = "Directing"
-}
-
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case ja = "ja"
-    case fr = "fr"
-    case de = "de"
-    case ta = "ta"
-    case ko = "ko"
-}
-
 struct KnowFor: Codable {
-    let adult: Bool
-    let backdropPath: String?
-    let genreIDS: [Int]
-    let id: Int
-    let mediaType: MediaType
-    let title: String?
-    let originalLanguage: OriginalLanguage
-    let originalTitle: String?
-    let overview: String
-    let popularity: Double
-    let posterPath: String
-    let releaseDate: String?
-    let video: Bool?
-    let voteAverage: Double
-    let voteCount: Int
-    let name: String?
-    let originCountry: [String]?
-    let originalName, firstAirDate: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
@@ -68,6 +29,25 @@ struct KnowFor: Codable {
         case originalName = "original_name"
         case firstAirDate = "first_air_date"
     }
+    
+    let adult: Bool
+    let backdropPath: String?
+    let genreIDS: [Int]
+    let id: Int
+    let mediaType: MediaType
+    let title: String?
+    let originalLanguage: OriginalLanguage
+    let originalTitle: String?
+    let overview: String
+    let popularity: Double
+    let posterPath: String
+    let releaseDate: String?
+    let video: Bool?
+    let voteAverage: Double
+    let voteCount: Int
+    let name: String?
+    let originCountry: [String]?
+    let originalName, firstAirDate: String?
 }
 
 struct ResultTrending: Codable {
