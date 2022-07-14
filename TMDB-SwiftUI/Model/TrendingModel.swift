@@ -7,14 +7,35 @@
 
 import Foundation
 
+enum MediaType: String, Codable {
+    case all
+    case movie
+    case tv
+    case person
+}
+
+enum KnownForDepartment: String, Codable {
+    case acting = "Acting"
+    case directing = "Directing"
+}
+
+enum OriginalLanguage: String, Codable {
+    case en = "en"
+    case ja = "ja"
+    case fr = "fr"
+    case de = "de"
+    case ta = "ta"
+    case ko = "ko"
+}
+
 struct KnowFor: Codable {
     let adult: Bool
     let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
-    let mediaType: String//KnownForMediaType
+    let mediaType: MediaType
     let title: String?
-    let originalLanguage: String //OriginalLanguage
+    let originalLanguage: OriginalLanguage
     let originalTitle: String?
     let overview: String
     let popularity: Double
@@ -67,8 +88,8 @@ struct ResultTrending: Codable {
     let adult: Bool
     let gender: Int
     let id: Int
-    let knownForDepartment: String
-    let mediaType: String
+    let knownForDepartment: KnownForDepartment
+    let mediaType: MediaType
     let name: String
     let originalName: String
     let popularity: Double
