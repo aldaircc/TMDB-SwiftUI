@@ -31,6 +31,7 @@ enum OriginalLanguage: String, Codable {
     case de = "de"
     case ta = "ta"
     case ko = "ko"
+    case es = "es"
 }
 
 enum Languages: CustomStringConvertible {

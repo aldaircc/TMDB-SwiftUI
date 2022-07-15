@@ -68,4 +68,29 @@ struct Network {
         
         return nil
     }
+    
+    func getFavoriteMovies(_ page: Int, language: OriginalLanguage = .en) async -> MovieResult? {
+        let queryItems = [
+            URLQueryItem(name: "api_key", value: "457aa6528c2f6fe3ff02984ae2058d6d"),
+            URLQueryItem(name: "page", value: String(describing: page)),
+            URLQueryItem(name: "language", value: language.rawValue)
+        ]
+        
+        var components = URLComponents(string: "\(URL.movie.absoluteString)")
+        components?.queryItems = queryItems
+        do {
+            let (data, _) = try await URLSession.shared.data(from: components!.url!)
+            
+            if data.count != 0 {
+                let result = try JSONDecoder().decode(MovieResult.self, from: data)
+                print(result)
+                return result
+            }
+        } catch {
+            print(error)
+            return nil
+        }
+        
+        return nil
+    }
 }

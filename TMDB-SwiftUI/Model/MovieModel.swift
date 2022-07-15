@@ -12,7 +12,7 @@ struct MovieModel: Codable {
     let backdropPath: String
     let genreIds: [Int]
     let id: Int
-    let originalLanguage: String
+    let originalLanguage: OriginalLanguage
     let originalTitle: String
     let overview: String
     let popularity: Double
