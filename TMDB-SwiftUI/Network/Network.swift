@@ -98,18 +98,20 @@ struct Network {
         let items = [
             URLQueryItem(name: "api_key", value: "")
         ]
-        var components = URLComponents(string: "\(URL.images.absoluteString)")
+        var components = URLComponents(string: "\(URL.movieImages.absoluteString)/\(movieId)/images")
         components?.queryItems = items
         
         do {
             let (data, _) = try await URLSession.shared.data(from: components!.url!)
             if data.count != 0 {
                 let result = try JSONDecoder().decode(ImageResult.self, from: data)
+                print(result)
                 return result
             } else {
                 return nil
             }
         } catch {
+            print(error)
             return nil
         }
     }

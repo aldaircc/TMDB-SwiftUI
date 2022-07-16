@@ -17,8 +17,8 @@ struct ImageModel: Codable {
     let width: Int
     
     enum CodingKeys: String, CodingKey {
-    case aspectRatio = "aspect_ratio"
         case height, width
+        case aspectRatio = "aspect_ratio"
         case iso6391 = "iso_639_1"
         case filePath = "file_path"
         case voteAverage = "vote_average"
@@ -27,9 +27,10 @@ struct ImageModel: Codable {
 }
 
 struct ImageResult: Codable {
-    let backDrops: [ImageModel]
+    let id: Int
+    let logos, posters, backdrops: [ImageModel]
     
     enum CodingKeys: String, CodingKey {
-        case backDrops = "backdrops"
+        case id, logos, posters, backdrops
     }
 }
