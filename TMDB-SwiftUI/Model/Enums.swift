@@ -59,4 +59,3 @@ enum Languages: CustomStringConvertible {
         }
     }
 }
-

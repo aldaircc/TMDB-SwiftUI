@@ -12,4 +12,5 @@ extension URL {
     static var genre = URL(string: baseURL.absoluteString + "genre/movie/list")!
     static var trending = URL(string: baseURL.absoluteString + "trending/")!
     static var movie = URL(string: baseURL.absoluteString + "movie/popular")!
+    static var images = URL(string: baseURL.absoluteString + "movie/{movie_id}/images")!
 }
