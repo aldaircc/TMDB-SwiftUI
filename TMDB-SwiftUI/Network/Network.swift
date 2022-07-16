@@ -71,7 +71,7 @@ struct Network {
     
     func getFavoriteMovies(_ page: Int, language: OriginalLanguage = .en) async -> MovieResult? {
         let queryItems = [
-            URLQueryItem(name: "api_key", value: "457aa6528c2f6fe3ff02984ae2058d6d"),
+            URLQueryItem(name: "api_key", value: ""),
             URLQueryItem(name: "page", value: String(describing: page)),
             URLQueryItem(name: "language", value: language.rawValue)
         ]
@@ -93,4 +93,25 @@ struct Network {
         
         return nil
     }
+    
+    func getImages(movieId: Int) async throws -> ImageResult? {
+        let items = [
+            URLQueryItem(name: "api_key", value: "")
+        ]
+        var components = URLComponents(string: "\(URL.images.absoluteString)")
+        components?.queryItems = items
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: components!.url!)
+            if data.count != 0 {
+                let result = try JSONDecoder().decode(ImageResult.self, from: data)
+                return result
+            } else {
+                return nil
+            }
+        } catch {
+            return nil
+        }
+    }
 }
+
