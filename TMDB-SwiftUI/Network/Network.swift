@@ -105,13 +105,11 @@ struct Network {
             let (data, _) = try await URLSession.shared.data(from: components!.url!)
             if data.count != 0 {
                 let result = try JSONDecoder().decode(ImageResult.self, from: data)
-                print(result)
                 return result
             } else {
                 return nil
             }
         } catch {
-            print(error)
             return nil
         }
     }
