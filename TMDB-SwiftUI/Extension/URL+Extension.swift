@@ -11,6 +11,7 @@ extension URL {
     static var baseURL = URL(string: "https://api.themoviedb.org/3/")!
     static var genre = URL(string: baseURL.absoluteString + "genre/movie/list")!
     static var trending = URL(string: baseURL.absoluteString + "trending/")!
-    static var movie = URL(string: baseURL.absoluteString + "movie/popular")!
+    static var movie = URL(string: baseURL.absoluteString + "movie/")!
+    static var moviePopular = URL(string: baseURL.absoluteString + "popular")!
     static var movieImages = URL(string: baseURL.absoluteString + "movie")!
 }

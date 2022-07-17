@@ -20,7 +20,9 @@ struct ContentView: View {
             .pickerStyle(.segmented)
         }
         .task {
-            _ = try? await Network().getImages(movieId: 438148)
+            _ = try? await Network()
+                .getDetail(438148)
+                //.getImages(movieId: 438148)
         }
     }
 }

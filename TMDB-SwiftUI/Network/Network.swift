@@ -76,7 +76,7 @@ struct Network {
             URLQueryItem(name: "language", value: language.rawValue)
         ]
         
-        var components = URLComponents(string: "\(URL.movie.absoluteString)")
+        var components = URLComponents(string: "\(URL.moviePopular.absoluteString)")
         components?.queryItems = queryItems
         do {
             let (data, _) = try await URLSession.shared.data(from: components!.url!)
@@ -113,5 +113,29 @@ struct Network {
             return nil
         }
     }
+ 
+    func getDetail(_ movieId: Int) async throws -> MovieDetailModel? {
+        let items = [
+            URLQueryItem(name: "api_key", value: "")
+        ]
+        var components = URLComponents(string: "\(URL.movie.absoluteString)\(movieId)")
+        components?.queryItems = items
+        
+        guard let finalUrl = components?.url else {
+            return nil
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: finalUrl)
+            
+            guard data.count != 0 else {
+                return nil
+            }
+            let result = try JSONDecoder().decode(MovieDetailModel.self, from: data)
+            print(result)
+            return result
+        } catch {
+            return nil
+        }
+    }
 }
-
