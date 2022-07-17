@@ -14,4 +14,19 @@ extension URL {
     static var movie = URL(string: baseURL.absoluteString + "movie/")!
     static var moviePopular = URL(string: baseURL.absoluteString + "popular")!
     static var movieImages = URL(string: baseURL.absoluteString + "movie")!
+    
+    func addQuery(_ name: String, _ value: String) -> URL {
+        guard var urlComponents = URLComponents(string: self.absoluteString)  else {
+            return absoluteURL
+        }
+        var queryItems = urlComponents.queryItems ?? []
+        let queryItem = URLQueryItem(name: name, value: value)
+        queryItems.append(queryItem)
+        urlComponents.queryItems = queryItems
+        return urlComponents.url ?? absoluteURL
+    }
+    
+    func addApiKey() -> URL {
+        return addQuery("api_key", "")
+    }
 }

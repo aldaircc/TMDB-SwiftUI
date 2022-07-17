@@ -113,15 +113,11 @@ struct Network {
             return nil
         }
     }
- 
+    
     func getDetail(_ movieId: Int) async throws -> MovieDetailModel? {
-        let items = [
-            URLQueryItem(name: "api_key", value: "")
-        ]
-        var components = URLComponents(string: "\(URL.movie.absoluteString)\(movieId)")
-        components?.queryItems = items
+        let components = URLComponents(string: "\(URL.movie.absoluteString)\(movieId)")
         
-        guard let finalUrl = components?.url else {
+        guard let finalUrl = components?.url?.addApiKey() else {
             return nil
         }
         
@@ -132,7 +128,6 @@ struct Network {
                 return nil
             }
             let result = try JSONDecoder().decode(MovieDetailModel.self, from: data)
-            print(result)
             return result
         } catch {
             return nil
