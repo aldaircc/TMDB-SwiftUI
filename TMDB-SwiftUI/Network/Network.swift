@@ -156,4 +156,26 @@ struct Network {
             return nil
         }
     }
+    
+    func deleteRating(_ movieId: Int) async throws -> ResponseModel? {
+        let components = URLComponents(string: "\(URL.movie)\(movieId)/rating")
+        guard let url = components?.url?.addApiKey() else {
+            return nil
+        }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard let httpResponse = response as? HTTPURLResponse  else {
+                return nil
+            }
+            if httpResponse.statusCode == 200 {
+                let result = try JSONDecoder().decode(ResponseModel.self, from: data)
+                return result
+            } else {
+                return nil
+            }
+        } catch {
+            return nil
+        }
+    }
 }
