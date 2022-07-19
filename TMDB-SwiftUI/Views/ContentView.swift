@@ -21,7 +21,8 @@ struct ContentView: View {
         }
         .task {
             _ = try? await Network()
-                .getDetail(438148)
+                .createGuestSession()
+                //.getDetail(438148)
                 //.getImages(movieId: 438148)
         }
     }

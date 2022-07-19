@@ -14,6 +14,10 @@ extension URL {
     static var movie = URL(string: baseURL.absoluteString + "movie/")!
     static var moviePopular = URL(string: baseURL.absoluteString + "popular")!
     static var movieImages = URL(string: baseURL.absoluteString + "movie")!
+
+    /// Authentication
+    static var authentication = URL(string: baseURL.absoluteString + "/authentication/")!
+    static var authenticationGuestSession = URL(string: authentication.absoluteString + "guest_session/new")!
     
     func addQuery(_ name: String, _ value: String) -> URL {
         guard var urlComponents = URLComponents(string: self.absoluteString)  else {
@@ -27,6 +31,6 @@ extension URL {
     }
     
     func addApiKey() -> URL {
-        return addQuery("api_key", "")
+        return addQuery("api_key", "457aa6528c2f6fe3ff02984ae2058d6d")
     }
 }

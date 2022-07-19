@@ -180,5 +180,25 @@ struct Network {
     }
     
     ///Authentication
-    
+    func createGuestSession() async throws -> SessionModel? {
+        let components = URLComponents(string: URL.authenticationGuestSession.absoluteString)
+        guard let url = components?.url?.addApiKey() else {
+            return nil
+        }
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard let httResponse = response as? HTTPURLResponse else {
+                return nil
+            }
+            
+            if httResponse.statusCode == 200 {
+                let result = try JSONDecoder().decode(SessionModel.self, from: data)
+                return result
+            } else {
+                return nil
+            }
+        } catch {
+            return nil
+        }
+    }
 }
