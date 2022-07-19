@@ -178,4 +178,7 @@ struct Network {
             return nil
         }
     }
+    
+    ///Authentication
+    
 }
