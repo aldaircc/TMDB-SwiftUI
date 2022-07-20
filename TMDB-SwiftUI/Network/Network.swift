@@ -207,6 +207,8 @@ struct Network {
     }
     
     func createSessionWithLogin(_ requestToken: String, username: String, password: String) { ///2
+        ///To do
+        
         /*: Parameter
          {
            "username": "",
@@ -214,5 +216,20 @@ struct Network {
            "request_token": ""
          }
          */
+    }
+    
+    func createSession(_ requestToken: String) { ///2
+        ///To do
+        
+        /*: Parameter
+         {
+             "request_token": "570c40b1dd114b5480643d0f5e1f5ae7dd9799d7"
+         }
+         */
+    }
+    
+    
+    func createGuestSession() {
+        ///To do
     }
 }
