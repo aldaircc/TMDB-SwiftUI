@@ -205,4 +205,14 @@ struct Network {
     func createRequestToken() { ///1
         
     }
+    
+    func createSessionWithLogin(_ requestToken: String, username: String, password: String) { ///2
+        /*: Parameter
+         {
+           "username": "",
+           "password": "",
+           "request_token": ""
+         }
+         */
+    }
 }
