@@ -201,4 +201,8 @@ struct Network {
             return nil
         }
     }
+    
+    func createRequestToken() { ///1
+        
+    }
 }
