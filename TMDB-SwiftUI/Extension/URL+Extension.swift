@@ -17,7 +17,8 @@ extension URL {
 
     /// Authentication
     static var authentication = URL(string: baseURL.absoluteString + "/authentication/")!
-    static var authenticationGuestSession = URL(string: authentication.absoluteString + "guest_session/new")!
+    static var authGuestSession = URL(string: authentication.absoluteString + "guest_session/new")!
+    static var authValidateWithLogin = URL(string: authentication.absoluteString + "token/validate_with_login")!
     
     func addQuery(_ name: String, _ value: String) -> URL {
         guard var urlComponents = URLComponents(string: self.absoluteString)  else {

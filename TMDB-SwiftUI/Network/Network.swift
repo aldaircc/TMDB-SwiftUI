@@ -181,7 +181,7 @@ struct Network {
     
     ///Authentication
     func createGuestSession() async throws -> SessionModel? {
-        let components = URLComponents(string: URL.authenticationGuestSession.absoluteString)
+        let components = URLComponents(string: URL.authGuestSession.absoluteString)
         guard let url = components?.url?.addApiKey() else {
             return nil
         }
@@ -203,7 +203,7 @@ struct Network {
     }
     
     func createRequestToken() async throws -> SessionModel? { ///1
-        let components = URLComponents(string: URL.authenticationGuestSession.absoluteString)
+        let components = URLComponents(string: URL.authGuestSession.absoluteString)
         guard let url = components?.url else {
             throw CustomError.badUrl("Bad url")
         }
@@ -226,8 +226,40 @@ struct Network {
         }
     }
     
-    func createSessionWithLogin(_ requestToken: String, username: String, password: String) { ///2
+    func createSessionWithLogin(_ requestToken: String, username: String, password: String) async throws { ///2
         ///To do
+        let components = URLComponents(string: URL.authValidateWithLogin.absoluteString)
+        guard let url = components?.url?.addApiKey() else {
+            throw CustomError.badUrl("Bad url")
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "Post"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        
+        let parameter = ["username": username,
+                          "password": password,
+                          "request_token": requestToken]
+        if let data = try? JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted) {
+            request.httpBody = data
+        }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw CustomError.badUrl("Cannot convert to HTTPURLResponse")
+            }
+            
+            if httpResponse.statusCode == 200 {
+                
+            } else {
+                throw CustomError.status(httpResponse.statusCode)
+            }
+        } catch {
+            
+        }
         
         /*: Parameter
          {
