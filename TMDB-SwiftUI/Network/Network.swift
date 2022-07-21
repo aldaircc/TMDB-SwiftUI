@@ -202,8 +202,28 @@ struct Network {
         }
     }
     
-    func createRequestToken() { ///1
+    func createRequestToken() async throws -> SessionModel? { ///1
+        let components = URLComponents(string: URL.authenticationGuestSession.absoluteString)
+        guard let url = components?.url else {
+            throw CustomError.badUrl("Bad url")
+        }
         
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw CustomError.badUrl("Cannot convert to HTTPURLResponse")
+            }
+            
+            if httpResponse.statusCode == 200 {
+                let result = try JSONDecoder().decode(SessionModel.self, from: data)
+                return result
+            } else {
+                throw CustomError.status(httpResponse.statusCode)
+            }
+        } catch {
+            throw CustomError.badUrl("Bad url")
+        }
     }
     
     func createSessionWithLogin(_ requestToken: String, username: String, password: String) { ///2

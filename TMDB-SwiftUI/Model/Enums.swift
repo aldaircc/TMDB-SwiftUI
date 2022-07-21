@@ -10,6 +10,8 @@ import Foundation
 enum CustomError: Error {
     case httpResponse(Int)
     case jsonDecoder(Error)
+    case badUrl(String)
+    case status(Int)
 }
 
 enum MediaType: String, Codable {
