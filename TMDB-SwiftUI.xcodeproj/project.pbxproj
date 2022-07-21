@@ -29,6 +29,7 @@
 		05ECE2EB2880E44000EC2EE3 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ECE2EA2880E44000EC2EE3 /* MovieModel.swift */; };
 		05F1AF6B28863B8A00AB8A2D /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F1AF6A28863B8A00AB8A2D /* SessionModel.swift */; };
 		05F79D9628824FD700DAFD87 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F79D9528824FD700DAFD87 /* ImageModel.swift */; };
+		05F7F6AF2888E025005076B0 /* SessionLoggedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F7F6AE2888E025005076B0 /* SessionLoggedModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		05ECE2EA2880E44000EC2EE3 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		05F1AF6A28863B8A00AB8A2D /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		05F79D9528824FD700DAFD87 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		05F7F6AE2888E025005076B0 /* SessionLoggedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLoggedModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				055D709A2883888C00750165 /* MovieDetailModel.swift */,
 				058A1F7728849FC700722A19 /* ResponseModel.swift */,
 				05F1AF6A28863B8A00AB8A2D /* SessionModel.swift */,
+				05F7F6AE2888E025005076B0 /* SessionLoggedModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				05E9EA31287D1E3400C8A384 /* GenreModel.swift in Sources */,
 				0500AEBE2879367100FF5809 /* View+Extensions.swift in Sources */,
 				05E78254287E444A00286059 /* TrendingModel.swift in Sources */,
+				05F7F6AF2888E025005076B0 /* SessionLoggedModel.swift in Sources */,
 				055D709B2883888C00750165 /* MovieDetailModel.swift in Sources */,
 				05E9EA2D287CF79600C8A384 /* Network.swift in Sources */,
 				05478D18287102440030CE39 /* SegmentedView.swift in Sources */,

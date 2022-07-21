@@ -226,7 +226,7 @@ struct Network {
         }
     }
     
-    func createSessionWithLogin(_ requestToken: String, username: String, password: String) async throws { ///2
+    func createSessionWithLogin(_ requestToken: String, username: String, password: String) async throws -> SessionLoggedModel? { ///2
         ///To do
         let components = URLComponents(string: URL.authValidateWithLogin.absoluteString)
         guard let url = components?.url?.addApiKey() else {
@@ -239,8 +239,8 @@ struct Network {
         
         
         let parameter = ["username": username,
-                          "password": password,
-                          "request_token": requestToken]
+                         "password": password,
+                         "request_token": requestToken]
         if let data = try? JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted) {
             request.httpBody = data
         }
@@ -253,21 +253,15 @@ struct Network {
             }
             
             if httpResponse.statusCode == 200 {
-                
+                let result = try JSONDecoder().decode(SessionLoggedModel.self, from: data)
+                print(result)
+                return result
             } else {
                 throw CustomError.status(httpResponse.statusCode)
             }
         } catch {
-            
+            throw CustomError.badUrl("Bad url")
         }
-        
-        /*: Parameter
-         {
-           "username": "",
-           "password": "",
-           "request_token": ""
-         }
-         */
     }
     
     func createSession(_ requestToken: String) { ///2
@@ -275,7 +269,7 @@ struct Network {
         
         /*: Parameter
          {
-             "request_token": "570c40b1dd114b5480643d0f5e1f5ae7dd9799d7"
+         "request_token": "570c40b1dd114b5480643d0f5e1f5ae7dd9799d7"
          }
          */
     }
