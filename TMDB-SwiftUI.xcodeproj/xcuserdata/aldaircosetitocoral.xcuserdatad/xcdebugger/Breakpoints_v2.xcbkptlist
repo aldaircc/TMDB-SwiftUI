@@ -62,8 +62,8 @@
             filePath = "TMDB-SwiftUI/Network/Network.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "createSessionWithLogin(_:username:password:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,42 +78,10 @@
             filePath = "TMDB-SwiftUI/Network/Network.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "createSessionWithLogin(_:username:password:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "55C8596F-7AB2-4A5A-95D8-539185E1B8D3 - dfd10528a182fa3c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TMDB_SwiftUI.Network.createSessionWithLogin(_: Swift.String, username: Swift.String, password: Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionLoggedModel&gt;"
-                  moduleName = "TMDB-SwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "259"
-                  endingLineNumber = "259"
-                  offsetFromSymbolStart = "2597">
-               </Location>
-               <Location
-                  uuid = "55C8596F-7AB2-4A5A-95D8-539185E1B8D3 - dfd10528a182fa3c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TMDB_SwiftUI.Network.createSessionWithLogin(_: Swift.String, username: Swift.String, password: Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionLoggedModel&gt;"
-                  moduleName = "TMDB-SwiftUI"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "259"
-                  endingLineNumber = "259"
-                  offsetFromSymbolStart = "3146">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,8 +94,8 @@
             filePath = "TMDB-SwiftUI/Network/Network.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "createSessionWithLogin(_:username:password:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +110,8 @@
             filePath = "TMDB-SwiftUI/Network/Network.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "createSessionWithLogin(_:username:password:)"
             landmarkType = "7">
          </BreakpointContent>

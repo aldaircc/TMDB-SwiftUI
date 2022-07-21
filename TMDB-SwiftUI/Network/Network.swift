@@ -214,7 +214,6 @@ struct Network {
         } catch {
          print(error)
         }
-//        async let sessionLogin = try createSessionWithLogin(token?.guestSessionId, username: <#T##String#>, password: <#T##String#>)
     }
     
     func createRequestToken() async throws -> TokenModel? { ///1
@@ -241,7 +240,7 @@ struct Network {
         }
     }
     
-    func createSessionWithLogin(_ requestToken: String, username: String, password: String) async throws -> SessionLoggedModel? { ///2
+    func createSessionWithLogin(_ requestToken: String, username: String, password: String) async throws -> SessionLoginResponse? { ///2
         ///To do
         let components = URLComponents(string: URL.authValidateWithLogin.absoluteString)
         guard let url = components?.url?.addApiKey() else {
@@ -268,7 +267,7 @@ struct Network {
             }
             
             if httpResponse.statusCode == 200 {
-                let result = try JSONDecoder().decode(SessionLoggedModel.self, from: data)
+                let result = try JSONDecoder().decode(SessionLoginResponse.self, from: data)
                 print(result)
                 return result
             } else {
