@@ -202,9 +202,24 @@ struct Network {
         }
     }
     
-    func createRequestToken() async throws -> SessionModel? { ///1
-        let components = URLComponents(string: URL.authGuestSession.absoluteString)
-        guard let url = components?.url else {
+    func startLoginProcess(username: String, password: String) async throws {
+        do {
+            async let token = try createRequestToken()
+            let x = try await token
+            let sessionLogged = try await createSessionWithLogin(x?.requestToken ?? "", username: username, password: password)
+            
+            print("Session Logged: \(sessionLogged)")
+            
+            
+        } catch {
+         print(error)
+        }
+//        async let sessionLogin = try createSessionWithLogin(token?.guestSessionId, username: <#T##String#>, password: <#T##String#>)
+    }
+    
+    func createRequestToken() async throws -> TokenModel? { ///1
+        let components = URLComponents(string: URL.authRequestToken.absoluteString)
+        guard let url = components?.url?.addApiKey() else {
             throw CustomError.badUrl("Bad url")
         }
         
@@ -216,7 +231,7 @@ struct Network {
             }
             
             if httpResponse.statusCode == 200 {
-                let result = try JSONDecoder().decode(SessionModel.self, from: data)
+                let result = try JSONDecoder().decode(TokenModel.self, from: data)
                 return result
             } else {
                 throw CustomError.status(httpResponse.statusCode)
@@ -260,6 +275,7 @@ struct Network {
                 throw CustomError.status(httpResponse.statusCode)
             }
         } catch {
+            print(error)
             throw CustomError.badUrl("Bad url")
         }
     }

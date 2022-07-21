@@ -17,6 +17,7 @@ extension URL {
 
     /// Authentication
     static var authentication = URL(string: baseURL.absoluteString + "/authentication/")!
+    static var authRequestToken = URL(string: authentication.absoluteString + "token/new")!
     static var authGuestSession = URL(string: authentication.absoluteString + "guest_session/new")!
     static var authValidateWithLogin = URL(string: authentication.absoluteString + "token/validate_with_login")!
     
@@ -32,6 +33,6 @@ extension URL {
     }
     
     func addApiKey() -> URL {
-        return addQuery("api_key", "457aa6528c2f6fe3ff02984ae2058d6d")
+        return addQuery("api_key", "")
     }
 }

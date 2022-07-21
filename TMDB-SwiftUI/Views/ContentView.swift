@@ -21,7 +21,7 @@ struct ContentView: View {
         }
         .task {
             _ = try? await Network()
-                .createGuestSession()
+                .startLoginProcess(username: "aldair.loq.369", password: "C1ps@420")
                 //.getDetail(438148)
                 //.getImages(movieId: 438148)
         }
