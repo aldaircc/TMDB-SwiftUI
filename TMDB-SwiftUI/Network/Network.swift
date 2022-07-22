@@ -205,11 +205,7 @@ struct Network {
     func startLoginProcess(username: String, password: String) async throws {
         do {
             async let token = try createRequestToken()
-            let x = try await token
-            let sessionLogged = try await createSessionWithLogin(x?.requestToken ?? "", username: username, password: password)
-            
-            print("Session Logged: \(sessionLogged)")
-            
+            let sessionLogged = try await createSessionWithLogin(token?.requestToken ?? "", username: username, password: password)
             
         } catch {
          print(error)
