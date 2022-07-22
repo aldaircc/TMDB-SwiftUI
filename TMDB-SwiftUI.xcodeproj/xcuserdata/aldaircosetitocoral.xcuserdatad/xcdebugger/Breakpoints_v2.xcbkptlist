@@ -55,64 +55,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B1536D61-5819-46AC-8387-E7860604DF37"
+            uuid = "01489727-96E4-4F35-BF4C-4B222C697762"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB-SwiftUI/Network/Network.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
-            landmarkName = "createSessionWithLogin(_:username:password:)"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "startLoginProcess(username:password:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "55C8596F-7AB2-4A5A-95D8-539185E1B8D3"
+            uuid = "FD5EFC2F-75E1-4AB2-9049-F757500FF926"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB-SwiftUI/Network/Network.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "createSessionWithLogin(_:username:password:)"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "rateMovie(_:rate:guestSession:sessionId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "529E141B-953D-4DCA-8087-DABBAA3AA857"
+            uuid = "022A3AEB-DE56-4C9B-AFD8-CCBF3E2AE140"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB-SwiftUI/Network/Network.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "createSessionWithLogin(_:username:password:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "469A55CB-FA47-4CC1-89E2-1BEAE1CDA34B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TMDB-SwiftUI/Network/Network.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
-            landmarkName = "createSessionWithLogin(_:username:password:)"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "rateMovie(_:rate:guestSession:sessionId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

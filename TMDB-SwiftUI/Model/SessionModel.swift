@@ -9,11 +9,10 @@ import Foundation
 
 struct SessionModel: Codable {
     let success: Bool
-    let guestSessionId, expiresAt: String
+    let sessionId: String
     
     enum CodingKeys: String, CodingKey {
         case success
-        case guestSessionId = "guest_session_id"
-        case expiresAt = "expires_at"
+        case sessionId = "session_id"
     }
 }

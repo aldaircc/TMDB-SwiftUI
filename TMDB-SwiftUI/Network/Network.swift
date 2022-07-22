@@ -135,25 +135,42 @@ struct Network {
     }
     
     /// Rating
-    func rateMovie(_ movieId: Int) async throws -> ResponseModel? {
-        let components = URLComponents(string: "\(URL.movie)\(movieId)/rating")
-        guard let url = components?.url?.addApiKey() else {
+    func rateMovie(_ movieId: Int, rate: Double, guestSession: String, sessionId: String) async throws -> ResponseModel? {
+        let components = URLComponents(string: "\(URL.movie.absoluteString)\(movieId)/rating")
+        guard let url = components?.url?
+            .addApiKey()
+            .addQuery("guest_session_id", guestSession)
+            .addQuery("session_id", sessionId) else {
             return nil
+        }
+                
+        var request = URLRequest(url: url)
+        request.httpMethod = "Post"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let parameter = ["value": rate]
+        
+        if let data = try? JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted) {
+            request.httpBody = data
         }
         
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httpResponse = response as? HTTPURLResponse  else {
-                return nil
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw CustomError.badUrl("Cannot convert to HTTPURLResponse")
             }
-            if httpResponse.statusCode == 200 {
+
+            if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                 let result = try JSONDecoder().decode(ResponseModel.self, from: data)
+                print(result)
                 return result
             } else {
-                return nil
+                throw CustomError.status(httpResponse.statusCode)
             }
         } catch {
-            return nil
+            print(error)
+            throw CustomError.badUrl("Bad url")
         }
     }
     
@@ -180,33 +197,18 @@ struct Network {
     }
     
     ///Authentication
-    func createGuestSession() async throws -> SessionModel? {
-        let components = URLComponents(string: URL.authGuestSession.absoluteString)
-        guard let url = components?.url?.addApiKey() else {
-            return nil
-        }
-        do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            guard let httResponse = response as? HTTPURLResponse else {
-                return nil
-            }
-            
-            if httResponse.statusCode == 200 {
-                let result = try JSONDecoder().decode(SessionModel.self, from: data)
-                return result
-            } else {
-                return nil
-            }
-        } catch {
-            return nil
-        }
-    }
-    
     func startLoginProcess(username: String, password: String) async throws {
         do {
             async let token = try createRequestToken()
             let sessionLogged = try await createSessionWithLogin(token?.requestToken ?? "", username: username, password: password)
+            let guestSession = try await createGuestSession()
+            let createSession = try await createSession(sessionLogged?.requestToken ?? "")
             
+            let resultRate = try await rateMovie(438148,
+                                                 rate: 5.5,
+                                                 guestSession: guestSession?.guestSessionId ?? "",
+                                                 sessionId: createSession?.sessionId ?? "")
+            print(resultRate)
         } catch {
          print(error)
         }
@@ -275,7 +277,7 @@ struct Network {
         }
     }
     
-    func createSession(_ requestToken: String) { ///2
+    func createSession(_ requestToken: String) async throws -> SessionModel? { ///2
         ///To do
         
         /*: Parameter
@@ -283,10 +285,64 @@ struct Network {
          "request_token": "570c40b1dd114b5480643d0f5e1f5ae7dd9799d7"
          }
          */
+        let components = URLComponents(string: URL.authCreateSession.absoluteString)
+        
+        guard let url = components?.url?.addApiKey() else {
+            throw CustomError.badUrl("Bad Url")
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "Post"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let parameter = ["request_token": requestToken]
+        
+        if let data = try? JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted) {
+            request.httpBody = data
+        }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw CustomError.badUrl("Cannot convert to HTTPURLResponse")
+            }
+            
+            if httpResponse.statusCode == 200 {
+                let result = try JSONDecoder().decode(SessionModel.self, from: data)
+                print(result)
+                return result
+            } else {
+                throw CustomError.status(httpResponse.statusCode)
+            }
+        } catch {
+            print(error)
+            throw CustomError.badUrl("Bad url")
+        }
     }
     
     
-    func createGuestSession() {
-        ///To do
+    func createGuestSession() async throws -> GuestSessionResponse? { ///3
+        let components = URLComponents(string: URL.authGuestSession.absoluteString)
+        guard let url = components?.url?.addApiKey() else {
+            throw CustomError.badUrl("Bad url")
+        }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw CustomError.badUrl("Cannot convert to HTTPURLResponse")
+            }
+            
+            if httpResponse.statusCode == 200 {
+                let result = try JSONDecoder().decode(GuestSessionResponse.self, from: data)
+                return result
+            } else {
+                throw CustomError.status(httpResponse.statusCode)
+            }
+        } catch {
+            throw CustomError.badUrl("Bad url")
+        }
     }
 }
