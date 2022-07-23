@@ -12,6 +12,7 @@ enum CustomError: Error {
     case jsonDecoder(Error)
     case badUrl(String)
     case status(Int)
+    case errorApiResponse(Int, Codable)
 }
 
 enum MediaType: String, Codable {

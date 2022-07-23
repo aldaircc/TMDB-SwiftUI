@@ -269,8 +269,10 @@ struct Network {
                 print(result)
                 return result
             } else {
-                print(httpResponse)
-                throw CustomError.status(httpResponse.statusCode)
+//                print(httpResponse)
+//                throw CustomError.status(httpResponse.statusCode)
+                let result = try JSONDecoder().decode(CommomResponse.self, from: data)
+                throw CustomError.errorApiResponse(httpResponse.statusCode, result)
             }
         } catch {
             print(error)
