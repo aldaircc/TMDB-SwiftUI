@@ -205,7 +205,7 @@ struct Network {
             let createSession = try await createSession(sessionLogged?.requestToken ?? "")
             
             let resultRate = try await rateMovie(438148,
-                                                 rate: 5.5,
+                                                 rate: 0.5,
                                                  guestSession: guestSession?.guestSessionId ?? "",
                                                  sessionId: createSession?.sessionId ?? "")
             print(resultRate)
@@ -269,6 +269,7 @@ struct Network {
                 print(result)
                 return result
             } else {
+                print(httpResponse)
                 throw CustomError.status(httpResponse.statusCode)
             }
         } catch {
