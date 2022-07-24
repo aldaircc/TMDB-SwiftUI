@@ -9,7 +9,20 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+            TextField("Username", text: .constant(""))
+            SecureField("Password", text: .constant(""
+                                                   ))
+            Button("Login") {
+                ///To do
+            }
+            
+            Button("Reset password") {
+                ///To do
+            }
+        }
+        .padding(.horizontal)
     }
 }
 
