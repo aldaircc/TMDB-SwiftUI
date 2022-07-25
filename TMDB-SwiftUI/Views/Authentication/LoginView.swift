@@ -11,14 +11,18 @@ struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label
+                .foregroundColor(.white)
         }
-        .padding(.horizontal)
-        .background(Color.yellow)
-        .cornerRadius(9)
+        .frame(maxWidth: .infinity, idealHeight: 16)
+        .padding(5)
+        .background(
+            configuration.isPressed ? Color.blue : Color.teal
+        )
+        .cornerRadius(5)
         .overlay(
-            RoundedRectangle(cornerRadius: 9)
-                .stroke(lineWidth: 6)
-                .shadow(color: .red, radius: 10, x: 1, y: 1)
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(lineWidth: 1)
+                .fill(Color.gray.opacity(0.3))
         )
     }
 }
