@@ -7,16 +7,24 @@
 
 import SwiftUI
 
+struct RoundedButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        return EmptyView()
+    }
+}
+
 struct LoginView: View {
     var body: some View {
         VStack {
             
             TextField("Username", text: .constant(""))
-            SecureField("Password", text: .constant(""
-                                                   ))
+            
+            SecureField("Password", text: .constant(""))
+            
             Button("Login") {
                 ///To do
             }
+            .buttonStyle(RoundedButtonStyle())
             
             Button("Reset password") {
                 ///To do
