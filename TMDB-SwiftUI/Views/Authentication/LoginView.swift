@@ -9,7 +9,17 @@ import SwiftUI
 
 struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
-        return EmptyView()
+        HStack {
+            configuration.label
+        }
+        .padding(.horizontal)
+        .background(Color.yellow)
+        .cornerRadius(9)
+        .overlay(
+            RoundedRectangle(cornerRadius: 9)
+                .stroke(lineWidth: 6)
+                .shadow(color: .red, radius: 10, x: 1, y: 1)
+        )
     }
 }
 
