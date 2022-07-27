@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RoundedTextFieldStyle: TextFieldStyle {
+    var isEditing: Bool
+    
     func _body(configuration: TextField<Self._Label>) -> some View {
         return configuration
             .padding(
@@ -16,7 +18,7 @@ struct RoundedTextFieldStyle: TextFieldStyle {
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(lineWidth: 1)
-                    .fill(Color("TextField Border Color Lost Focus"))
+                    .fill(Color(isEditing ? "TextField Border Color On Focus" : "TextField Border Color Lost Focus"))
             )
     }
 }
@@ -43,11 +45,13 @@ struct RoundedButtonStyle: ButtonStyle {
 }
 
 struct LoginView: View {
+    @State var isEditing: Bool = false
     var body: some View {
         VStack {
-            
-            TextField("Username", text: .constant(""))
-                .textFieldStyle(RoundedTextFieldStyle())
+            TextField("Username", text: .constant("")) { value in
+                _isEditing.wrappedValue = value
+            }
+            .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
             
             SecureField("Password", text: .constant(""))
             
