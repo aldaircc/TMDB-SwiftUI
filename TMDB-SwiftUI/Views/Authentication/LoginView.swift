@@ -10,6 +10,14 @@ import SwiftUI
 struct RoundedTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         return configuration
+            .padding(
+                EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(lineWidth: 1)
+                    .fill(Color("TextField Border Color Lost Focus"))
+            )
     }
 }
 
@@ -39,6 +47,7 @@ struct LoginView: View {
         VStack {
             
             TextField("Username", text: .constant(""))
+                .textFieldStyle(RoundedTextFieldStyle())
             
             SecureField("Password", text: .constant(""))
             
