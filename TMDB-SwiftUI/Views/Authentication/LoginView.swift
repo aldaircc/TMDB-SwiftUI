@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+struct RoundedTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        return configuration
+    }
+}
+
 struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
