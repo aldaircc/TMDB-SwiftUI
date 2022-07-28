@@ -9,6 +9,9 @@ import SwiftUI
 
 struct LoginView: View {
     @State var isEditing: Bool = false
+    @State var userName = ""
+    @State var password = ""
+    
     var body: some View {
         VStack {
             
@@ -16,12 +19,12 @@ struct LoginView: View {
                 .resizable()
                 .scaledToFit()
             
-            TextField("Username", text: .constant("")) { value in
+            TextField("Username", text: $userName) { value in
                 _isEditing.wrappedValue = value
             }
             .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
             
-            SecureField("Password", text: .constant(""))
+            SecureField("Password", text: $password)
                 .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
             
             Spacer()
