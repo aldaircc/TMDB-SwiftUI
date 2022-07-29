@@ -39,7 +39,6 @@ struct LoginView: View {
                 ///To do
             }
         }
-        .background(Color.red)
         .padding(.horizontal)
         .ignoresSafeArea(.all)
     }
