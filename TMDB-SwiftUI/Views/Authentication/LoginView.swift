@@ -13,7 +13,7 @@ struct LoginView: View {
     @State var password = ""
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             
             Image("tmdbLogo")
                 .resizable()
@@ -23,6 +23,7 @@ struct LoginView: View {
                 _isEditing.wrappedValue = value
             }
             .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
+            .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             
             SecureField("Password", text: $password)
                 .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
