@@ -14,7 +14,7 @@ struct RoundedButtonStyle: ButtonStyle {
                 .font(.system(size: 17, weight: .bold))
                 .foregroundColor(.white)
         }
-        .frame(maxWidth: .infinity, idealHeight: 16)
+        .frame(maxWidth: .infinity, idealHeight: 25)
         .padding(5)
         .background(
             configuration.isPressed ? Color("Button background Pressed") : Color("Button background No Pressed")
