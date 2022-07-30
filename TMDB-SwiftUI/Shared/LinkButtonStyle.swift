@@ -16,6 +16,7 @@ struct LinkButtonStyle: ButtonStyle {
                 Rectangle()
                     .fill(.blue)
                     .frame(height: 1)
+                    .offset(x: 0, y: 8)
             }
     }
 }
