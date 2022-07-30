@@ -39,6 +39,7 @@ struct LoginView: View {
             Button("Reset password") {
                 ///To do
             }
+            .buttonStyle(LinkButtonStyle())
         }
         .padding(.horizontal)
         .ignoresSafeArea(.all)

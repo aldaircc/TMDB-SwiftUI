@@ -10,6 +10,12 @@ import SwiftUI
 struct LinkButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
-        EmptyView()
+        configuration.label
+            .textCase(.lowercase)
+            .background {
+                Rectangle()
+                    .fill(.red)
+                    .frame(height: 1)
+            }
     }
 }
