@@ -14,7 +14,7 @@ struct LinkButtonStyle: ButtonStyle {
             .textCase(.lowercase)
             .background {
                 Rectangle()
-                    .fill(.red)
+                    .fill(.blue)
                     .frame(height: 1)
             }
     }
