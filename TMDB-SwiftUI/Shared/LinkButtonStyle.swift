@@ -11,10 +11,10 @@ struct LinkButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .textCase(.lowercase)
+            .foregroundColor(.blue)
             .background {
                 Rectangle()
-                    .fill(.blue)
+                    .fill( configuration.isPressed ? .blue : .clear)
                     .frame(height: 1)
                     .offset(x: 0, y: 8)
             }
