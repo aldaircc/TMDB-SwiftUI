@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObservedObject var authenticationVM = AuthenticationViewModel()
     @State var isEditing: Bool = false
     @State var userName = ""
     @State var password = ""
