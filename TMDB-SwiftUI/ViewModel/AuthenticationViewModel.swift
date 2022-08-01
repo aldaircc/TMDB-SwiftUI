@@ -9,4 +9,8 @@ import Foundation
 
 final class AuthenticationViewModel: ObservableObject {
     
+    func authenticateUser(userName: String, password: String) {
+        
+    }
+    
 }
