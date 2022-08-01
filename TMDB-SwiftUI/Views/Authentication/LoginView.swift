@@ -33,7 +33,8 @@ struct LoginView: View {
                 .frame(maxHeight: 100)
             
             Button("Login") {
-                ///To do
+                authenticationVM.authenticateUser(userName: userName,
+                                                  password: password)
             }
             .buttonStyle(RoundedButtonStyle())
             
