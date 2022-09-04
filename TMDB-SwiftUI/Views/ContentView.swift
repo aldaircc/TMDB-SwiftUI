@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         VStack {
-            Text("Hello, World!")
+            Text("Hello")
+            Picker("Mode", selection: .constant(1)) {
+                Text("Manual").tag(1)
+                Text("Auto").tag(2)
+            }
+            .labelsHidden()
+            .pickerStyle(.segmented)
+        }
+        .task {
+            _ = try? await Network()
+                .startLoginProcess(username: "aldair.loq.369", password: "1C1ps@420")
+                //.getDetail(438148)
+                //.getImages(movieId: 438148)
         }
     }
 }
