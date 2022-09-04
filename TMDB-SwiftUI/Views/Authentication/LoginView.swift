@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObservedObject var authenticationVM = AuthenticationViewModel()
     @State var isEditing: Bool = false
     @State var userName = ""
     @State var password = ""
@@ -32,7 +33,8 @@ struct LoginView: View {
                 .frame(maxHeight: 100)
             
             Button("Login") {
-                ///To do
+                authenticationVM.authenticateUser(userName: userName,
+                                                  password: password)
             }
             .buttonStyle(RoundedButtonStyle())
             
