@@ -18,7 +18,7 @@ final class AuthenticationViewModel: ObservableObject {
     func authenticateUser(userName: String, password: String) async  {
         do {
             let result = try await network.startLoginProcess(username: userName, password: password)
-            
+            print(result)
         } catch {
             fatalError("Authentication error: \(error.localizedDescription)")
         }
