@@ -9,8 +9,18 @@ import Foundation
 
 final class AuthenticationViewModel: ObservableObject {
     
-    func authenticateUser(userName: String, password: String) {
-        
+    let network: Network
+    
+    init(_ network: Network = Network()) {
+        self.network = network
     }
     
+    func authenticateUser(userName: String, password: String) async  {
+        do {
+            let result = try await network.startLoginProcess(username: userName, password: password)
+            
+        } catch {
+            fatalError("Authentication error: \(error.localizedDescription)")
+        }
+    }
 }
