@@ -203,11 +203,6 @@ struct Network {
             let sessionLogged = try await createSessionWithLogin(token?.requestToken ?? "", username: username, password: password)
             let guestSession = try await createGuestSession()
             let createSession = try await createSession(sessionLogged?.requestToken ?? "")
-            
-            let resultRate = try await rateMovie(438148,
-                                                 rate: 0.5,
-                                                 guestSession: guestSession?.guestSessionId ?? "",
-                                                 sessionId: createSession?.sessionId ?? "")
             print(resultRate)
         } catch {
          print(error)
