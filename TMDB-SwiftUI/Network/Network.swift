@@ -203,7 +203,11 @@ struct Network {
             let sessionLogged = try await createSessionWithLogin(token?.requestToken ?? "", username: username, password: password)
             let guestSession = try await createGuestSession()
             let createSession = try await createSession(sessionLogged?.requestToken ?? "")
-            print(resultRate)
+            
+            SessionManagement.shared.saveSession(createSession?.sessionId ?? "")
+            SessionManagement.shared.saveTokenKey(sessionLogged?.requestToken ?? "")
+            SessionManagement.shared.saveExpiresAt(sessionLogged?.requestToken ?? "")
+            
         } catch {
          print(error)
         }
