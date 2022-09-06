@@ -8,9 +8,9 @@
 import Foundation
 
 struct SessionManagement {
-    static let shared = SessionManagement()
+    static var shared = SessionManagement()
     
-    var apiKey: String?
+    var tokenKey: String?
     var sessionId: String?
     var expiresAt: String?
     
@@ -19,8 +19,8 @@ struct SessionManagement {
         return true
     }
     
-    mutating func saveApiKey(_ value: String) {
-        self.apiKey = value
+    mutating func saveTokenKey(_ value: String) {
+        self.tokenKey = value
     }
     
     mutating func saveSession(_ value: String) {
