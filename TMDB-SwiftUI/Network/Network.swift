@@ -143,7 +143,7 @@ struct Network {
             .addQuery("session_id", sessionId) else {
             return nil
         }
-                
+        
         var request = URLRequest(url: url)
         request.httpMethod = "Post"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -160,7 +160,7 @@ struct Network {
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw CustomError.badUrl("Cannot convert to HTTPURLResponse")
             }
-
+            
             if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                 let result = try JSONDecoder().decode(ResponseModel.self, from: data)
                 print(result)
@@ -197,19 +197,23 @@ struct Network {
     }
     
     ///Authentication
-    func startLoginProcess(username: String, password: String) async throws {
+    func startLoginProcess(username: String, password: String) async throws -> SessionModel? {
         do {
             async let token = try createRequestToken()
             let sessionLogged = try await createSessionWithLogin(token?.requestToken ?? "", username: username, password: password)
             let guestSession = try await createGuestSession()
-            let createSession = try await createSession(sessionLogged?.requestToken ?? "")
+            guard let createSession = try await createSession(sessionLogged?.requestToken ?? "")
+            else {
+                return nil
+            }
             
-            SessionManagement.shared.saveSession(createSession?.sessionId ?? "")
+            SessionManagement.shared.saveSession(createSession.sessionId)
             SessionManagement.shared.saveTokenKey(sessionLogged?.requestToken ?? "")
             SessionManagement.shared.saveExpiresAt(sessionLogged?.requestToken ?? "")
-            
+            return createSession
         } catch {
-         print(error)
+            print(error)
+            return nil
         }
     }
     
@@ -268,8 +272,8 @@ struct Network {
                 print(result)
                 return result
             } else {
-//                print(httpResponse)
-//                throw CustomError.status(httpResponse.statusCode)
+                //                print(httpResponse)
+                //                throw CustomError.status(httpResponse.statusCode)
                 let result = try JSONDecoder().decode(CommomResponse.self, from: data)
                 throw CustomError.errorApiResponse(httpResponse.statusCode, result)
             }
