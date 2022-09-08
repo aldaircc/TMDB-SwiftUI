@@ -206,7 +206,6 @@ struct Network {
             else {
                 return nil
             }
-            
             SessionManagement.shared.saveSession(createSession.sessionId)
             SessionManagement.shared.saveTokenKey(sessionLogged?.requestToken ?? "")
             SessionManagement.shared.saveExpiresAt(sessionLogged?.requestToken ?? "")
