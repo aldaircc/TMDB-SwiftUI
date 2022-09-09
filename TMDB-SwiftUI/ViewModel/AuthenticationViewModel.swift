@@ -10,7 +10,7 @@ import Foundation
 final class AuthenticationViewModel: ObservableObject {
     
     let network: Network
-    var isAuthenticated = false
+    @Published var isAuthenticated = false
     
     init(_ network: Network = Network()) {
         self.network = network
