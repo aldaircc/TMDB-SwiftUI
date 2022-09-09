@@ -40,6 +40,10 @@ struct LoginView: View {
             }
             .buttonStyle(RoundedButtonStyle())
             
+            NavigationLink("", isActive: $authenticationVM.isAuthenticated) {
+                ContentView()
+            }
+            
             Button("Reset password") {
                 ///To do
             }
