@@ -14,43 +14,45 @@ struct LoginView: View {
     @State var password = ""
     
     var body: some View {
-        VStack(spacing: 10) {
-            
-            Image("tmdbLogo")
-                .resizable()
-                .scaledToFit()
-            
-            TextField("Username", text: $userName) { value in
-                _isEditing.wrappedValue = value
-            }
-            .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
-            .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
-            
-            SecureField("Password", text: $password)
-                .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
-            
-            Spacer()
-                .frame(maxHeight: 100)
-            
-            Button("Login") {
-                Task {
-                    await authenticationVM.authenticateUser(userName: userName,
-                                                      password: password)
+        NavigationView {
+            VStack(spacing: 10) {
+                
+                Image("tmdbLogo")
+                    .resizable()
+                    .scaledToFit()
+                
+                TextField("Username", text: $userName) { value in
+                    _isEditing.wrappedValue = value
                 }
+                .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
+                .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                
+                SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
+                
+                Spacer()
+                    .frame(maxHeight: 100)
+                
+                Button("Login") {
+                    Task {
+                        await authenticationVM.authenticateUser(userName: userName,
+                                                          password: password)
+                    }
+                }
+                .buttonStyle(RoundedButtonStyle())
+                
+                NavigationLink("123123123123", isActive: $authenticationVM.isAuthenticated) {
+                    ContentView()
+                }
+                
+                Button("Reset password") {
+                    ///To do
+                }
+                .buttonStyle(LinkButtonStyle())
             }
-            .buttonStyle(RoundedButtonStyle())
-            
-            NavigationLink("", isActive: $authenticationVM.isAuthenticated) {
-                ContentView()
-            }
-            
-            Button("Reset password") {
-                ///To do
-            }
-            .buttonStyle(LinkButtonStyle())
-        }
-        .padding(.horizontal)
+            .padding(.horizontal)
         .ignoresSafeArea(.all)
+        }
     }
 }
 
