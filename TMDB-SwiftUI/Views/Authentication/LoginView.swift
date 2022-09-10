@@ -41,7 +41,7 @@ struct LoginView: View {
                 }
                 .buttonStyle(RoundedButtonStyle())
                 
-                NavigationLink("123123123123", isActive: $authenticationVM.isAuthenticated) {
+                NavigationLink("", isActive: $authenticationVM.isAuthenticated) {
                     ContentView()
                 }
                 
