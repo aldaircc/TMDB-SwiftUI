@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RoundedButtonStyle: ButtonStyle {
+    @Binding var isActive: Bool
+    
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label
@@ -17,7 +19,7 @@ struct RoundedButtonStyle: ButtonStyle {
         .frame(maxWidth: .infinity, idealHeight: 25)
         .padding(5)
         .background(
-            configuration.isPressed ? Color("Button background Pressed") : Color("Button background No Pressed")
+            isActive ? configuration.isPressed ? Color("Button background Pressed") : Color("Button background No Pressed") : Color.red
         )
         .cornerRadius(5)
         .overlay(
