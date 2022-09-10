@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var authenticationVM = AuthenticationViewModel()
-    @State var isEditing: Bool = false
+    @State var isEditing = false
     @State var userName = ""
     @State var password = ""
     
@@ -39,7 +39,8 @@ struct LoginView: View {
                                                           password: password)
                     }
                 }
-                .buttonStyle(RoundedButtonStyle())
+                .disabled(userName.isEmpty || password.isEmpty)
+                .buttonStyle(RoundedButtonStyle(isActive: .constant(!userName.isEmpty && !password.isEmpty)))
                 
                 NavigationLink("", isActive: $authenticationVM.isAuthenticated) {
                     ContentView()
