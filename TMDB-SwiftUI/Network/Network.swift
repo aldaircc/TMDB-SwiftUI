@@ -38,7 +38,6 @@ struct Network {
         do {
             return try JSONDecoder().decode(Genres.self, from: data)
         } catch {
-            print("Error: \(error)")
             return nil
         }
     }
@@ -57,12 +56,9 @@ struct Network {
             
             if data.count != 0 {
                 let result = try JSONDecoder().decode(TrendingResult.self, from: data)
-                print(result)
                 return result
             }
-            
         } catch {
-            print(error)
             return nil
         }
         
@@ -83,11 +79,9 @@ struct Network {
             
             if data.count != 0 {
                 let result = try JSONDecoder().decode(MovieResult.self, from: data)
-                print(result)
                 return result
             }
         } catch {
-            print(error)
             return nil
         }
         
@@ -163,13 +157,11 @@ struct Network {
             
             if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
                 let result = try JSONDecoder().decode(ResponseModel.self, from: data)
-                print(result)
                 return result
             } else {
                 throw CustomError.status(httpResponse.statusCode)
             }
         } catch {
-            print(error)
             throw CustomError.badUrl("Bad url")
         }
     }
@@ -211,7 +203,6 @@ struct Network {
             SessionManagement.shared.saveExpiresAt(sessionLogged?.requestToken ?? "")
             return createSession
         } catch {
-            print(error)
             return nil
         }
     }
@@ -268,16 +259,12 @@ struct Network {
             
             if httpResponse.statusCode == 200 {
                 let result = try JSONDecoder().decode(SessionLoginResponse.self, from: data)
-                print(result)
                 return result
             } else {
-                //                print(httpResponse)
-                //                throw CustomError.status(httpResponse.statusCode)
                 let result = try JSONDecoder().decode(CommomResponse.self, from: data)
                 throw CustomError.errorApiResponse(httpResponse.statusCode, result)
             }
         } catch {
-            print(error)
             throw CustomError.badUrl("Bad url")
         }
     }
@@ -315,13 +302,11 @@ struct Network {
             
             if httpResponse.statusCode == 200 {
                 let result = try JSONDecoder().decode(SessionModel.self, from: data)
-                print(result)
                 return result
             } else {
                 throw CustomError.status(httpResponse.statusCode)
             }
         } catch {
-            print(error)
             throw CustomError.badUrl("Bad url")
         }
     }
