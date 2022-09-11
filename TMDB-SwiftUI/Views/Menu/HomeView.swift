@@ -24,6 +24,13 @@ struct HomeView: View {
                     
                 }
             }
+            
+            HStack {
+                Text("Trending")
+                Button("See all") {
+                    
+                }
+            }
         }
     }
 }
