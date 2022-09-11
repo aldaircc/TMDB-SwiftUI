@@ -11,7 +11,18 @@ struct StartMenuView: View {
     var body: some View {
         VStack {
             TabView(selection: .constant(1)) {
-                
+                Text("Menu")
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
+                Text("Explore")
+                    .tabItem {
+                        Image(systemName: "Lupa")
+                    }
+                Text("Favorites")
+                    .tabItem {
+                        Image(systemName: "star")
+                    }
             }
         }
     }
