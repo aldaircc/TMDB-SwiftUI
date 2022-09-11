@@ -11,8 +11,15 @@ struct HomeView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Hello, World!")
+                Text("What's popular")
                 Spacer()
+                Button("See all") {
+                    
+                }
+            }
+            
+            HStack {
+                Text("Latest Trailers")
                 Button("See all") {
                     
                 }
