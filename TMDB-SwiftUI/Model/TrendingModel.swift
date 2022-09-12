@@ -32,19 +32,19 @@ struct KnowFor: Codable {
     
     let adult: Bool
     let backdropPath: String?
-    let genreIDS: [Int]
-    let id: Int
-    let mediaType: MediaType
+    let genreIDS: [Int]?
+    let id: Int?
+    let mediaType: MediaType?
     let title: String?
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: OriginalLanguage?
     let originalTitle: String?
-    let overview: String
-    let popularity: Double
-    let posterPath: String
+    let overview: String?
+    let popularity: Double?
+    let posterPath: String?
     let releaseDate: String?
     let video: Bool?
-    let voteAverage: Double
-    let voteCount: Int
+    let voteAverage: Double?
+    let voteCount: Int?
     let name: String?
     let originCountry: [String]?
     let originalName, firstAirDate: String?
@@ -68,7 +68,7 @@ struct ResultTrending: Codable {
     let adult: Bool
     let gender: Int
     let id: Int
-    let knownForDepartment: KnownForDepartment
+    let knownForDepartment: KnownForDepartment?
     let mediaType: MediaType
     let name: String
     let originalName: String
@@ -85,8 +85,8 @@ struct TrendingResult: Codable {
         case totalResults = "total_results"
     }
     
-    let page: Int
-    let results: [ResultTrending]
-    let totalPages: Int
-    let totalResults: Int
+    let page: Int?
+    let results: [ResultTrending]?
+    let totalPages: Int?
+    let totalResults: Int?
 }
