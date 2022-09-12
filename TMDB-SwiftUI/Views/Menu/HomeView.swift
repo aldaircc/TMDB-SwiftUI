@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var vm = MovieViewModel()
+    
     var body: some View {
         VStack {
             HStack {
@@ -31,6 +33,9 @@ struct HomeView: View {
                     
                 }
             }
+        }
+        .task {
+            await vm.getTrendingMovies()
         }
     }
 }
