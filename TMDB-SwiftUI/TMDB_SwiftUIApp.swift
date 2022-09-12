@@ -12,7 +12,8 @@ struct TMDB_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             //LoginView()
-            StartMenuView()
+            //StartMenuView()
+            HomeView(vm: MovieViewModel())
         }
     }
 }
