@@ -34,14 +34,35 @@ struct HomeView: View {
                 }
             }
             
-            HStack {
-                Button("ACEPTAR") {
-                    
+            ScrollView(.horizontal, showsIndicators: true) {
+                LazyHStack {
+                    Button("ACEPTAR 1") {
+                        
+                    }
+                    Button("ACEPTAR 2") {
+                        
+                    }
+                    Button("ACEPTAR 3") {
+                        
+                    }
+                    Button("ACEPTAR 4") {
+                        
+                    }
+                    Button("ACEPTAR 5") {
+                        
+                    }
+                    Button("ACEPTAR 6 ") {
+                        
+                    }
+                    Button("ACEPTAR 7 ") {
+                        
+                    }
                 }
-                Spacer()
+                .frame(minWidth: 300, maxWidth: .infinity, minHeight: 150, maxHeight: 250, alignment: .leading)
+                .background {
+                    Image("trending-bg")
             }
-            .frame(width: .infinity, height: 250, alignment: .leading)
-            .background(Color.red)
+            }
             
         }
         .task {
