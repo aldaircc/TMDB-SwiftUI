@@ -46,6 +46,18 @@ enum OriginalLanguage: String, Codable {
     case ta = "ta"
     case ko = "ko"
     case es = "es"
+    case unknown = "Unknown"
+    
+    init?(rawValue: String) {
+        switch rawValue.lowercased() {
+        case "en": self = .en
+        case "ja": self = .ja
+        case "fr": self = .fr
+        case "de": self = .de
+        case "ta": self = .ta
+        default: self = .unknown
+        }
+    }
 }
 
 enum Languages: CustomStringConvertible {
