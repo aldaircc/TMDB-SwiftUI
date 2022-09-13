@@ -33,6 +33,11 @@ struct HomeView: View {
                     
                 }
             }
+            
+            VStack {
+                
+            }
+            
         }
         .task {
             await vm.getTrendingMovies()
