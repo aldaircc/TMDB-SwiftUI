@@ -34,9 +34,14 @@ struct HomeView: View {
                 }
             }
             
-            VStack {
-                
+            HStack {
+                Button("ACEPTAR") {
+                    
+                }
+                Spacer()
             }
+            .frame(width: .infinity, height: 250, alignment: .leading)
+            .background(Color.red)
             
         }
         .task {
