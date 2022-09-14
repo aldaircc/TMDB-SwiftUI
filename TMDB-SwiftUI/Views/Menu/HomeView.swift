@@ -36,26 +36,8 @@ struct HomeView: View {
             
             ScrollView(.horizontal, showsIndicators: true) {
                 LazyHStack {
-                    Button("ACEPTAR 1") {
-                        
-                    }
-                    Button("ACEPTAR 2") {
-                        
-                    }
-                    Button("ACEPTAR 3") {
-                        
-                    }
-                    Button("ACEPTAR 4") {
-                        
-                    }
-                    Button("ACEPTAR 5") {
-                        
-                    }
-                    Button("ACEPTAR 6 ") {
-                        
-                    }
-                    Button("ACEPTAR 7 ") {
-                        
+                    ForEach(vm.trendMovies, id: \.id) { item in
+                        Text("\(item.name)")
                     }
                 }
                 .frame(minWidth: 300, maxWidth: .infinity, minHeight: 150, maxHeight: 250, alignment: .leading)
