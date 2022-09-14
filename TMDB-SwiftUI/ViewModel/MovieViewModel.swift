@@ -9,20 +9,21 @@ import Foundation
 
 final class MovieViewModel: ObservableObject {
     
+    @Published var trendingResult: TrendingResult?
     let network: Network
     var trendMovies: [ResultTrending] {
         return trendingResult?.results ?? []
-    } //TrendingResult = []
-    
-    @Published var trendingResult: TrendingResult?
-    
+    }
+        
     init(_ network: Network = Network()) {
         self.network = network
     }
     
     func getTrendingMovies(_ page: Int = 1, mediaType: String = "person", timeWindow: String = "week") async -> TrendingResult? {
         let movies = await network.getTrendings(page, mediaType: mediaType, timeWindow: timeWindow)
-        trendingResult = movies
+        await MainActor.run(body: {
+            trendingResult = movies
+        })
         return movies
     }
 }
