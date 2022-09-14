@@ -50,7 +50,7 @@ struct KnowFor: Codable {
     let originalName, firstAirDate: String?
 }
 
-struct ResultTrending: Codable {
+struct ResultTrending: Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
         case adult = "adult"
