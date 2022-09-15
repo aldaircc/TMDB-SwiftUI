@@ -46,7 +46,6 @@ struct HomeView: View {
                         .resizable()
                 }
             }
-            
         }
         .task {
             await vm.getTrendingMovies()
