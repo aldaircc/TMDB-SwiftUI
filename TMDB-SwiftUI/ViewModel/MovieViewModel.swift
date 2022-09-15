@@ -19,11 +19,10 @@ final class MovieViewModel: ObservableObject {
         self.network = network
     }
     
-    func getTrendingMovies(_ page: Int = 1, mediaType: String = "person", timeWindow: String = "week") async -> TrendingResult? {
+    func getTrendingMovies(_ page: Int = 1, mediaType: String = "person", timeWindow: String = "week") async {
         let movies = await network.getTrendings(page, mediaType: mediaType, timeWindow: timeWindow)
         await MainActor.run(body: {
             trendingResult = movies
         })
-        return movies
     }
 }
