@@ -44,7 +44,7 @@ struct Network {
     
     func getTrendings(_ page: Int, mediaType: String, timeWindow: String) async -> TrendingResult? {
         let queryItems = [
-            URLQueryItem(name: "api_key", value: "457aa6528c2f6fe3ff02984ae2058d6d"),
+            URLQueryItem(name: "api_key", value: ""),
             URLQueryItem(name: "page", value: String(describing: page))
         ]
         
@@ -272,13 +272,6 @@ struct Network {
     }
     
     func createSession(_ requestToken: String) async throws -> SessionModel? { ///2
-        ///To do
-        
-        /*: Parameter
-         {
-         "request_token": "570c40b1dd114b5480643d0f5e1f5ae7dd9799d7"
-         }
-         */
         let components = URLComponents(string: URL.authCreateSession.absoluteString)
         
         guard let url = components?.url?.addApiKey() else {
