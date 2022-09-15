@@ -43,7 +43,8 @@ struct HomeView: View {
                 .frame(minWidth: 300, maxWidth: .infinity, minHeight: 150, maxHeight: 250, alignment: .leading)
                 .background {
                     Image("trending-bg")
-            }
+                        .resizable()
+                }
             }
             
         }
