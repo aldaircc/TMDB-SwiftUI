@@ -9,7 +9,18 @@ import SwiftUI
 
 struct CardView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .bottomLeading) {
+            Image("greysAnatomy")
+                .resizable()
+                .frame(width: 120, height: 185)
+                .cornerRadius(9)
+            
+            Circle()
+                .trim(from: 0.2, to: 1.0)
+                .frame(width: 30)
+            Text("My favorite movie")
+//                .offset(x: 10, y: 50)
+        }
     }
 }
 
