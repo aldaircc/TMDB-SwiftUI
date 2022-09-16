@@ -35,7 +35,7 @@ struct HomeView: View {
             }
             
             ScrollView(.horizontal, showsIndicators: true) {
-                LazyHStack(spacing: 20) {
+                LazyHStack(alignment: .bottom, spacing: 20) {
                     ForEach(vm.trendMovies, id: \.id) { item in
                         
 //                        ZStack {
@@ -45,10 +45,12 @@ struct HomeView: View {
 //                        }
 //                        .frame(width: 150, height: 225, alignment: .bottomLeading)
                         VStack {
-                            Image("greysAnatomy")
-                                .resizable()
-                                .frame(width: 100, height: 180, alignment: .leading)
-                                .scaledToFit()
+                            ZStack(alignment: .bottomLeading) {
+                                Image("greysAnatomy")
+                                    .resizable()
+                                    .frame(width: 80, height: 150, alignment: .leading)
+                                    .scaledToFit()
+                            }
                             Text("\(item.name)")
                         }
                         .frame(width: 100, height: 200, alignment: .bottomLeading)
