@@ -38,20 +38,17 @@ struct HomeView: View {
                 LazyHStack(alignment: .bottom, spacing: 20) {
                     ForEach(vm.trendMovies, id: \.id) { item in
                         
-//                        ZStack {
-//                            Image("greysAnatomy")
-//                                .resizable()
-//                                .scaledToFit()
-//                        }
-//                        .frame(width: 150, height: 225, alignment: .bottomLeading)
-                        VStack {
+                        VStack(alignment: .leading) {
                             ZStack(alignment: .bottomLeading) {
                                 Image("greysAnatomy")
                                     .resizable()
                                     .frame(width: 80, height: 150, alignment: .leading)
                                     .scaledToFit()
                             }
+                            Spacer()
+                            
                             Text("\(item.name)")
+                                .font(Font.system(size: 12, weight: .bold, design: .monospaced))
                         }
                         .frame(width: 100, height: 200, alignment: .bottomLeading)
                     }
