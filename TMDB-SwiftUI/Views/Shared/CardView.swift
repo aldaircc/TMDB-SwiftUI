@@ -19,6 +19,7 @@ struct CardView: View {
                 .trim(from: 0.2, to: 1.0)
                 .frame(width: 30)
             Text("My favorite movie")
+            Text("Release date")
 //                .offset(x: 10, y: 50)
         }
     }
