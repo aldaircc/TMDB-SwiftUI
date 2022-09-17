@@ -20,6 +20,7 @@ struct CardView: View {
                 .frame(width: 30)
             Text("My favorite movie")
             Text("Release date")
+                .font(.system(size: 11, weight: .thin))
                 .foregroundColor(.gray.opacity(0.6))
 //                .offset(x: 10, y: 50)
         }
