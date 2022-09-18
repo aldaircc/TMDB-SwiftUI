@@ -21,9 +21,6 @@ struct CardView: View {
                     .trim(from: 0.0, to: 0.5)
                     .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round))
                     .rotationEffect(Angle.degrees(-90))
-                    
-                
-//                    .trim(from: 0.2, to: 1.0)
                     .foregroundColor(.orange)
             }
             .frame(width: 30)
@@ -32,7 +29,6 @@ struct CardView: View {
             Text("Release date")
                 .font(.system(size: 11, weight: .thin))
                 .foregroundColor(.gray.opacity(0.6))
-//                .offset(x: 10, y: 50)
         }
     }
 }
