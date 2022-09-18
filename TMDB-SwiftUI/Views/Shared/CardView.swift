@@ -15,9 +15,19 @@ struct CardView: View {
                 .frame(width: 120, height: 185)
                 .cornerRadius(9)
             
-            Circle()
-                .trim(from: 0.2, to: 1.0)
-                .frame(width: 30)
+            ZStack {
+                Circle()
+                Circle()
+                    .trim(from: 0.0, to: 0.5)
+                    .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round))
+                    .rotationEffect(Angle.degrees(-90))
+                    
+                
+//                    .trim(from: 0.2, to: 1.0)
+                    .foregroundColor(.orange)
+            }
+            .frame(width: 30)
+            
             Text("My favorite movie")
             Text("Release date")
                 .font(.system(size: 11, weight: .thin))
