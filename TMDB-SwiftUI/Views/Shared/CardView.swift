@@ -16,7 +16,7 @@ struct CardView: View {
                     .frame(width: 120, height: 185)
                     .cornerRadius(9)
                 
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 5) {
                     ZStack {
                         Circle()
                         Circle()
@@ -34,6 +34,7 @@ struct CardView: View {
                             .foregroundColor(.gray.opacity(0.6))
                     }
                 }
+                .offset(x: 0, y: proxy.frame(in: .local).midY - 20)
                 .background(.red)
             }
         }
