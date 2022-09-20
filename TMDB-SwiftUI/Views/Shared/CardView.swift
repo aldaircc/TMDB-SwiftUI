@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CardView: View {
+    
+    let movieTitle, releaseDate: String
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottomLeading) {
@@ -29,22 +32,26 @@ struct CardView: View {
                         
                         HStack(alignment: .top, spacing: 0) {
                             Text("10")
-                                .font(.system(size: 10))
+                                .font(.system(size: 11))
+                                .fontWeight(.bold)
                             Text("%")
-                                .font(.system(size: 6, weight: .semibold, design: .rounded))
+                                .font(.system(size: 5, weight: .semibold, design: .rounded))
+                                .fontWeight(.bold)
                         }
                         .foregroundColor(.white)
                     }
                     .frame(width: 30)
                     
-                    VStack(aligment: .leading) {
-                        Text("My favorite movie")
-                        Text("Release date")
-                            .font(.system(size: 11, weight: .thin))
-                            .foregroundColor(.gray.opacity(0.6))
+                    VStack(alignment: .leading) {
+                        Text(movieTitle)
+                            .font(.system(size: 11))
+                            .fontWeight(.bold)
+                        Text(releaseDate)
+                            .font(.system(size: 10, weight: .thin))
+                            .foregroundColor(.black.opacity(0.8))
                     }
                 }
-                .offset(x: 8, y: proxy.frame(in: .local).midY - 14)
+                .offset(x: 8, y: proxy.frame(in: .local).midY - 47)
             }
         }
         .frame(width: 120, height: 185)
@@ -53,6 +60,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView()
+        CardView(movieTitle: "Grey's Anatomy", releaseDate: "May 20, 2011")
     }
 }
