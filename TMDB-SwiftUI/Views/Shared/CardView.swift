@@ -26,6 +26,14 @@ struct CardView: View {
                             .rotationEffect(Angle.degrees(-90))
                             .foregroundColor(.orange)
                             .padding(2.5)
+                        
+                        HStack(alignment: .top, spacing: 0) {
+                            Text("10")
+                                .font(.system(size: 10))
+                            Text("%")
+                                .font(.system(size: 6, weight: .semibold, design: .rounded))
+                        }
+                        .foregroundColor(.white)
                     }
                     .frame(width: 30)
                     
