@@ -37,7 +37,7 @@ struct CardView: View {
                     }
                     .frame(width: 30)
                     
-                    VStack {
+                    VStack(aligment: .leading) {
                         Text("My favorite movie")
                         Text("Release date")
                             .font(.system(size: 11, weight: .thin))
