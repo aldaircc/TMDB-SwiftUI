@@ -34,8 +34,8 @@ struct CardView: View {
                             .foregroundColor(.gray.opacity(0.6))
                     }
                 }
-                .offset(x: 0, y: proxy.frame(in: .local).midY - 20)
-                .background(.red)
+                .offset(x: 8, y: proxy.frame(in: .local).midY - 14)
+                .background(.clear)
             }
         }
         .background(.orange)
