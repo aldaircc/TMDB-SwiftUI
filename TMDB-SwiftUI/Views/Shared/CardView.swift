@@ -19,6 +19,7 @@ struct CardView: View {
                     .resizable()
                     .frame(width: 120, height: 185)
                     .cornerRadius(9)
+                AsyncImage(url: URL(string: "https://play.hbomax.com/40f1ec3e7380accdae648d90d4366e8f.png")!)
                 
                 VStack(alignment: .leading, spacing: 5) {
                     
