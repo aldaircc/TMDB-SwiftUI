@@ -10,6 +10,7 @@ import SwiftUI
 struct CardView: View {
     
     let movieTitle, releaseDate: String
+    let rateValue: Int
     
     var body: some View {
         GeometryReader { proxy in
@@ -31,7 +32,7 @@ struct CardView: View {
                             .padding(2.5)
                         
                         HStack(alignment: .top, spacing: 0) {
-                            Text("10")
+                            Text(verbatim: "\(rateValue)")
                                 .font(.system(size: 11))
                                 .fontWeight(.bold)
                             Text("%")
@@ -60,6 +61,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(movieTitle: "Grey's Anatomy", releaseDate: "May 20, 2011")
+        CardView(movieTitle: "Grey's Anatomy", releaseDate: "May 20, 2011", rateValue: 72)
     }
 }
