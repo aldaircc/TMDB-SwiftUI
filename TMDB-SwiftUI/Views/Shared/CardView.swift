@@ -45,10 +45,8 @@ struct CardView: View {
                     }
                 }
                 .offset(x: 8, y: proxy.frame(in: .local).midY - 14)
-                .background(.clear)
             }
         }
-        .background(.orange)
         .frame(width: 120, height: 185)
     }
 }
