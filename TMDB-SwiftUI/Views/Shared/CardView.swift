@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CardView: View {
     
-    let movieTitle, releaseDate: String
+    let movieTitle: String
+    let releaseDate: Date
     let rateValue: Double
     
     var body: some View {
@@ -24,14 +25,7 @@ struct CardView: View {
                     
                     CircleProgressView(rateValue: rateValue)
                     
-                    VStack(alignment: .leading) {
-                        Text(movieTitle)
-                            .font(.system(size: 11))
-                            .fontWeight(.bold)
-                        Text(releaseDate)
-                            .font(.system(size: 10, weight: .thin))
-                            .foregroundColor(.black.opacity(0.8))
-                    }
+                    MovieDetailView(title: movieTitle, releaseDate: <#T##Date#>)
                 }
                 .offset(x: 8, y: proxy.frame(in: .local).midY - 47)
             }
@@ -75,5 +69,27 @@ struct CircleProgressView: View {
             .foregroundColor(.white)
         }
         .frame(width: 30)
+    }
+}
+
+struct MovieDetailView: View {
+    let title: String
+    let releaseDate: Date
+    
+    var dateString: String {
+        let formatter =  DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        return formatter.string(from: releaseDate)
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title)
+                .font(.system(size: 11))
+                .fontWeight(.bold)
+            Text(dateString)
+                .font(.system(size: 10, weight: .thin))
+                .foregroundColor(.black.opacity(0.8))
+        }
     }
 }
