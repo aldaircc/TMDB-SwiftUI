@@ -19,30 +19,10 @@ struct CardView: View {
                     .resizable()
                     .frame(width: 120, height: 185)
                     .cornerRadius(9)
-                AsyncImage(url: URL(string: "https://play.hbomax.com/40f1ec3e7380accdae648d90d4366e8f.png")!)
                 
                 VStack(alignment: .leading, spacing: 5) {
                     
-                    ZStack(alignment: .center) {
-                        Circle()
-                        Circle()
-                            .trim(from: 0.0, to: 0.5)
-                            .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round))
-                            .rotationEffect(Angle.degrees(-90))
-                            .foregroundColor(.orange)
-                            .padding(2.5)
-                        
-                        HStack(alignment: .top, spacing: 0) {
-                            Text(verbatim: "\(rateValue)")
-                                .font(.system(size: 11))
-                                .fontWeight(.bold)
-                            Text("%")
-                                .font(.system(size: 5, weight: .semibold, design: .rounded))
-                                .fontWeight(.bold)
-                        }
-                        .foregroundColor(.white)
-                    }
-                    .frame(width: 30)
+                    CircleProgressView()
                     
                     VStack(alignment: .leading) {
                         Text(movieTitle)
@@ -63,5 +43,37 @@ struct CardView: View {
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         CardView(movieTitle: "Grey's Anatomy", releaseDate: "May 20, 2011", rateValue: 72)
+    }
+}
+
+struct CircleProgressView: View {
+    
+    var rateValue: Double = 0.0
+    
+    var rateFormatted: String {
+        return String(format: "%.0f", rateValue)
+    }
+    
+    var body: some View {
+        ZStack(alignment: .center) {
+            Circle()
+            Circle()
+                .trim(from: 0.0, to: rateValue)
+                .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round))
+                .rotationEffect(Angle.degrees(-90))
+                .foregroundColor(.orange)
+                .padding(2.5)
+            
+            HStack(alignment: .top, spacing: 0) {
+                Text(rateFormatted)
+                    .font(.system(size: 11))
+                    .fontWeight(.bold)
+                Text("%")
+                    .font(.system(size: 5, weight: .semibold, design: .rounded))
+                    .fontWeight(.bold)
+            }
+            .foregroundColor(.white)
+        }
+        .frame(width: 30)
     }
 }
