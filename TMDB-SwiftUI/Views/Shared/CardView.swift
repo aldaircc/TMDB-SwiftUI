@@ -58,7 +58,7 @@ struct CircleProgressView: View {
         ZStack(alignment: .center) {
             Circle()
             Circle()
-                .trim(from: 0.0, to: rateValue)
+                .trim(from: 0.0, to: rateValue/100)
                 .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round))
                 .rotationEffect(Angle.degrees(-90))
                 .foregroundColor(.orange)
