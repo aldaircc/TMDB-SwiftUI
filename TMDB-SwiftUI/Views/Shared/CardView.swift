@@ -25,7 +25,7 @@ struct CardView: View {
                     
                     CircleProgressView(rateValue: rateValue)
                     
-                    MovieDetailView(title: movieTitle, releaseDate: <#T##Date#>)
+                    MovieDetailView(title: movieTitle, releaseDate: releaseDate)
                 }
                 .offset(x: 8, y: proxy.frame(in: .local).midY - 47)
             }
@@ -36,7 +36,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(movieTitle: "Grey's Anatomy", releaseDate: "May 20, 2011", rateValue: 72)
+        CardView(movieTitle: "Grey's Anatomy", releaseDate: Date(), rateValue: 72)
     }
 }
 
