@@ -10,7 +10,7 @@ import SwiftUI
 struct CardView: View {
     
     let movieTitle, releaseDate: String
-    let rateValue: Int
+    let rateValue: Double
     
     var body: some View {
         GeometryReader { proxy in
@@ -22,7 +22,7 @@ struct CardView: View {
                 
                 VStack(alignment: .leading, spacing: 5) {
                     
-                    CircleProgressView()
+                    CircleProgressView(rateValue: rateValue)
                     
                     VStack(alignment: .leading) {
                         Text(movieTitle)
