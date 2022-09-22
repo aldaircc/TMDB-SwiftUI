@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CardView: View {
-    
     let movieTitle: String
     let releaseDate: Date
     let rateValue: Double
