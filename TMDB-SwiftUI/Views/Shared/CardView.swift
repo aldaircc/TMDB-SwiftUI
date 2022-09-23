@@ -20,9 +20,13 @@ struct CardView: View {
                     .frame(width: 120, height: 185)
                     .cornerRadius(9)
 
-                AsyncImage(url: URL("", strategy: .url)) { phase in
-
+                AsyncImage(url: URL("")!) { image in
+                    image.resizable()
+                } placeholder: {
+                    Image(systemName: "play.fill")
                 }
+                .frame(width: 120, height: 185)
+
                 
                 VStack(alignment: .leading, spacing: 5) {
                     
