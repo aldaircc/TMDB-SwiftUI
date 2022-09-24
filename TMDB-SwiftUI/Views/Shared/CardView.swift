@@ -46,7 +46,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(movieTitle: "Grey's Anatomy", releaseDate: Date(), rateValue: 72)
+        CardView(movieTitle: "Grey's Anatomy", releaseDate: Date(), rateValue: 72, imageUrl: URL(string: "https://www.themoviedb.org/t/p/w220_and_h330_face/1HOYvwGFioUFL58UVvDRG6beEDm.jpg")!)
     }
 }
 
