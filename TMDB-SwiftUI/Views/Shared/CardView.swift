@@ -11,6 +11,7 @@ struct CardView: View {
     let movieTitle: String
     let releaseDate: Date
     let rateValue: Double
+    let imageUrl: URL
     
     var body: some View {
         GeometryReader { proxy in
@@ -20,7 +21,7 @@ struct CardView: View {
                     .frame(width: 120, height: 185)
                     .cornerRadius(9)
 
-                AsyncImage(url: URL(string: "https://www.themoviedb.org/t/p/w220_and_h330_face/1HOYvwGFioUFL58UVvDRG6beEDm.jpg")!) { image in
+                AsyncImage(url: imageUrl) { image in
                     image
                         .resizable()
                 } placeholder: {
