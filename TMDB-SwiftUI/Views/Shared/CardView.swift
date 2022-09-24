@@ -16,11 +16,6 @@ struct CardView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottomLeading) {
-                Image("greysAnatomy")
-                    .resizable()
-                    .frame(width: 120, height: 185)
-                    .cornerRadius(9)
-
                 AsyncImage(url: imageUrl) { image in
                     image
                         .resizable()
@@ -30,7 +25,6 @@ struct CardView: View {
                 .frame(width: 120, height: 185)
                 .cornerRadius(9)
 
-                
                 VStack(alignment: .leading, spacing: 5) {
                     
                     CircleProgressView(rateValue: rateValue)
