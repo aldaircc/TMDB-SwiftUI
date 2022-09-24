@@ -53,19 +53,22 @@ struct CardView_Previews: PreviewProvider {
 struct CircleProgressView: View {
     
     var rateValue: Double = 0.0
-    
     var rateFormatted: String {
         return String(format: "%.0f", rateValue)
+    }
+    var colors: (Color, Color) {
+        return Color.getColor(progress: rateValue)
     }
     
     var body: some View {
         ZStack(alignment: .center) {
             Circle()
+                .foregroundColor(colors.0)
             Circle()
                 .trim(from: 0.0, to: rateValue/100)
                 .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round))
                 .rotationEffect(Angle.degrees(-90))
-                .foregroundColor(.orange)
+                .foregroundColor(colors.1)
                 .padding(2.5)
             
             HStack(alignment: .top, spacing: 0) {
@@ -100,6 +103,20 @@ struct MovieDetailView: View {
             Text(dateString)
                 .font(.system(size: 10, weight: .thin))
                 .foregroundColor(.black.opacity(0.8))
+        }
+    }
+}
+
+extension Color {
+    static func getColor(progress: Double) -> (Color, Color) {
+        switch progress {
+        case 0..<40:
+            return (Color("Low Pending Color"), Color("Low Progress Color"))
+        case 40..<70:
+            return (Color("Medium Pending Color"), Color("Medium Progress Color"))
+        case 70...100:
+            return (Color("High Pending Color"), Color("High Progress Color"))
+        default: return (.clear, .clear)
         }
     }
 }
