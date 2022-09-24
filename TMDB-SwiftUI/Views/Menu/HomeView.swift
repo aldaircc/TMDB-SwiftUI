@@ -35,24 +35,12 @@ struct HomeView: View {
             }
             
             ScrollView(.horizontal, showsIndicators: true) {
-                LazyHStack(alignment: .bottom, spacing: 20) {
+                LazyHStack(alignment: .center, spacing: 20) {
                     ForEach(vm.trendMovies, id: \.id) { item in
-                        VStack(alignment: .leading) {
-                            ZStack(alignment: .bottomLeading) {
-                                Image("greysAnatomy")
-                                    .resizable()
-                                    .frame(width: 80, height: 150, alignment: .leading)
-                                    .scaledToFit()
-                            }
-                            Spacer()
-                            
-                            Text("\(item.name)")
-                                .font(Font.system(size: 12, weight: .bold, design: .monospaced))
-                        }
-                        .frame(width: 100, height: 200, alignment: .bottomLeading)
+                        CardView(movieTitle: item.name, releaseDate: Date(), rateValue: item.popularity, imageUrl: URL(string: "https://www.themoviedb.org/t/p/w220_and_h330_face/1HOYvwGFioUFL58UVvDRG6beEDm.jpg")!)
                     }
                 }
-                .frame(minWidth: 300, maxWidth: .infinity, minHeight: 150, maxHeight: 280, alignment: .leading)
+                .frame(minWidth: 300, maxWidth: .infinity, minHeight: 185, maxHeight: 280, alignment: .leading)
                 .background {
                     Image("trending-bg")
                         .resizable()
