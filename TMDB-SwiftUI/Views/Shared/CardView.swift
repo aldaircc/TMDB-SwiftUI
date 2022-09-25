@@ -104,11 +104,11 @@ struct MovieDetailView: View {
 extension Color {
     static func getColor(progress: Double) -> (Color, Color) {
         switch progress {
-        case 0..<0.4:
+        case 0..<4:
             return (Color("Low Pending Color"), Color("Low Progress Color"))
-        case 0.4..<0.7:
+        case 4..<7:
             return (Color("Medium Pending Color"), Color("Medium Progress Color"))
-        case 0.7...1:
+        case 7...10:
             return (Color("High Pending Color"), Color("High Progress Color"))
         default: return (.clear, .clear)
         }
