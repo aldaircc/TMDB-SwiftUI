@@ -48,7 +48,7 @@ struct CircleProgressView: View {
     
     var rateValue: Double = 0.0
     var rateFormatted: String {
-        return String(format: "%.0f", rateValue)
+        return String(format: "%.0f", (rateValue * 10))
     }
     var colors: (Color, Color) {
         return Color.getColor(progress: rateValue)
@@ -59,7 +59,7 @@ struct CircleProgressView: View {
             Circle()
                 .foregroundColor(colors.0)
             Circle()
-                .trim(from: 0.0, to: rateValue/100)
+                .trim(from: 0.0, to: rateValue/10)
                 .stroke(style: StrokeStyle(lineWidth: 1, lineCap: .round, lineJoin: .round))
                 .rotationEffect(Angle.degrees(-90))
                 .foregroundColor(colors.1)
@@ -104,11 +104,11 @@ struct MovieDetailView: View {
 extension Color {
     static func getColor(progress: Double) -> (Color, Color) {
         switch progress {
-        case 0..<40:
+        case 0..<0.4:
             return (Color("Low Pending Color"), Color("Low Progress Color"))
-        case 40..<70:
+        case 0.4..<0.7:
             return (Color("Medium Pending Color"), Color("Medium Progress Color"))
-        case 70...100:
+        case 0.7...1:
             return (Color("High Pending Color"), Color("High Progress Color"))
         default: return (.clear, .clear)
         }
