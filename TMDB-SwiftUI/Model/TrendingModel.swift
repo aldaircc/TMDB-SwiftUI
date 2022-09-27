@@ -111,6 +111,10 @@ struct MovieTrending: Codable, Identifiable {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
+    
+    var posterUrl: URL {
+        URL(string: "\()\(posterPath ?? "")")!
+    }
 }
 
 struct TrendingResult: Codable {
