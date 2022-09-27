@@ -20,7 +20,7 @@ struct CardView: View {
                     image
                         .resizable()
                 } placeholder: {
-                    Image(systemName: "play.fill")
+                    ProgressView()
                 }
                 .frame(width: 120, height: 185)
                 .cornerRadius(9)
