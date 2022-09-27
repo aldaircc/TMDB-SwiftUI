@@ -113,7 +113,7 @@ struct MovieTrending: Codable, Identifiable {
     let voteCount: Int?
     
     var posterUrl: URL {
-        URL(string: "\()\(posterPath ?? "")")!
+        URL(string: "\(baseImagePath)\(posterPath ?? "")")!
     }
 }
 
