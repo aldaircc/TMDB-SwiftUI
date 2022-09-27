@@ -37,7 +37,7 @@ struct HomeView: View {
             ScrollView(.horizontal, showsIndicators: true) {
                 LazyHStack(alignment: .center, spacing: 20) {
                     ForEach(vm.trendMovies, id: \.id) { item in
-                        CardView(movieTitle: item.title ?? "-", releaseDate: Date(), rateValue: item.voteAverage ?? 0, imageUrl: URL(string: "https://www.themoviedb.org/t/p/w220_and_h330_face/1HOYvwGFioUFL58UVvDRG6beEDm.jpg")!)
+                        CardView(movieTitle: item.title ?? "-", releaseDate: Date(), rateValue: item.voteAverage ?? 0, imageUrl: item.posterUrl)
                     }
                 }
                 .frame(minWidth: 300, maxWidth: .infinity, minHeight: 185, maxHeight: 280, alignment: .leading)
