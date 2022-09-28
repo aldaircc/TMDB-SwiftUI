@@ -126,7 +126,7 @@ struct TrendingResult: Codable {
     }
     
     let page: Int?
-    let results: [MovieTrending]? //[ResultTrending]?
+    let results: [MovieTrending]?
     let totalPages: Int?
     let totalResults: Int?
 }
