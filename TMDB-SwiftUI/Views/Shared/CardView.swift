@@ -15,23 +15,25 @@ struct CardView: View {
     
     var body: some View {
         GeometryReader { proxy in
-            ZStack(alignment: .bottomLeading) {
-                AsyncImage(url: imageUrl) { image in
-                    image
-                        .resizable()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: 120, height: 185)
-                .cornerRadius(9)
+            VStack(alignment: .leading) {
+                ZStack(alignment: .leading) {
+                    ZStack(alignment: .bottomLeading) {
+                        AsyncImage(url: imageUrl) { image in
+                            image
+                                .resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 120, height: 185)
+                        .cornerRadius(9)
 
-                VStack(alignment: .leading, spacing: 5) {
-                    
-                    CircleProgressView(rateValue: rateValue)
-                    
+                        CircleProgressView(rateValue: 0.5)
+                            .offset(x: 5, y: 15)
+                    }
                     MovieDetailView(title: movieTitle, releaseDate: releaseDate)
+                        .offset(y: 120)
                 }
-                .offset(x: 8, y: proxy.frame(in: .local).midY - 47)
+                
             }
         }
         .frame(width: 120, height: 185)
@@ -40,7 +42,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(movieTitle: "Grey's Anatomy", releaseDate: Date(), rateValue: 72, imageUrl: URL(string: "https://www.themoviedb.org/t/p/w220_and_h330_face/1HOYvwGFioUFL58UVvDRG6beEDm.jpg")!)
+        CardView(movieTitle: "Grey's Anatomy", releaseDate: Date(), rateValue: 7, imageUrl: URL(string: "https://www.themoviedb.org/t/p/w220_and_h330_face/1HOYvwGFioUFL58UVvDRG6beEDm.jpg")!)
     }
 }
 
@@ -112,5 +114,19 @@ extension Color {
             return (Color("High Pending Color"), Color("High Progress Color"))
         default: return (.clear, .clear)
         }
+    }
+}
+
+struct DetailCard: View {
+    let title: String
+    let rateValue: Double
+    let releaseDate: Date
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            CircleProgressView(rateValue: rateValue)
+            MovieDetailView(title: title, releaseDate: releaseDate)
+        }
+        .background(.red)
     }
 }
