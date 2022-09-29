@@ -17,6 +17,8 @@ final class MovieViewModel: ObservableObject {
         
     init(_ network: Network = Network()) {
         self.network = network
+        URLCache.shared.memoryCapacity = 10_000_000
+        URLCache.shared.diskCapacity = 1_000_000_000
     }
     
     func getTrendingMovies(_ page: Int = 1, mediaType: String = "movie", timeWindow: String = "week") async {
