@@ -82,6 +82,38 @@
             endingLineNumber = "165"
             landmarkName = "rateMovie(_:rate:guestSession:sessionId:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "022A3AEB-DE56-4C9B-AFD8-CCBF3E2AE140 - bc82276ee1ed9ba5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for TMDB_SwiftUI.Network.rateMovie(_: Swift.Int, rate: Swift.Double, guestSession: Swift.String, sessionId: Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.ResponseModel&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "3169">
+               </Location>
+               <Location
+                  uuid = "022A3AEB-DE56-4C9B-AFD8-CCBF3E2AE140 - dab4b4deb7f939a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for TMDB_SwiftUI.Network.rateMovie(_: Swift.Int, rate: Swift.Double, guestSession: Swift.String, sessionId: Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.ResponseModel&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "567">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -98,6 +130,38 @@
             endingLineNumber = "269"
             landmarkName = "createSessionWithLogin(_:username:password:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6694C2C7-19D2-4882-B71B-78C14CB26F13 - 69c5719666ffb04e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for TMDB_SwiftUI.Network.createSessionWithLogin(_: Swift.String, username: Swift.String, password: Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionLoginResponse&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
+                  offsetFromSymbolStart = "3219">
+               </Location>
+               <Location
+                  uuid = "6694C2C7-19D2-4882-B71B-78C14CB26F13 - 2b5348f8b48d249"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for TMDB_SwiftUI.Network.createSessionWithLogin(_: Swift.String, username: Swift.String, password: Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionLoginResponse&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
+                  offsetFromSymbolStart = "428">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -114,6 +178,53 @@
             endingLineNumber = "275"
             landmarkName = "createSessionWithLogin(_:username:password:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AF9A6287-E96F-4DF4-8700-0BAA20A3A25C - 6c101080ce5561d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for TMDB_SwiftUI.Network.createSession(Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionModel&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "273">
+               </Location>
+               <Location
+                  uuid = "AF9A6287-E96F-4DF4-8700-0BAA20A3A25C - 1fe8a5b6761a1a1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for TMDB_SwiftUI.Network.createSession(Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionModel&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "1106">
+               </Location>
+               <Location
+                  uuid = "AF9A6287-E96F-4DF4-8700-0BAA20A3A25C - 2303e8159323bc1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for TMDB_SwiftUI.Network.createSession(Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionModel&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "269">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -130,6 +241,38 @@
             endingLineNumber = "274"
             landmarkName = "createSessionWithLogin(_:username:password:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "67051955-69A7-4E7B-A449-AFCE9CD9FC9C - 9f9013e0579305a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TMDB_SwiftUI.Network.createSession(Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionModel&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "274"
+                  endingLineNumber = "274"
+                  offsetFromSymbolStart = "503">
+               </Location>
+               <Location
+                  uuid = "67051955-69A7-4E7B-A449-AFCE9CD9FC9C - 6c101080ce5563a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for TMDB_SwiftUI.Network.createSession(Swift.String) async throws -&gt; Swift.Optional&lt;TMDB_SwiftUI.SessionModel&gt;"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "274"
+                  endingLineNumber = "274"
+                  offsetFromSymbolStart = "261">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -146,6 +289,53 @@
             endingLineNumber = "20"
             landmarkName = "authenticateUser(userName:password:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "92C77A09-4AEB-4D83-A6FA-34CEE30B54DF - 98f80b979c4eb5ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for TMDB_SwiftUI.AuthenticationViewModel.authenticateUser(userName: Swift.String, password: Swift.String) async -&gt; ()"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  uuid = "92C77A09-4AEB-4D83-A6FA-34CEE30B54DF - 44a8c779122f1a86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for TMDB_SwiftUI.AuthenticationViewModel.authenticateUser(userName: Swift.String, password: Swift.String) async -&gt; ()"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  uuid = "92C77A09-4AEB-4D83-A6FA-34CEE30B54DF - ff741dfe8eb44fb5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for TMDB_SwiftUI.AuthenticationViewModel.authenticateUser(userName: Swift.String, password: Swift.String) async -&gt; ()"
+                  moduleName = "TMDB-SwiftUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aldaircosetitocoral/Documents/GitHub/TMDB-SwiftUI/TMDB-SwiftUI/ViewModel/AuthenticationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "125">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -9,9 +9,9 @@ import Foundation
 
 final class MovieViewModel: ObservableObject {
     
-    @Published var trendingResult: TrendingResult? //TrendingResult?
+    @Published var trendingResult: TrendingResult?
     let network: Network
-    var trendMovies: [MovieTrending] { //[ResultTrending] {
+    var trendMovies: [MovieTrending] {
         return trendingResult?.results ?? []
     }
         
