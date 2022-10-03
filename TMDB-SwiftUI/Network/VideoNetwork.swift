@@ -7,4 +7,12 @@
 
 import Foundation
 
+protocol VideoRequestProtocol {
+    func getVideo(movieId: Int)
+}
 
+struct VideoNetwork: VideoRequestProtocol {
+    func getVideo(movieId: Int) {
+        
+    }
+}
