@@ -22,6 +22,7 @@
 		051C107A286EA82B005D2D14 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C1079286EA82B005D2D14 /* CircularProgressView.swift */; };
 		0528EB732870FB7D0069A403 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0528EB722870FB7D0069A403 /* ContentView.swift */; };
 		053B80E128EA64F60077C427 /* VideoNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B80E028EA64F60077C427 /* VideoNetwork.swift */; };
+		053B80E328EA66820077C427 /* VideoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053B80E228EA66820077C427 /* VideoResponseModel.swift */; };
 		05478D18287102440030CE39 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05478D17287102440030CE39 /* SegmentedView.swift */; };
 		05478D1A28713C610030CE39 /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05478D1928713C610030CE39 /* MovieCardView.swift */; };
 		055D709B2883888C00750165 /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D709A2883888C00750165 /* MovieDetailModel.swift */; };
@@ -81,6 +82,7 @@
 		051C1079286EA82B005D2D14 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		0528EB722870FB7D0069A403 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		053B80E028EA64F60077C427 /* VideoNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNetwork.swift; sourceTree = "<group>"; };
+		053B80E228EA66820077C427 /* VideoResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResponseModel.swift; sourceTree = "<group>"; };
 		05478D17287102440030CE39 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		05478D1928713C610030CE39 /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
 		055D709A2883888C00750165 /* MovieDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModel.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				05F7F6AE2888E025005076B0 /* SessionLoggedModel.swift */,
 				059A838F288A28F400BCD9A7 /* GuestSessionResponse.swift */,
 				051414D2288B903100484823 /* CommonResponse.swift */,
+				053B80E228EA66820077C427 /* VideoResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				05F555922890C1BD00B68D2A /* RoundedTextFieldStyle.swift in Sources */,
 				05478D18287102440030CE39 /* SegmentedView.swift in Sources */,
 				C8C8D6D428939FD900060B9D /* LinkButtonStyle.swift in Sources */,
+				053B80E328EA66820077C427 /* VideoResponseModel.swift in Sources */,
 				051C104E286EA7E9005D2D14 /* TMDB_SwiftUIApp.swift in Sources */,
 				050852342877BC9700062AB5 /* StoryViewerView.swift in Sources */,
 				05EB271E28C80CC5007015D9 /* SessionManagement.swift in Sources */,
