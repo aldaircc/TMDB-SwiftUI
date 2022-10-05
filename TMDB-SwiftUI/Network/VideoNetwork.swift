@@ -25,12 +25,15 @@ struct VideoNetwork: VideoRequestProtocol {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let httpResponse = response as? HTTPURLResponse else {
-                print(error?.localizedDescription)
                 return
             }
             
             if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
-                print("Good job", data)
+                
+                guard let jsonString = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                    return
+                }
+                print("Good job", jsonString)
             } else {
                 print("There was an error, statusCode: \(httpResponse.statusCode)")
             }
