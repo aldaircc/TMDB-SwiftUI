@@ -8,11 +8,11 @@
 import Foundation
 
 protocol VideoRequestProtocol {
-    func getVideo(movieId: Int)
+    func getVideo(movieId: Int, completion: @escaping (Result<VideoResponseModel, Error>) -> ())
 }
 
 struct VideoNetwork: VideoRequestProtocol {
-    func getVideo(movieId: Int) {
+    func getVideo(movieId: Int, completion: @escaping (Result<VideoResponseModel, Error>) -> ()) {
         let components = URLComponents(string: URL.movieVideo.absoluteString.replacingOccurrences(of: "movie_id", with: String(movieId)))
         
         guard let url = components?.url?.addApiKey() else {
@@ -25,6 +25,7 @@ struct VideoNetwork: VideoRequestProtocol {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(URLError.init(.badServerResponse)))
                 return
             }
             
@@ -33,12 +34,10 @@ struct VideoNetwork: VideoRequestProtocol {
                     return
                 }
                 
-                print("Good job", decoded)
+                completion(.success(decoded))
             } else {
-                print("There was an error, statusCode: \(httpResponse.statusCode)")
+                completion(.failure(URLError.init(.zeroByteResource)))
             }
-            
-            return
         }.resume()
     }
 }
