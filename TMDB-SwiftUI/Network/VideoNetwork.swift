@@ -29,11 +29,11 @@ struct VideoNetwork: VideoRequestProtocol {
             }
             
             if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
-                
-                guard let jsonString = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+                guard let decoded = try? JSONDecoder().decode(VideoResponseModel.self, from: data) else {
                     return
                 }
-                print("Good job", jsonString)
+                
+                print("Good job", decoded)
             } else {
                 print("There was an error, statusCode: \(httpResponse.statusCode)")
             }
