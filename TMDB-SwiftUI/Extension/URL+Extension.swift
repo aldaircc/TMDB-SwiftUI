@@ -14,7 +14,7 @@ extension URL {
     static var movie = URL(string: baseURL.absoluteString + "movie/")!
     static var moviePopular = URL(string: baseURL.absoluteString + "popular")!
     static var movieImages = URL(string: baseURL.absoluteString + "movie")!
-    static var movieVideo = URL(string: movieImages.absoluteString + "/movie_id/video")!
+    static var movieVideo = URL(string: movieImages.absoluteString + "/movie_id/videos")!
     
     /// Authentication
     static var authentication = URL(string: baseURL.absoluteString + "/authentication/")!
