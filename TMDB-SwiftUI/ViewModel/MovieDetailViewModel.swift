@@ -13,8 +13,16 @@ final class MovieDetailViewModel: ObservableObject {
     @Published var videoResponse: VideoResponseModel?
     let videoNetwork = VideoNetwork()
     
-    func getMovieVideos() {
-        
+    func getMovieVideos(movieId: Int) {
+        videoNetwork.getVideo(movieId: movieId) { response in
+            switch response {
+            case .success(let result):
+                DispatchQueue.main.async {
+                    self.videoResponse = result
+                }
+            case .failure(let error):
+                self.errorMessage = error.localizedDescription
+            }
+        }
     }
-    
 }
