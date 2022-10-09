@@ -13,8 +13,13 @@ struct MovieDetailView: View {
             Text("Hello, World!")
             Section {
                 HStack {
-                    Text("media")
+                    Text("Media")
+                        .fontWeight(.bold)
                     Spacer()
+                }
+                LazyHStack {
+                    RoundedRectangle(cornerRadius: 9)
+                        .frame(minWidth: 300, maxHeight: 150)
                 }
             }
         }
