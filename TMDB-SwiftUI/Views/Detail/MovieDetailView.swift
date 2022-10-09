@@ -12,7 +12,10 @@ struct MovieDetailView: View {
         VStack {
             Text("Hello, World!")
             Section {
-                Text("Hello, World!")
+                HStack {
+                    Text("media")
+                    Spacer()
+                }
             }
         }
     }
