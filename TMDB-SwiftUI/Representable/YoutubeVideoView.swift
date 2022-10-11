@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
+import WebKit
+
+struct YoutubeVideoView: UIViewRepresentable {
+    
+    typealias UIViewType = WKWebView
+    
+    func makeUIView(context: Context) -> WKWebView {
+        WKWebView()
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        
+    }
+    
+    
+}
