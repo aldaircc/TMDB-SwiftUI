@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct MovieDetailView: View {
     var body: some View {
@@ -17,7 +18,20 @@ struct MovieDetailView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
-                LazyHStack {
+                
+                LazyHStack(alignment: .top) {
+                    
+                    VideoPlayer(player: AVPlayer(url: URL(string: "https://www.youtube.com/watch?v=tmA6O4zl-hk")!))
+                    
+                    RoundedRectangle(cornerRadius: 9)
+                        .frame(minWidth: 300, maxHeight: 150)
+                    
+                    RoundedRectangle(cornerRadius: 9)
+                        .frame(minWidth: 300, maxHeight: 150)
+                    
+                    RoundedRectangle(cornerRadius: 9)
+                        .frame(minWidth: 300, maxHeight: 150)
+                    
                     RoundedRectangle(cornerRadius: 9)
                         .frame(minWidth: 300, maxHeight: 150)
                 }
