@@ -28,6 +28,4 @@ struct YoutubeVideoView: UIViewRepresentable {
         uiView.scrollView.isScrollEnabled = false
         uiView.load(URLRequest(url: url))
     }
-    
-    
 }
