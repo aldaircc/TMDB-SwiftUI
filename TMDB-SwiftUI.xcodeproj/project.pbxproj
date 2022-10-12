@@ -30,6 +30,7 @@
 		058A1F7828849FC700722A19 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A1F7728849FC700722A19 /* ResponseModel.swift */; };
 		059A8390288A28F400BCD9A7 /* GuestSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A838F288A28F400BCD9A7 /* GuestSessionResponse.swift */; };
 		05BA42AB288D077B005D9FF9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA42AA288D077B005D9FF9 /* LoginView.swift */; };
+		05C5B62828F4EC4F00B9CDB9 /* YoutubeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */; };
 		05E78254287E444A00286059 /* TrendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E78253287E444A00286059 /* TrendingModel.swift */; };
 		05E9AC98287661DD00D28E20 /* ActorCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9AC97287661DD00D28E20 /* ActorCardView.swift */; };
 		05E9EA2D287CF79600C8A384 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9EA2C287CF79600C8A384 /* Network.swift */; };
@@ -92,6 +93,7 @@
 		058A1F7728849FC700722A19 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		059A838F288A28F400BCD9A7 /* GuestSessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestSessionResponse.swift; sourceTree = "<group>"; };
 		05BA42AA288D077B005D9FF9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoView.swift; sourceTree = "<group>"; };
 		05E78253287E444A00286059 /* TrendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingModel.swift; sourceTree = "<group>"; };
 		05E9AC97287661DD00D28E20 /* ActorCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCardView.swift; sourceTree = "<group>"; };
 		05E9EA2C287CF79600C8A384 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		051C104C286EA7E9005D2D14 /* TMDB-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				05C5B62628F4EC3D00B9CDB9 /* Representable */,
 				05E9EA32287D1E3A00C8A384 /* Model */,
 				05E9EA2B287CF78900C8A384 /* Network */,
 				0500AEBF287936A800FF5809 /* Shared */,
@@ -255,6 +258,14 @@
 				05BA42AA288D077B005D9FF9 /* LoginView.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		05C5B62628F4EC3D00B9CDB9 /* Representable */ = {
+			isa = PBXGroup;
+			children = (
+				05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */,
+			);
+			path = Representable;
 			sourceTree = "<group>";
 		};
 		05E9EA2B287CF78900C8A384 /* Network */ = {
@@ -441,6 +452,7 @@
 				05ECE2EB2880E44000EC2EE3 /* MovieModel.swift in Sources */,
 				05F21C7528EE55F600B5F750 /* MovieDetailViewModel.swift in Sources */,
 				053B80E128EA64F60077C427 /* VideoNetwork.swift in Sources */,
+				05C5B62828F4EC4F00B9CDB9 /* YoutubeVideoView.swift in Sources */,
 				05F555922890C1BD00B68D2A /* RoundedTextFieldStyle.swift in Sources */,
 				05478D18287102440030CE39 /* SegmentedView.swift in Sources */,
 				C8C8D6D428939FD900060B9D /* LinkButtonStyle.swift in Sources */,
