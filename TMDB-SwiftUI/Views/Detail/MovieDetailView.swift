@@ -11,6 +11,12 @@ struct MovieDetailView: View {
     var body: some View {
         VStack {
             Text("Hello, World!")
+            /// Image
+            /// Category - year - duration (hours and minutes)
+            /// details/description of movie
+            
+            /// Score Breakdown
+            ///
             Section {
                 HStack {
                     Text("Media")
