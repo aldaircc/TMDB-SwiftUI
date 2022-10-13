@@ -9,42 +9,53 @@ import SwiftUI
 
 struct MovieDetailView: View {
     var body: some View {
-        VStack {
-            Text("Hello, World!")
-            /// Image
-            Image("example_detail_pic")
-            /// Category - year - duration (hours and minutes)
-            /// details/description of movie
-            
-            /// Series Cast
-            Section {
-                HStack(alignment: .top) {
-                    Text("Series Cast")
-                        .fontWeight(.bold)
-                    Spacer()
-                }
+        NavigationView {
+            VStack(alignment: .leading) {
+                /// Image
+                Image("example_detail_pic")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                 
-            }
-            
-            /// Score Breakdown
-            ///
-            Section {
-                HStack {
-                    Text("Media")
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-  
-               
+                Spacer()
+    //                .padding()
                 
-                ScrollView(.horizontal) {
-                    LazyHStack(alignment: .top) {
-                        
-                        
+                
+                /// Category - year - duration (hours and minutes)
+                /// details/description of movie
+                
+                /// Series Cast
+                Section {
+                    HStack(alignment: .top) {
+                        Text("Series Cast")
+                            .fontWeight(.bold)
+                        Spacer()
                     }
+                    
                 }
-                .frame(height: 200, alignment: .leading)
+                
+                /// Score Breakdown
+                ///
+                Section {
+                    HStack {
+                        Text("Media")
+                            .fontWeight(.bold)
+                        Spacer()
+                    }
+      
+                   
+                    
+                    ScrollView(.horizontal) {
+                        LazyHStack(alignment: .top) {
+                            
+                            
+                        }
+                    }
+                    .frame(height: 200, alignment: .leading)
+                }
             }
+            .ignoresSafeArea()
+            .navigationTitle("My title")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
