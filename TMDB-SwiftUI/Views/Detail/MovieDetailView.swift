@@ -15,6 +15,16 @@ struct MovieDetailView: View {
             /// Category - year - duration (hours and minutes)
             /// details/description of movie
             
+            /// Series Cast
+            Section {
+                HStack(alignment: .top) {
+                    Text("Series Cast")
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                
+            }
+            
             /// Score Breakdown
             ///
             Section {
