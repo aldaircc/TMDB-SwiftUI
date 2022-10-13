@@ -12,6 +12,7 @@ struct MovieDetailView: View {
         VStack {
             Text("Hello, World!")
             /// Image
+            Image("example_detail_pic")
             /// Category - year - duration (hours and minutes)
             /// details/description of movie
             
