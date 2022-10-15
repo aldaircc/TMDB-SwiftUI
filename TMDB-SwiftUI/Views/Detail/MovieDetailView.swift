@@ -18,8 +18,10 @@ struct MovieDetailView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 
+                Divider()
+                    .background(.red)
+                
                 Spacer()
-    //                .padding()
                 
                 
                 /// Category - year - duration (hours and minutes)
@@ -58,6 +60,12 @@ struct MovieDetailView: View {
             .ignoresSafeArea(edges: .bottom)
             .navigationTitle(movieTile)
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                let appearance = UINavigationBarAppearance()
+                appearance.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+                UINavigationBar.appearance().standardAppearance = appearance
+                UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            }
         }
     }
 }
