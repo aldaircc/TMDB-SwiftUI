@@ -18,9 +18,6 @@ struct MovieDetailView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 
-                Divider()
-                    .background(.red)
-                
                 Spacer()
                 
                 
