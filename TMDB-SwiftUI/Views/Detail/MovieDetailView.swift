@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    let movieTile: String
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -53,8 +55,8 @@ struct MovieDetailView: View {
                     .frame(height: 200, alignment: .leading)
                 }
             }
-            .ignoresSafeArea()
-            .navigationTitle("My title")
+            .ignoresSafeArea(edges: .bottom)
+            .navigationTitle(movieTile)
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -62,6 +64,6 @@ struct MovieDetailView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView()
+        MovieDetailView(movieTile: "The Simpsons")
     }
 }
