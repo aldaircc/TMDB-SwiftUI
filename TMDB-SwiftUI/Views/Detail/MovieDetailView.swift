@@ -18,11 +18,19 @@ struct MovieDetailView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 
-                Spacer()
                 
                 
                 /// Category - year - duration (hours and minutes)
                 /// details/description of movie
+                
+                VStack(alignment: .leading) {
+                    Text("Overview")
+                        .fontWeight(.bold)
+                    
+                    Text("A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
+                }
+                .padding(.horizontal)
+                
                 
                 /// Series Cast
                 Section {
