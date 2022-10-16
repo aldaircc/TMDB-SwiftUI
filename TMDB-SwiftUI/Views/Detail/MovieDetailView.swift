@@ -28,6 +28,19 @@ struct MovieDetailView: View {
                         .fontWeight(.bold)
                     
                     Text("A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
+                    
+                    HStack {
+                        Text("Status")
+                            .fontWeight(.bold)
+                        Text("Original Language")
+                            .fontWeight(.bold)
+                    }
+                    
+                    
+                    HStack {
+                        Text("Released")
+                        Text("English")
+                    }
                 }
                 .padding(.horizontal)
                 
@@ -50,8 +63,8 @@ struct MovieDetailView: View {
                             .fontWeight(.bold)
                         Spacer()
                     }
-      
-                   
+                    
+                    
                     
                     ScrollView(.horizontal) {
                         LazyHStack(alignment: .top) {
