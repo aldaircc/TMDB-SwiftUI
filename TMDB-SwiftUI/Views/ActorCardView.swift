@@ -84,7 +84,7 @@ struct ActorInformationBox: View {
             Spacer()
         }
         .frame(height: 35)
-        .background(.red)
+        .background(.white)
     }
 }
 
