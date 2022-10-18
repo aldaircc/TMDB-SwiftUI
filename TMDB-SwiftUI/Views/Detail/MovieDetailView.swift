@@ -15,9 +15,14 @@ struct MovieDetailView: View {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     /// Image
-                    Image("example_detail_pic")
-                        .resizable()
+                    ZStack(alignment: .trailing) {
+                        Image("example_detail_pic")
+                            .resizable()
                         .aspectRatio(contentMode: .fit)
+                        
+                        CircularProgressView(progress: .constant(80))
+                            .offset(x: -5, y: 110)
+                    }
                     
                     /// Category - year - duration (hours and minutes)
                     /// details/description of movie
