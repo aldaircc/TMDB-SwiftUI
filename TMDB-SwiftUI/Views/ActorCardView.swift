@@ -48,40 +48,48 @@ struct ActorCardView: View {
 //                .shadow(color: .black, radius: 10, x: 0, y: 0)
 //        )
         
-        ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 10)
+        ZStack(alignment: .bottomLeading) {
             Image("tom_cruise")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
                 .cornerRadius(10)
-                .frame(height: 175)
+                .aspectRatio(contentMode: .fit)
             
-            ZStack {
-                VStack(alignment: .leading) {
-                    Text("Tom Cruise")
-                        .font(.system(size: 9))
-                        .fontWeight(.bold)
-                    HStack {
-                        Text("Jack")
-                            .multilineTextAlignment(.leading)
-                            .font(.system(size: 8))
-                        .background(.green)
-                        Spacer()
-                    }
-                }
-                .background(.white)
-                .frame(minHeight: 10, idealHeight: 50, maxHeight: 100)
-            }
-                
+            ActorInformationBox(actorName: name, character: character)
         }
-        .padding()
-        .frame(width: 140, height: 255, alignment: .center)
+        .frame(width: 100, height: 250)
     }
 }
 
 struct ActorCardView_Previews: PreviewProvider {
     static var previews: some View {
         ActorCardView(name: "Gillian Jacobs", character: "Brianne")
-            .previewLayout(.fixed(width: 300, height: 400))
+    }
+}
+
+struct ActorInformationBox: View {
+    let actorName: String
+    let character: String
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(actorName)
+                .font(.system(size: 7))
+                .fontWeight(.bold)
+            HStack {
+                Text(character)
+                    .font(.system(size: 7))
+                .fontWeight(.thin)
+                Spacer()
+            }
+            Spacer()
+        }
+        .frame(height: 35)
+        .background(.red)
+    }
+}
+
+struct ActorInformationBox_Previews: PreviewProvider {
+    static var previews: some View {
+        ActorInformationBox(actorName: "Aldair Cosetito", character: "iOS Engineer")
     }
 }
