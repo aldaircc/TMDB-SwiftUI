@@ -18,7 +18,7 @@ struct MovieDetailView: View {
                     ZStack(alignment: .trailing) {
                         Image("example_detail_pic")
                             .resizable()
-                        .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fit)
                         
                         CircularProgressView(progress: .constant(80))
                             .offset(x: -5, y: 110)
@@ -93,14 +93,35 @@ struct MovieDetailView: View {
                             LazyHStack(alignment: .top) {
                                 
                                 ForEach(1 ..< 10) { index in
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 200)
+                                    HStack {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .frame(width: 200)
+                                        
+                                        if index >= 9 {
+                                            VStack {
+                                                Text("View More")
+                                                Image(systemName: "arrow.right.circle")
+                                            }
+                                            .frame(maxWidth: 50, minHeight: 10, maxHeight: .infinity)
+                                        }
+                                    }
+                                    
                                 }
                             }
                         }
                         .frame(height: 200, alignment: .leading)
+                        .padding(.trailing)
+                        //                        .safeAreaInset(edge: .trailing) {
+                        //                            VStack {
+                        //                                Text("View More")
+                        //                                Image(systemName: "arrow.right.circle")
+                        //                            }
+                        //                            .frame(maxWidth: 50, minHeight: 10, maxHeight: .infinity)
+                        //                            .padding(.horizontal)
+                        //                            .background(.regularMaterial)
+                        //                        }
+                        Spacer()
                     }
-                    Spacer()
                 }
                 .ignoresSafeArea(edges: .bottom)
                 .navigationTitle(movieTile)
