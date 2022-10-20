@@ -92,11 +92,15 @@ struct MovieDetailView: View {
                         ScrollView(.horizontal) {
                             LazyHStack(alignment: .top) {
                                 
-                                
+                                ForEach(1 ..< 10) { index in
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 200)
+                                }
                             }
                         }
                         .frame(height: 200, alignment: .leading)
                     }
+                    Spacer()
                 }
                 .ignoresSafeArea(edges: .bottom)
                 .navigationTitle(movieTile)
