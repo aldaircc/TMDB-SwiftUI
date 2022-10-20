@@ -110,16 +110,7 @@ struct MovieDetailView: View {
                             }
                         }
                         .frame(height: 200, alignment: .leading)
-                        .padding(.trailing)
-                        //                        .safeAreaInset(edge: .trailing) {
-                        //                            VStack {
-                        //                                Text("View More")
-                        //                                Image(systemName: "arrow.right.circle")
-                        //                            }
-                        //                            .frame(maxWidth: 50, minHeight: 10, maxHeight: .infinity)
-                        //                            .padding(.horizontal)
-                        //                            .background(.regularMaterial)
-                        //                        }
+                        .padding(.trailing) 
                         Spacer()
                     }
                 }
