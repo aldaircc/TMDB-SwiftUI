@@ -107,16 +107,13 @@ struct MovieDetailView: View {
                                 
                                 ForEach(backdrops, id: \.self) { backdrop in
                                     HStack {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .frame(width: 200)
-                                        
-//                                        if index >= 9 {
-//                                            VStack {
-//                                                Text("View More")
-//                                                Image(systemName: "arrow.right.circle")
-//                                            }
-//                                            .frame(maxWidth: 50, minHeight: 10, maxHeight: .infinity)
-//                                        }
+                                        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(backdrop.filePath)")!,
+                                                   content: { image in
+                                            image.resizable()
+                                                .frame(width: 200, height: 100)
+                                        }, placeholder: {
+                                            
+                                        })
                                     }
                                     
                                 }
