@@ -25,4 +25,9 @@ final class MovieDetailViewModel: ObservableObject {
             }
         }
     }
+    
+    func getImages(movieId: Int) {
+        
+    }
+    
 }
