@@ -9,6 +9,19 @@ import SwiftUI
 
 struct MovieDetailView: View {
     let movieTile: String
+    @ObservedObject var detailVM = MovieDetailViewModel()
+    
+    var logos: [ImageModel] {
+        []
+    }
+    
+    var posters: [ImageModel] {
+        []
+    }
+    
+    var backdrops: [ImageModel] {
+        detailVM.imagesResponse?.backdrops ?? []
+    }
     
     var body: some View {
         NavigationView {
@@ -92,18 +105,18 @@ struct MovieDetailView: View {
                         ScrollView(.horizontal) {
                             LazyHStack(alignment: .top) {
                                 
-                                ForEach(1 ..< 10) { index in
+                                ForEach(backdrops, id: \.self) { backdrop in
                                     HStack {
                                         RoundedRectangle(cornerRadius: 10)
                                             .frame(width: 200)
                                         
-                                        if index >= 9 {
-                                            VStack {
-                                                Text("View More")
-                                                Image(systemName: "arrow.right.circle")
-                                            }
-                                            .frame(maxWidth: 50, minHeight: 10, maxHeight: .infinity)
-                                        }
+//                                        if index >= 9 {
+//                                            VStack {
+//                                                Text("View More")
+//                                                Image(systemName: "arrow.right.circle")
+//                                            }
+//                                            .frame(maxWidth: 50, minHeight: 10, maxHeight: .infinity)
+//                                        }
                                     }
                                     
                                 }
@@ -123,6 +136,9 @@ struct MovieDetailView: View {
                     UINavigationBar.appearance().standardAppearance = appearance
                     UINavigationBar.appearance().scrollEdgeAppearance = appearance
                 }
+            }
+            .task {
+                await detailVM.getImages(movieId: 894205)
             }
         }
     }
