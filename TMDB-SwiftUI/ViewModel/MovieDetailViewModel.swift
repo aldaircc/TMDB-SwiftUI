@@ -11,6 +11,7 @@ final class MovieDetailViewModel: ObservableObject {
     
     @Published var errorMessage = ""
     @Published var videoResponse: VideoResponseModel?
+    @Published var imagesResponse: ImageResult?
     let videoNetwork = VideoNetwork()
     
     func getMovieVideos(movieId: Int) {
@@ -26,8 +27,11 @@ final class MovieDetailViewModel: ObservableObject {
         }
     }
     
-    func getImages(movieId: Int) {
-        
+    func getImages(movieId: Int) async {
+        let network = Network()
+        let response = try? await network.getImages(movieId: movieId)
+        await MainActor.run {
+            imagesResponse = response
+        }
     }
-    
 }
