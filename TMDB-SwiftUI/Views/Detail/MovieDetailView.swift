@@ -103,19 +103,16 @@ struct MovieDetailView: View {
                         
                         
                         ScrollView(.horizontal) {
-                            LazyHStack(alignment: .top) {
+                            HStack(alignment: .top) {
                                 
                                 ForEach(backdrops, id: \.self) { backdrop in
-                                    HStack {
-                                        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(backdrop.filePath)")!,
-                                                   content: { image in
-                                            image.resizable()
-                                                .frame(width: 200, height: 100)
-                                        }, placeholder: {
-                                            
-                                        })
-                                    }
-                                    
+                                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(backdrop.filePath)")!,
+                                               content: { image in
+                                        image.resizable()
+                                            .frame(width: 200, height: 100)
+                                    }, placeholder: {
+                                        
+                                    })
                                 }
                             }
                         }
