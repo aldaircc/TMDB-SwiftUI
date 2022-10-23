@@ -41,7 +41,9 @@ struct MovieDetailView: View {
                     /// details/description of movie
                     
                     VStack(alignment: .leading) {
-                        Text("Title")
+                        Text("\(movieTile)")
+                            .fontWeight(.bold)
+                        
                         Text("Overview")
                             .fontWeight(.bold)
                         
