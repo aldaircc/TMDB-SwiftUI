@@ -12,11 +12,11 @@ struct MovieDetailView: View {
     @ObservedObject var detailVM = MovieDetailViewModel()
     
     var logos: [ImageModel] {
-        []
+        detailVM.imagesResponse?.logos ?? []
     }
     
     var posters: [ImageModel] {
-        []
+        detailVM.imagesResponse?.posters ?? []
     }
     
     var backdrops: [ImageModel] {
