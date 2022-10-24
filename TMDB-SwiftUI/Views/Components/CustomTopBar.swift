@@ -8,13 +8,36 @@
 import SwiftUI
 
 struct CustomTopBar: View {
+    let sectionName: String
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Name")
+                Text(sectionName)
+                    .padding(.trailing, 20)
+                
+                Button(action: { } ) {
+                    Text("Posters")
+                }
+                
+                Button(action: { } ) {
+                    Text("Backdrops")
+                        .underline(true, color: .green)
+                        .fontWeight(.bold)
+                }
+                
+                Button(action: { } ) {
+                    Text("Logos")
+                }
             }
             .background(.orange)
             
+            /// Container View
+            HStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(maxHeight: 200)
+            }
+            .background(.red)
             
         }
     }
@@ -22,6 +45,6 @@ struct CustomTopBar: View {
 
 struct CustomTopBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTopBar()
+        CustomTopBar(sectionName: "Media")
     }
 }
