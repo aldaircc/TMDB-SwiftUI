@@ -10,6 +10,8 @@ import SwiftUI
 struct CustomTopBar: View {
     let sectionName: String
     
+    var urls: [URL] = []
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -33,11 +35,17 @@ struct CustomTopBar: View {
             .background(.orange)
             
             /// Container View
-            HStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(maxHeight: 200)
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(urls, id: \.self) { url in
+                        AsyncImage(url: url) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                    }
+                }
             }
-            .background(.red)
             
         }
     }
