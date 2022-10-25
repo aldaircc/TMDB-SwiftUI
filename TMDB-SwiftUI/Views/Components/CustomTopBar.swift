@@ -46,6 +46,9 @@ struct CustomTopBar: View {
                         } placeholder: {
                             ProgressView()
                         }
+                        .onTapGesture {
+                            print("It was Tapped \(url.absoluteString)")
+                        }
                     }
                 }
             }
