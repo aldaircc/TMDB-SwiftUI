@@ -7,10 +7,20 @@
 
 import SwiftUI
 
+enum ImageCategory {
+    case poster
+    case backdrop
+    case logo
+}
+
 struct CustomTopBar: View {
     let sectionName: String
     
-    var urls: [URL]
+    var images: [ImageModel]
+    
+    var urls: [URL] {
+        return []
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
