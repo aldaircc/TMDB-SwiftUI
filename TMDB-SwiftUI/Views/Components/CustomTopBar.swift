@@ -22,23 +22,25 @@ struct CustomTopBar: View {
         return []
     }
     
+    @State var imageCategory = ImageCategory.poster
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text(sectionName)
                     .padding(.trailing, 20)
                 
-                Button(action: { } ) {
+                Button(action: { imageCategory = .poster }) {
                     Text("Posters")
                 }
                 
-                Button(action: { } ) {
+                Button(action: { imageCategory = .backdrop }) {
                     Text("Backdrops")
                         .underline(true, color: .green)
                         .fontWeight(.bold)
                 }
                 
-                Button(action: { } ) {
+                Button(action: { imageCategory = .logo }) {
                     Text("Logos")
                 }
             }
