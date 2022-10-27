@@ -86,15 +86,15 @@ struct CustomTopBar_Previews: PreviewProvider {
     static var previews: some View {
         CustomTopBar(sectionName: "Media",
                      images: [
-                        .backdrop: [
-                            ImageModel(aspectRatio: 1,
-                                       height: 1,
-                                       iso6391: nil,
-                                       filePath: "/7hkN0cqtzXnQGoNPtZUYDSKR4IZ.jpg",
-                                       voteAverage: 5.0,
-                                       voteCount: 1,
-                                       width: 100)
-                        ]
+                        .backdrop: [ImageModel(aspectRatio: 1, height: 1,
+                                               iso6391: nil, filePath: "/7hkN0cqtzXnQGoNPtZUYDSKR4IZ.jpg",
+                                               voteAverage: 5.0, voteCount: 1, width: 100)],
+                        .logo: [ImageModel(aspectRatio: 1, height: 1,
+                                           iso6391: nil, filePath: "/zYlv7i7H4t9xQ1ZNEcRWO908mFT.png",
+                                           voteAverage: 5.0, voteCount: 1, width: 100)],
+                        .poster: [ImageModel(aspectRatio: 1, height: 1,
+                                             iso6391: nil, filePath: "/v3yyMBZk52HxTCrDLh46NpoSkCb.jpg",
+                                             voteAverage: 5.0, voteCount: 1, width: 100)]
                      ])
     }
 }
