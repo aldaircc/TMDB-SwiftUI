@@ -120,7 +120,14 @@ struct MovieDetailView: View {
                             }
                         }
                         .frame(height: 200, alignment: .leading)
-                        .padding(.trailing) 
+                        .padding(.trailing)
+                        
+                        CustomTopBar(sectionName: "Demo", images: [
+                            .backdrop: backdrops,
+                            .poster: posters,
+                            .logo: logos
+                        ])
+                        
                         Spacer()
                     }
                 }
