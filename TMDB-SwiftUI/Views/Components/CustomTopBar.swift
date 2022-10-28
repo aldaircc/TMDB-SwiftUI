@@ -26,7 +26,21 @@ struct CustomTopBar: View {
         
         switch imageCategory {
         case .poster:
-            urlArray = images[.poster]?.dropFirst(6).compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
+            guard let imagesFiltered = images[.poster] else {
+                return []
+            }
+            
+            let startIndex = images[.poster]?.startIndex ?? 0
+            
+            if (imagesFiltered.count > 0) {
+                let elements = imagesFiltered[startIndex...6]
+                print(elements.count)
+                urlArray = elements.compactMap({
+                    URL(string: "\(baseImageUrl)\($0.filePath)")
+                })
+            } else {
+                urlArray = images[ImageCategory.poster]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
+            }
         case .backdrop:
             urlArray = images[ImageCategory.backdrop]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
         case .logo:
