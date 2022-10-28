@@ -97,31 +97,6 @@ struct MovieDetailView: View {
                     /// Score Breakdown
                     ///
                     Section {
-                        HStack {
-                            Text("Media")
-                                .fontWeight(.bold)
-                            Spacer()
-                        }
-                        
-                        
-                        
-                        ScrollView(.horizontal) {
-                            HStack(alignment: .top) {
-                                
-                                ForEach(backdrops, id: \.self) { backdrop in
-                                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(backdrop.filePath)")!,
-                                               content: { image in
-                                        image.resizable()
-                                            .frame(width: 200, height: 100)
-                                    }, placeholder: {
-                                        
-                                    })
-                                }
-                            }
-                        }
-                        .frame(height: 200, alignment: .leading)
-                        .padding(.trailing)
-                        
                         CustomTopBar(sectionName: "Demo", images: [
                             .backdrop: backdrops,
                             .poster: posters,
