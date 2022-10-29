@@ -36,22 +36,6 @@ struct CustomTopBar: View {
         urlArray = elements.compactMap({
             URL(string: "\(baseImageUrl)\($0.filePath)")
         })
-        
-        //        switch imageCategory {
-//        case .poster:
-//
-//
-//
-//
-//            urlArray = elements.compactMap({
-//                URL(string: "\(baseImageUrl)\($0.filePath)")
-//            })
-//
-//        case .backdrop:
-//            urlArray = images[ImageCategory.backdrop]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
-//        case .logo:
-//            urlArray = images[ImageCategory.logo]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
-//        }
         return urlArray
     }
     
