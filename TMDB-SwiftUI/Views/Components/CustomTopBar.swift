@@ -34,7 +34,6 @@ struct CustomTopBar: View {
             
             if (imagesFiltered.count > 0) {
                 let elements = imagesFiltered[startIndex...6]
-                print(elements.count)
                 urlArray = elements.compactMap({
                     URL(string: "\(baseImageUrl)\($0.filePath)")
                 })
