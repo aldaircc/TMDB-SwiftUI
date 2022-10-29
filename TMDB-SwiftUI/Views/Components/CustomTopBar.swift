@@ -24,27 +24,34 @@ struct CustomTopBar: View {
     var urls: [URL] {
         var urlArray: [URL]
         
-        switch imageCategory {
-        case .poster:
-            guard let imagesFiltered = images[.poster] else {
-                return []
-            }
-            
-            let startIndex = images[.poster]?.startIndex ?? 0
-            
-            if (imagesFiltered.count > 0) {
-                let elements = imagesFiltered[startIndex...6]
-                urlArray = elements.compactMap({
-                    URL(string: "\(baseImageUrl)\($0.filePath)")
-                })
-            } else {
-                urlArray = images[ImageCategory.poster]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
-            }
-        case .backdrop:
-            urlArray = images[ImageCategory.backdrop]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
-        case .logo:
-            urlArray = images[ImageCategory.logo]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
+        guard let imagesFiltered = images[imageCategory],
+              imagesFiltered.count != 0 else {
+            return []
         }
+        
+        let startIndex = images[imageCategory]?.startIndex ?? 0
+        let endIndex = imagesFiltered.count < 6 ? imagesFiltered.count : 6
+        let elements = imagesFiltered[startIndex...endIndex]
+        
+        urlArray = elements.compactMap({
+            URL(string: "\(baseImageUrl)\($0.filePath)")
+        })
+        
+        //        switch imageCategory {
+//        case .poster:
+//
+//
+//
+//
+//            urlArray = elements.compactMap({
+//                URL(string: "\(baseImageUrl)\($0.filePath)")
+//            })
+//
+//        case .backdrop:
+//            urlArray = images[ImageCategory.backdrop]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
+//        case .logo:
+//            urlArray = images[ImageCategory.logo]?.compactMap { URL(string: "\(baseImageUrl)\($0.filePath)") } ?? []
+//        }
         return urlArray
     }
     
