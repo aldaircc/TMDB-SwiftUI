@@ -84,18 +84,7 @@ struct MovieDetailView: View {
                     .padding(.horizontal)
                     
                     
-                    /// Series Cast
-                    Section {
-                        HStack(alignment: .top) {
-                            Text("Series Cast")
-                                .fontWeight(.bold)
-                            Spacer()
-                        }
-                        
-                    }
-                    
                     /// Score Breakdown
-                    ///
                     Section {
                         CustomTopBar(sectionName: "Demo", images: [
                             .backdrop: backdrops,
