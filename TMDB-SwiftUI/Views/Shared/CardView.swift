@@ -30,7 +30,7 @@ struct CardView: View {
                         CircleProgressView(rateValue: 0.5)
                             .offset(x: 5, y: 15)
                     }
-                    MovieDetailView(title: movieTitle, releaseDate: releaseDate)
+                    CardMovieDetailView(title: movieTitle, releaseDate: releaseDate)
                         .offset(y: 120)
                 }
                 
@@ -81,7 +81,7 @@ struct CircleProgressView: View {
     }
 }
 
-struct MovieDetailView: View {
+struct CardMovieDetailView: View {
     let title: String
     let releaseDate: Date
     
@@ -125,7 +125,7 @@ struct DetailCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             CircleProgressView(rateValue: rateValue)
-            MovieDetailView(title: title, releaseDate: releaseDate)
+            CardMovieDetailView(title: title, releaseDate: releaseDate)
         }
         .background(.red)
     }
