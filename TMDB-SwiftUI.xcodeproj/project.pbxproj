@@ -28,13 +28,14 @@
 		0553809628F0BADC0027400A /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0553809528F0BADC0027400A /* MovieDetailView.swift */; };
 		055D709B2883888C00750165 /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055D709A2883888C00750165 /* MovieDetailModel.swift */; };
 		056B07742904CF020034A0CF /* CustomTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056B07732904CF020034A0CF /* CustomTopBar.swift */; };
+		0573C7A42910CD5900E0CD83 /* CastNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573C7A32910CD5900E0CD83 /* CastNetwork.swift */; };
 		058A1F7828849FC700722A19 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A1F7728849FC700722A19 /* ResponseModel.swift */; };
 		059A8390288A28F400BCD9A7 /* GuestSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A838F288A28F400BCD9A7 /* GuestSessionResponse.swift */; };
 		05B3AD7D28D4035F00536B42 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B3AD7C28D4035F00536B42 /* CardView.swift */; };
 		05BA42AB288D077B005D9FF9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BA42AA288D077B005D9FF9 /* LoginView.swift */; };
+		05C5B62828F4EC4F00B9CDB9 /* YoutubeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */; };
 		05CD96C128CD947900E4D1CF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD96C028CD947900E4D1CF /* HomeView.swift */; };
 		05CE6DD928CC320C00BCD331 /* StartMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE6DD828CC320C00BCD331 /* StartMenuView.swift */; };
-		05C5B62828F4EC4F00B9CDB9 /* YoutubeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */; };
 		05E78254287E444A00286059 /* TrendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E78253287E444A00286059 /* TrendingModel.swift */; };
 		05E9AC98287661DD00D28E20 /* ActorCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9AC97287661DD00D28E20 /* ActorCardView.swift */; };
 		05E9EA2D287CF79600C8A384 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9EA2C287CF79600C8A384 /* Network.swift */; };
@@ -97,13 +98,14 @@
 		0553809528F0BADC0027400A /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		055D709A2883888C00750165 /* MovieDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModel.swift; sourceTree = "<group>"; };
 		056B07732904CF020034A0CF /* CustomTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopBar.swift; sourceTree = "<group>"; };
+		0573C7A32910CD5900E0CD83 /* CastNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastNetwork.swift; sourceTree = "<group>"; };
 		058A1F7728849FC700722A19 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		059A838F288A28F400BCD9A7 /* GuestSessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestSessionResponse.swift; sourceTree = "<group>"; };
 		05B3AD7C28D4035F00536B42 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		05BA42AA288D077B005D9FF9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoView.swift; sourceTree = "<group>"; };
 		05CD96C028CD947900E4D1CF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05CE6DD828CC320C00BCD331 /* StartMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenuView.swift; sourceTree = "<group>"; };
-		05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoView.swift; sourceTree = "<group>"; };
 		05E78253287E444A00286059 /* TrendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingModel.swift; sourceTree = "<group>"; };
 		05E9AC97287661DD00D28E20 /* ActorCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCardView.swift; sourceTree = "<group>"; };
 		05E9EA2C287CF79600C8A384 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -260,14 +262,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		05B3AD7B28D4034D00536B42 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				05B3AD7C28D4035F00536B42 /* CardView.swift */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		0553809428F0BACC0027400A /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,12 +278,28 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		05B3AD7B28D4034D00536B42 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				05B3AD7C28D4035F00536B42 /* CardView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		05BA42A9288D076B005D9FF9 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				05BA42AA288D077B005D9FF9 /* LoginView.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		05C5B62628F4EC3D00B9CDB9 /* Representable */ = {
+			isa = PBXGroup;
+			children = (
+				05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */,
+			);
+			path = Representable;
 			sourceTree = "<group>";
 		};
 		05CE6DD728CC31FE00BCD331 /* Menu */ = {
@@ -301,19 +311,12 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
-		05C5B62628F4EC3D00B9CDB9 /* Representable */ = {
-			isa = PBXGroup;
-			children = (
-				05C5B62728F4EC4F00B9CDB9 /* YoutubeVideoView.swift */,
-			);
-			path = Representable;
-			sourceTree = "<group>";
-		};
 		05E9EA2B287CF78900C8A384 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				05E9EA2C287CF79600C8A384 /* Network.swift */,
 				053B80E028EA64F60077C427 /* VideoNetwork.swift */,
+				0573C7A32910CD5900E0CD83 /* CastNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				0528EB732870FB7D0069A403 /* ContentView.swift in Sources */,
 				05478D1A28713C610030CE39 /* MovieCardView.swift in Sources */,
 				0509F1A9287FA1B3002BE298 /* Enums.swift in Sources */,
+				0573C7A42910CD5900E0CD83 /* CastNetwork.swift in Sources */,
 				05F555942890C1F300B68D2A /* RoundedButtonStyle.swift in Sources */,
 				05CD96C128CD947900E4D1CF /* HomeView.swift in Sources */,
 				05BA42AB288D077B005D9FF9 /* LoginView.swift in Sources */,
