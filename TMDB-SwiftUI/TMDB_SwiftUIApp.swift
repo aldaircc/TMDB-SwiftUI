@@ -11,7 +11,9 @@ import SwiftUI
 struct TMDB_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            //LoginView()
+            //StartMenuView()
+            HomeView(vm: MovieViewModel())
         }
     }
 }

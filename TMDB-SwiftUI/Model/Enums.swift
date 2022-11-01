@@ -23,8 +23,19 @@ enum MediaType: String, Codable {
 }
 
 enum KnownForDepartment: String, Codable {
-    case acting = "Acting"
-    case directing = "Directing"
+    case acting
+    case directing
+    //case creator
+    case unknown
+    
+    init?(rawValue: String) {
+        switch rawValue.lowercased() {
+        case "acting": self = .acting
+        case "directing": self = .directing
+        //case "creator": self = .creator
+        default: self = .unknown
+        }
+    }
 }
 
 enum OriginalLanguage: String, Codable {
@@ -35,6 +46,18 @@ enum OriginalLanguage: String, Codable {
     case ta = "ta"
     case ko = "ko"
     case es = "es"
+    case unknown = "Unknown"
+    
+    init?(rawValue: String) {
+        switch rawValue.lowercased() {
+        case "en": self = .en
+        case "ja": self = .ja
+        case "fr": self = .fr
+        case "de": self = .de
+        case "ta": self = .ta
+        default: self = .unknown
+        }
+    }
 }
 
 enum Languages: CustomStringConvertible {
