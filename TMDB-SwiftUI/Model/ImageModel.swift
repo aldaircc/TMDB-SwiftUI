@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ImageModel: Codable {
+struct ImageModel: Codable, Hashable {
     let aspectRatio: Double
     let height: Int
     let iso6391: String?
@@ -15,6 +15,10 @@ struct ImageModel: Codable {
     let voteAverage: Double
     let voteCount: Int
     let width: Int
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(filePath)
+    }
     
     enum CodingKeys: String, CodingKey {
         case height, width
