@@ -36,3 +36,17 @@ struct CastModel: Codable {
     let creditId: String?
     let order: Int?
 }
+
+
+
+typealias Casts = CastResult
+
+struct CastResult: Codable {
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case cast = "cast"
+    }
+    
+    let id: Int
+    let cast: String
+}
