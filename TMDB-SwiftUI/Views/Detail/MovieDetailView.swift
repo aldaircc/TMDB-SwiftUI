@@ -92,7 +92,20 @@ struct MovieDetailView: View {
                                     .fontWeight(.bold)
                             }
                             
+                            ScrollView(.horizontal) {
+                                HStack(spacing: 5) {
+                                    ForEach(1..<6) { index in
+                                            ActorCardView(
+                                                name: "\(index) - Chris Evans",
+                                            character: "Curtis Everett")
+                                            .background(.red)
+                                            .frame(height: 180)
+                                    }
+                                }
+                            }
+                            
                         }
+                        .padding(.horizontal)
                     }
                     
                     
