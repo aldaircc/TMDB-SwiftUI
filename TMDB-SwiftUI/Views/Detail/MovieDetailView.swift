@@ -37,6 +37,7 @@ struct MovieDetailView: View {
                             .offset(x: -5, y: 110)
                     }
                     
+                    
                     /// Category - year - duration (hours and minutes)
                     /// details/description of movie
                     
@@ -82,6 +83,17 @@ struct MovieDetailView: View {
                         
                     }
                     .padding(.horizontal)
+                    
+                    /// Top Billed cast
+                    Section {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("Top Billed Cast")
+                                    .fontWeight(.bold)
+                            }
+                            
+                        }
+                    }
                     
                     
                     /// Score Breakdown
