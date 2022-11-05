@@ -20,7 +20,6 @@ struct ActorCardView: View {
             
             ActorInformationBox(actorName: name, character: character)
         }
-        .frame(width: 100, height: 250)
     }
 }
 
