@@ -7,7 +7,32 @@
 
 import Foundation
 
-struct Network {
+protocol NetworkProtocol {
+    func callApi<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>)->())
+}
+
+struct Network: NetworkProtocol {
+    
+    func callApi<T>(url: URL, completion: @escaping (Result<T, Error>) -> ()) where T : Decodable {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data,
+                  let status = response as? HTTPURLResponse,
+                  error == nil else {
+                return
+            }
+            
+            if status.statusCode >= 200 && status.statusCode < 300 {
+                do {
+                    let objectDecoded = try JSONDecoder().decode(T.self, from: data)
+                    completion(.success(objectDecoded))
+                } catch {
+                    return
+                }
+            } else {
+                return
+            }
+        }
+    }
     
     func getGenres(_ language: Languages = .english) async throws -> Genres? {
         
