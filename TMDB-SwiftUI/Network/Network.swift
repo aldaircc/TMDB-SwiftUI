@@ -8,12 +8,12 @@
 import Foundation
 
 protocol NetworkProtocol {
-    func callApi<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>)->())
+    func callApi<T: Decodable>(url: URL, object: T.Type, completion: @escaping (Result<T, Error>)->())
 }
 
 struct Network: NetworkProtocol {
     
-    func callApi<T>(url: URL, completion: @escaping (Result<T, Error>) -> ()) where T : Decodable {
+    func callApi<T>(url: URL, object: T.Type, completion: @escaping (Result<T, Error>) -> ()) where T : Decodable {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data,
                   let status = response as? HTTPURLResponse,
@@ -32,6 +32,7 @@ struct Network: NetworkProtocol {
                 return
             }
         }
+        .resume()
     }
     
     func getGenres(_ language: Languages = .english) async throws -> Genres? {
