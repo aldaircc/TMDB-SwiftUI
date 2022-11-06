@@ -17,6 +17,18 @@ final class MovieViewModel: ObservableObject {
         
     init(_ network: Network = Network()) {
         self.network = network
+        getcasts()
+    }
+    
+    func getcasts() {
+        CastNetwork().getCast(.movie, id: 607259) { result in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
     }
     
     func getTrendingMovies(_ page: Int = 1, mediaType: String = "movie", timeWindow: String = "week") async {
