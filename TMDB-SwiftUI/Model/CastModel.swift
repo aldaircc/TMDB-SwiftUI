@@ -48,5 +48,5 @@ struct CastResult: Codable {
     }
     
     let id: Int
-    let cast: String
+    let cast: [CastModel]
 }
