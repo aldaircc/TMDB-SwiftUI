@@ -14,20 +14,22 @@ final class CastNetwork {
             return
         }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data,
-                  let httpResponse = response as? HTTPURLResponse,
-                  error == nil else {
-                return
-            }
-            
-            if httpResponse.statusCode == 200 {
-                if let response = try? JSONDecoder().decode(Casts.self, from: data) {
-                    completion(.success(response))
-                }
-            } else {
-                
-            }
-        }
+        Network()
+        
+//        URLSession.shared.dataTask(with: url) { data, response, error in
+//            guard let data = data,
+//                  let httpResponse = response as? HTTPURLResponse,
+//                  error == nil else {
+//                return
+//            }
+//
+//            if httpResponse.statusCode == 200 {
+//                if let response = try? JSONDecoder().decode(Casts.self, from: data) {
+//                    completion(.success(response))
+//                }
+//            } else {
+//
+//            }
+//        }
     }
 }
