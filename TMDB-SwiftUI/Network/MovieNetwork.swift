@@ -9,6 +9,31 @@ import Foundation
 
 struct MovieNetwork {
     
+    func getTrendings(_ page: Int, mediaType: String, timeWindow: String) async -> TrendingResult? {
+        let queryItems = [
+            URLQueryItem(name: "api_key", value: ""),
+            URLQueryItem(name: "page", value: String(describing: page))
+        ]
+        
+        var components = URLComponents(string: "\(URL.trending.absoluteString)\(mediaType)/\(timeWindow)")
+        components?.queryItems = queryItems
+        
+        do {
+            print(components!.url!)
+            let (data, request) = try await URLSession.shared.data(from: components!.url!)
+            
+            if data.count != 0 {
+                let result = try JSONDecoder().decode(TrendingResult.self, from: data)
+                return result
+            } else {
+                return nil
+            }
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
     func getCast(_ media: MediaType, id: Int, completion: @escaping (Result<Casts, Error>) -> ()) {
         guard let url = URL(string: "https://api.themoviedb.org/3/\(media.rawValue)/\(id)/credits?api_key=") else {
             return
