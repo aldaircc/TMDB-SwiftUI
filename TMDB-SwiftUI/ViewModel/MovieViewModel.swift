@@ -10,18 +10,17 @@ import Foundation
 final class MovieViewModel: ObservableObject {
     
     @Published var trendingResult: TrendingResult?
-    let network: Network
+    let network: MovieNetwork
     var trendMovies: [MovieTrending] {
         return trendingResult?.results ?? []
     }
         
-    init(_ network: Network = Network()) {
+    init(_ network: MovieNetwork = MovieNetwork()) {
         self.network = network
-        getcasts()
     }
     
-    func getcasts() {
-        CastNetwork().getCast(.movie, id: 607259) { result in
+    func getCasts(movieId: Int, mediaType: MediaType) {
+        CastNetwork().getCast(mediaType, id: movieId) { result in
             switch result {
             case .success(let success):
                 print(success)
