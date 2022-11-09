@@ -15,11 +15,34 @@ enum CustomError: Error {
     case errorApiResponse(Int, Codable)
 }
 
+enum TimeWindow: String {
+    case week
+    case today
+    
+    init?(rawValue: RawValue) {
+        switch rawValue.lowercased() {
+        case "week": self = .week
+        case "today": self = .today
+        default: return nil
+        }
+    }
+}
+
 enum MediaType: String, Codable {
     case all
     case movie
     case tv
     case person
+    
+    init?(rawValue: String) {
+        switch rawValue.lowercased() {
+        case "all": self = .all
+        case "movie": self = .movie
+        case "tv": self = .tv
+        case "person": self = .person
+        default: return nil
+        }
+    }
 }
 
 enum KnownForDepartment: String, Codable {
