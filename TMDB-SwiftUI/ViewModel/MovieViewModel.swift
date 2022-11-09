@@ -9,7 +9,9 @@ import Foundation
 
 final class MovieViewModel: ObservableObject {
     
+    @Published var casts: Casts = Casts(id: 0, cast: [])
     @Published var trendingResult: TrendingResult?
+    @Published var error = ""
     let network: MovieNetwork
     var trendMovies: [MovieTrending] {
         return trendingResult?.results ?? []
@@ -20,18 +22,18 @@ final class MovieViewModel: ObservableObject {
     }
     
     func getCasts(movieId: Int, mediaType: MediaType) {
-        CastNetwork().getCast(mediaType, id: movieId) { result in
+        network.getCast(mediaType, id: movieId) { result in
             switch result {
-            case .success(let success):
-                print(success)
-            case .failure(let failure):
-                print(failure)
+            case .success(let data):
+                self.casts = data
+            case .failure(let error):
+                self.error = error.localizedDescription
             }
         }
     }
     
-    func getTrendingMovies(_ page: Int = 1, mediaType: String = "movie", timeWindow: String = "week") async {
-        let movies = await network.getTrendings(page, mediaType: mediaType, timeWindow: timeWindow)
+    func getTrendingMovies(_ page: Int = 1, mediaType: MediaType = .movie, timeWindow: String = "week") async {
+        let movies = await network.getTrendings(page, mediaType: mediaType.rawValue, timeWindow: timeWindow)
         await MainActor.run(body: {
             trendingResult = movies
         })
