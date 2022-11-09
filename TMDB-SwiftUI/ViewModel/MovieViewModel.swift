@@ -19,21 +19,29 @@ final class MovieViewModel: ObservableObject {
         
     init(_ network: MovieNetwork = MovieNetwork()) {
         self.network = network
+        getCasts(movieId: 1399, mediaType: .tv)
     }
     
     func getCasts(movieId: Int, mediaType: MediaType) {
         network.getCast(mediaType, id: movieId) { result in
             switch result {
             case .success(let data):
-                self.casts = data
+                Task {
+                    await MainActor.run { [weak self] in
+                        guard let self = self else {
+                            return
+                        }
+                        self.casts = data
+                    }
+                }
             case .failure(let error):
                 self.error = error.localizedDescription
             }
         }
     }
     
-    func getTrendingMovies(_ page: Int = 1, mediaType: MediaType = .movie, timeWindow: String = "week") async {
-        let movies = await network.getTrendings(page, mediaType: mediaType.rawValue, timeWindow: timeWindow)
+    func getTrendingMovies(_ page: Int = 1, mediaType: MediaType = .movie, timeWindow: TimeWindow = .today) async {
+        let movies = await network.getTrendings(page, mediaType: mediaType, timeWindow: timeWindow)
         await MainActor.run(body: {
             trendingResult = movies
         })
