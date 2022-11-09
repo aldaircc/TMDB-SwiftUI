@@ -9,19 +9,23 @@ import Foundation
 
 struct MovieNetwork {
     
-    func getTrendings(_ page: Int, mediaType: String, timeWindow: String) async -> TrendingResult? {
+    func getTrendings(_ page: Int, mediaType: MediaType, timeWindow: TimeWindow) async -> TrendingResult? {
         let queryItems = [
-            URLQueryItem(name: "api_key", value: "457aa6528c2f6fe3ff02984ae2058d6d"),
+            URLQueryItem(name: "api_key", value: ""),
             URLQueryItem(name: "page", value: String(describing: page))
         ]
         
-        var components = URLComponents(string: "\(URL.trending.absoluteString)\(mediaType)/\(timeWindow)")
+        var components = URLComponents(string: "\(URL.trending.absoluteString)\(mediaType.rawValue)/\(timeWindow)")
         components?.queryItems = queryItems
         
         do {
             let (data, request) = try await URLSession.shared.data(from: components!.url!)
             
-            if data.count != 0 {
+            guard let request = request as? HTTPURLResponse else {
+                return nil
+            }
+            
+            if request.statusCode >= 200 && request.statusCode < 300 {
                 let result = try JSONDecoder().decode(TrendingResult.self, from: data)
                 return result
             } else {
