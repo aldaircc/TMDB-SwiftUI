@@ -70,7 +70,7 @@ struct Network: NetworkProtocol {
     
     func getTrendings(_ page: Int, mediaType: String, timeWindow: String) async -> TrendingResult? {
         let queryItems = [
-            URLQueryItem(name: "api_key", value: "457aa6528c2f6fe3ff02984ae2058d6d"),
+            URLQueryItem(name: "api_key", value: ""),
             URLQueryItem(name: "page", value: String(describing: page))
         ]
         
