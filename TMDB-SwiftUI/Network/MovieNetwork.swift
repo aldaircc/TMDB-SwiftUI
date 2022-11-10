@@ -42,8 +42,31 @@ struct MovieNetwork {
             return
         }
         
-        Network().callApi(url: url, object: Casts.self) { result in
-            switch result {
+        Network().callApi(url: url, object: Casts.self) { response in
+            switch response {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    /// Details
+    func getVideo(movieId: Int, completion: @escaping (Result<VideoResponseModel, Error>) -> ()) {
+        let components = URLComponents(string: URL.movieVideo.absoluteString.replacingOccurrences(of: "movie_id",
+                                                                                                  with: String(movieId)))
+        let url = components?.url?.addApiKey()
+        var request = URLRequest(url: url ?? .baseURL)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "Get"
+        
+        guard let url = url else {
+            return
+        }
+        
+        Network().callApi(url: url, object: VideoResponseModel.self) { response in
+            switch response {
             case .success(let data):
                 completion(.success(data))
             case .failure(let error):
