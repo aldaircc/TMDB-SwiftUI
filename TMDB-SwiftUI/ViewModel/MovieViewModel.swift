@@ -11,6 +11,7 @@ final class MovieViewModel: ObservableObject {
     
     @Published var casts: Casts = Casts(id: 0, cast: [])
     @Published var trendingResult: TrendingResult?
+    @Published var videoResult: VideoResponseModel?
     @Published var error = ""
     let network: MovieNetwork
     var trendMovies: [MovieTrending] {
@@ -44,5 +45,21 @@ final class MovieViewModel: ObservableObject {
         await MainActor.run(body: {
             trendingResult = movies
         })
+    }
+    
+    /// Details
+    func getVideo(movieId: Int) {
+        network.getVideo(movieId: movieId) { response in
+            switch response {
+            case .success(let data):
+                Task {
+                    await MainActor.run {
+                        self.videoResult = data
+                    }
+                }
+            case .failure(let error):
+                self.error = error.localizedDescription
+            }
+        }
     }
 }
