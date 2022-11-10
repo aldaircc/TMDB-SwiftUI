@@ -19,7 +19,6 @@ final class MovieViewModel: ObservableObject {
         
     init(_ network: MovieNetwork = MovieNetwork()) {
         self.network = network
-        getCasts(movieId: 1399, mediaType: .tv)
     }
     
     func getCasts(movieId: Int, mediaType: MediaType) {
