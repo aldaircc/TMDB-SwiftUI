@@ -12,6 +12,7 @@ final class MovieViewModel: ObservableObject {
     @Published var casts: Casts = Casts(id: 0, cast: [])
     @Published var trendingResult: TrendingResult?
     @Published var videoResult: VideoResponseModel?
+    @Published var imageResult: ImageResult?
     @Published var error = ""
     let network: MovieNetwork
     var trendMovies: [MovieTrending] {
@@ -60,6 +61,14 @@ final class MovieViewModel: ObservableObject {
             case .failure(let error):
                 self.error = error.localizedDescription
             }
+        }
+    }
+    
+    func getImages(movieId: Int) async {
+        do {
+            imageResult = try await network.getImages(movieId: movieId)
+        } catch {
+            ()
         }
     }
 }
