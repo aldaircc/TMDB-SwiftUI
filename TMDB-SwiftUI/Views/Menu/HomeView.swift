@@ -48,7 +48,7 @@ struct HomeView: View {
             }
         }
         .task {
-            await vm.getTrendingMovies()
+            await vm.getTrendingMovies(mediaType: .all, timeWindow: .week)
         }
     }
 }
