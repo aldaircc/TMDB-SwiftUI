@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieDetailView: View {
     let movieTile: String
+    @ObservedObject var vm: MovieViewModel
     @ObservedObject var detailVM = MovieDetailViewModel()
     
     var logos: [ImageModel] {
@@ -138,6 +139,6 @@ struct MovieDetailView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(movieTile: "The Simpsons")
+        MovieDetailView(movieTile: "The Simpsons", vm: MovieViewModel())
     }
 }
