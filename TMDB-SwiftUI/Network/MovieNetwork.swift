@@ -74,4 +74,25 @@ struct MovieNetwork {
             }
         }
     }
+    
+    func getImages(movieId: Int) async throws -> ImageResult? {
+        let items = [URLQueryItem(name: "api_key", value: "")]
+        var components = URLComponents(string: "\(URL.movieImages.absoluteString)/\(movieId)/images")
+        components?.queryItems = items
+        
+        guard let url = components?.url else {
+            return nil
+        }
+        
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<ImageResult, Error>) in
+            Network().callApi(url: url, object: ImageResult.self) { response in
+                switch response {
+                case .success(let data):
+                    continuation.resume(returning: data)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
 }
