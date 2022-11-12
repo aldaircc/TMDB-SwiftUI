@@ -98,7 +98,6 @@ struct MovieDetailView: View {
                                             ActorCardView(
                                                 name: "\(index) - Chris Evans",
                                             character: "Curtis Everett")
-                                            .background(.red)
                                             .frame(height: 180)
                                     }
                                 }
