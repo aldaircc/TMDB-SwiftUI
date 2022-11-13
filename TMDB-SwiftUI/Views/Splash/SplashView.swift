@@ -13,7 +13,7 @@ struct SplashView: View {
     
     var body: some View {
         if isActive {
-            MovieDetailView(movieTile: "The Simpsons")
+            MovieDetailView(movieTile: "The Simpsons", vm: MovieViewModel())
         } else {
             ZStack {
                 Image("tmdbLogo")
