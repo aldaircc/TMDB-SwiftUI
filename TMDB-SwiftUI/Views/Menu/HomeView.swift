@@ -11,7 +11,7 @@ struct HomeView: View {
     @ObservedObject var vm = MovieViewModel()
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Text("What's popular")
                 Spacer()
@@ -22,6 +22,7 @@ struct HomeView: View {
             
             HStack {
                 Text("Latest Trailers")
+                Spacer()
                 Button("See all") {
                     
                 }
@@ -29,6 +30,7 @@ struct HomeView: View {
             
             HStack {
                 Text("Trending")
+                Spacer()
                 Button("See all") {
                     
                 }
