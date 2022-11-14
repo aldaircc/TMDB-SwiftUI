@@ -95,7 +95,7 @@ struct MovieDetailView: View {
                             
                             ScrollView(.horizontal) {
                                 HStack(spacing: 5) {
-                                    ForEach(1..<6) { index in
+                                    ForEach(1..<10) { index in
                                             ActorCardView(
                                                 name: "\(index) - Chris Evans",
                                             character: "Curtis Everett")
@@ -132,6 +132,8 @@ struct MovieDetailView: View {
             }
             .task {
                 await detailVM.getImages(movieId: 894205)
+                vm.getCasts(movieId: 779782,
+                            mediaType: .movie)
             }
         }
     }
