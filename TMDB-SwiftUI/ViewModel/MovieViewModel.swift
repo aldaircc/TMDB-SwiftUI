@@ -18,6 +18,10 @@ final class MovieViewModel: ObservableObject {
     var trendMovies: [MovieTrending] {
         return trendingResult?.results ?? []
     }
+    
+    var castImages: [CastModel] {
+        return self.casts.cast
+    }
         
     init(_ network: MovieNetwork = MovieNetwork()) {
         self.network = network
