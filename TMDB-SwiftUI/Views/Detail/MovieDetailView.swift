@@ -95,11 +95,9 @@ struct MovieDetailView: View {
                             
                             ScrollView(.horizontal) {
                                 HStack(spacing: 5) {
-                                    ForEach(1..<10) { index in
-                                            ActorCardView(
-                                                name: "\(index) - Chris Evans",
-                                            character: "Curtis Everett")
-                                            .frame(height: 180)
+                                    ForEach(vm.castImages, id:\.id) { cast in
+                                        ActorCardView(name: cast.name ?? "",
+                                                      character: cast.character ?? "")
                                     }
                                 }
                             }
