@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct ActorCardView: View {
-    let name: String
-    let character: String
+    let cast: CastModel
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image("tom_cruise")
-                .resizable()
-                .cornerRadius(10)
-                .aspectRatio(contentMode: .fit)
+//            Image("tom_cruise")
+//                .resizable()
+//                .cornerRadius(10)
+//                .aspectRatio(contentMode: .fit)
             
-            ActorInformationBox(actorName: name, character: character)
+            ActorInformationBox(actorName: cast.name ?? "",
+                                character: cast.character ?? "")
         }
     }
 }
 
 struct ActorCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ActorCardView(name: "Gillian Jacobs", character: "Brianne")
+        ActorCardView(cast: CastModel(adult: false, gender: 1, id: 1,
+                                      knownForDepartment: nil, name: "Tom", originalName: "Tom",
+                                      popularity: 8, profilePath: "/asdasd.jpg", castId: 1,
+                                      character: "Tom Cruise", creditId: "1", order: 1))
     }
 }
 

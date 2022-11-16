@@ -96,8 +96,7 @@ struct MovieDetailView: View {
                             ScrollView(.horizontal) {
                                 HStack(spacing: 5) {
                                     ForEach(vm.castImages, id:\.id) { cast in
-                                        ActorCardView(name: cast.name ?? "",
-                                                      character: cast.character ?? "")
+                                        ActorCardView(cast: cast)
                                     }
                                 }
                             }
