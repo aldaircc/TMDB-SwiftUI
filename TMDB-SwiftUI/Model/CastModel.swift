@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CastModel: Codable {
+struct CastModel: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case adult = "adult"
         case gender = "gender"
@@ -25,7 +25,7 @@ struct CastModel: Codable {
     
     let adult: Bool?
     let gender: Int?
-    let id: Int?
+    let id: Int
     let knownForDepartment: String?
     let name: String?
     let originalName: String?
