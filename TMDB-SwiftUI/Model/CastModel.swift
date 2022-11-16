@@ -35,6 +35,10 @@ struct CastModel: Codable, Identifiable {
     let character: String?
     let creditId: String?
     let order: Int?
+    
+    var imagePath: URL {
+        return URL(string: "https://image.tmdb.org/t/p/w200\(profilePath ?? "")") ?? URL(string: "https://google.com")!
+    }
 }
 
 
