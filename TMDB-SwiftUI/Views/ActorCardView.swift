@@ -15,6 +15,7 @@ struct ActorCardView: View {
             AsyncImage(url: cast.imagePath) { image in
                 image.resizable()
                     .frame(width: 120, height: 180, alignment: .center)
+                    .cornerRadius(10)
                     .scaledToFit()
             } placeholder: {
                 ProgressView()
