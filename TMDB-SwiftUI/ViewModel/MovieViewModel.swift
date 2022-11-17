@@ -20,7 +20,15 @@ final class MovieViewModel: ObservableObject {
     }
     
     var castImages: [CastModel] {
-        return self.casts.cast
+        let startIndex = casts.cast.startIndex
+        let endIndex = casts.cast.count < 5 ? casts.cast.count : 5
+        
+        guard endIndex >= 1 else {
+            return []
+        }
+        
+        let elements = Array<CastModel>(casts.cast[startIndex..<endIndex])
+        return elements
     }
         
     init(_ network: MovieNetwork = MovieNetwork()) {
