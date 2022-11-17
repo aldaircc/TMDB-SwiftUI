@@ -12,11 +12,14 @@ struct ActorCardView: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-//            Image("tom_cruise")
-//                .resizable()
-//                .cornerRadius(10)
-//                .aspectRatio(contentMode: .fit)
-            
+            AsyncImage(url: cast.imagePath) { image in
+                image.resizable()
+                    .frame(width: 120, height: 180, alignment: .center)
+                    .scaledToFit()
+            } placeholder: {
+                ProgressView()
+            }
+
             ActorInformationBox(actorName: cast.name ?? "",
                                 character: cast.character ?? "")
         }
