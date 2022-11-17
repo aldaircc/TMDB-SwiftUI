@@ -85,6 +85,8 @@ struct MovieDetailView: View {
                     }
                     .padding(.horizontal)
                     
+                    Divider()
+                    
                     /// Top Billed cast
                     Section {
                         VStack(alignment: .leading) {
@@ -97,6 +99,14 @@ struct MovieDetailView: View {
                                 HStack(spacing: 5) {
                                     ForEach(vm.castImages, id:\.id) { cast in
                                         ActorCardView(cast: cast)
+                                    }
+                                    Button(action: { print("Show more image") }) {
+                                        HStack(spacing: 2) {
+                                            Text("View more")
+                                                .font(.system(size: 11, weight: .semibold, design: .rounded))
+                                            Image(systemName: "arrow.right.square.fill")
+                                        }
+                                        .foregroundColor(.black)
                                     }
                                 }
                             }
