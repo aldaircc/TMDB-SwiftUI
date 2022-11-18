@@ -24,6 +24,51 @@ struct MovieDetailView: View {
         detailVM.imagesResponse?.backdrops ?? []
     }
     
+    var movieOverView: some View {
+        VStack(alignment: .leading) {
+            Text("\(movieTile)")
+                .fontWeight(.bold)
+            
+            Text("Overview")
+                .fontWeight(.bold)
+            
+            Text("A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
+                .multilineTextAlignment(.leading)
+            
+            Divider()
+            
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Status")
+                        .fontWeight(.bold)
+                    Text("Released")
+                }
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text("Original Language")
+                        .fontWeight(.bold)
+                    Text("English")
+                }
+            }
+            
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Budget")
+                        .fontWeight(.bold)
+                    Text("$2,80")
+                }
+                Spacer()
+                VStack(alignment: .leading) {
+                    Text("Revenue")
+                        .fontWeight(.bold)
+                    Text("$14,575")
+                }
+            }
+            
+        }
+        .padding(.horizontal)
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
@@ -42,48 +87,7 @@ struct MovieDetailView: View {
                     /// Category - year - duration (hours and minutes)
                     /// details/description of movie
                     
-                    VStack(alignment: .leading) {
-                        Text("\(movieTile)")
-                            .fontWeight(.bold)
-                        
-                        Text("Overview")
-                            .fontWeight(.bold)
-                        
-                        Text("A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
-                            .multilineTextAlignment(.leading)
-                        
-                        Divider()
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Status")
-                                    .fontWeight(.bold)
-                                Text("Released")
-                            }
-                            Spacer()
-                            VStack(alignment: .leading) {
-                                Text("Original Language")
-                                    .fontWeight(.bold)
-                                Text("English")
-                            }
-                        }
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Budget")
-                                    .fontWeight(.bold)
-                                Text("$2,80")
-                            }
-                            Spacer()
-                            VStack(alignment: .leading) {
-                                Text("Revenue")
-                                    .fontWeight(.bold)
-                                Text("$14,575")
-                            }
-                        }
-                        
-                    }
-                    .padding(.horizontal)
+                    movieOverView
                     
                     Divider()
                     
