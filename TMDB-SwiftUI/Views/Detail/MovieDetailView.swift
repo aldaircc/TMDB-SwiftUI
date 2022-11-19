@@ -13,9 +13,12 @@ struct MovieDetailView: View {
     
     var movieHeaderView: some View {
         ZStack(alignment: .trailing) {
-            Image("example_detail_pic")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            AsyncImage(url: movie?.posterUrl) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .aspectRatio(contentMode: .fit)
             
             CircularProgressView(progress: .constant(movie?.percetageRate ?? 0))
                 .offset(x: -5, y: 110)
@@ -30,7 +33,7 @@ struct MovieDetailView: View {
             Text("Overview")
                 .fontWeight(.bold)
             
-            Text("A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
+            Text(movie?.overview ?? "")
                 .multilineTextAlignment(.leading)
             
             Divider()

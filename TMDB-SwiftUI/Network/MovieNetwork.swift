@@ -38,7 +38,7 @@ struct MovieNetwork {
     }
     
     func getCast(_ media: MediaType, id: Int, completion: @escaping (Result<Casts, Error>) -> ()) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/\(media.rawValue)/\(id)/credits?api_key=") else {
+        guard let url = URL(string: "https://api.themoviedb.org/3/\(media.rawValue)/\(id)/credits?api_key=457aa6528c2f6fe3ff02984ae2058d6d") else {
             return
         }
         
@@ -53,6 +53,25 @@ struct MovieNetwork {
     }
     
     /// Details
+    func getDetail(_ movieId: Int) async throws -> MovieDetailModel? {
+        let components = URLComponents(string: "\(URL.movie.absoluteString)\(movieId)")
+        
+        guard let url = components?.url?.addApiKey() else {
+            return nil
+        }
+        
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<MovieDetailModel, Error>) in
+            Network().callApi(url: url, object: MovieDetailModel.self) { response in
+                switch response {
+                case .success(let data):
+                    continuation.resume(returning: data)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
+    
     func getVideo(movieId: Int, completion: @escaping (Result<VideoResponseModel, Error>) -> ()) {
         let components = URLComponents(string: URL.movieVideo.absoluteString.replacingOccurrences(of: "movie_id",
                                                                                                   with: String(movieId)))
