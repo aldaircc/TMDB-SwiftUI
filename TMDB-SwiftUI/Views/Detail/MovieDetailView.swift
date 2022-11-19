@@ -12,18 +12,6 @@ struct MovieDetailView: View {
     @ObservedObject var vm: MovieViewModel
     @ObservedObject var detailVM = MovieDetailViewModel()
     
-    var logos: [ImageModel] {
-        detailVM.imagesResponse?.logos ?? []
-    }
-    
-    var posters: [ImageModel] {
-        detailVM.imagesResponse?.posters ?? []
-    }
-    
-    var backdrops: [ImageModel] {
-        detailVM.imagesResponse?.backdrops ?? []
-    }
-    
     var movieHeaderView: some View {
         ZStack(alignment: .trailing) {
             Image("example_detail_pic")
@@ -113,21 +101,8 @@ struct MovieDetailView: View {
                                     }
                                 }
                             }
-                            
                         }
                         .padding(.horizontal)
-                    }
-                    
-                    
-                    /// Score Breakdown
-                    Section {
-                        CustomTopBar(sectionName: "Demo", images: [
-                            .backdrop: backdrops,
-                            .poster: posters,
-                            .logo: logos
-                        ])
-                        
-                        Spacer()
                     }
                 }
                 .ignoresSafeArea(edges: .bottom)
@@ -141,7 +116,6 @@ struct MovieDetailView: View {
                 }
             }
             .task {
-                await detailVM.getImages(movieId: 894205)
                 vm.getCasts(movieId: 779782,
                             mediaType: .movie)
             }
