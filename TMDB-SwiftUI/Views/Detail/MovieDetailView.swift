@@ -24,6 +24,17 @@ struct MovieDetailView: View {
         detailVM.imagesResponse?.backdrops ?? []
     }
     
+    var movieHeaderView: some View {
+        ZStack(alignment: .trailing) {
+            Image("example_detail_pic")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            
+            CircularProgressView(progress: .constant(80))
+                .offset(x: -5, y: 110)
+        }
+    }
+    
     var movieOverView: some View {
         VStack(alignment: .leading) {
             Text("\(movieTile)")
@@ -73,19 +84,7 @@ struct MovieDetailView: View {
         NavigationView {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
-                    /// Image
-                    ZStack(alignment: .trailing) {
-                        Image("example_detail_pic")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        
-                        CircularProgressView(progress: .constant(80))
-                            .offset(x: -5, y: 110)
-                    }
-                    
-                    
-                    /// Category - year - duration (hours and minutes)
-                    /// details/description of movie
+                    movieHeaderView
                     
                     movieOverView
                     
