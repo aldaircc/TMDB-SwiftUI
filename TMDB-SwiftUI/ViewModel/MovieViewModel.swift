@@ -11,6 +11,7 @@ final class MovieViewModel: ObservableObject {
     
     @Published var casts: Casts = Casts(id: 0, cast: [])
     @Published var trendingResult: TrendingResult?
+    @Published var movieDetail: MovieDetailModel?
     @Published var videoResult: VideoResponseModel?
     @Published var imageResult: ImageResult?
     @Published var error = ""
@@ -30,7 +31,7 @@ final class MovieViewModel: ObservableObject {
         let elements = Array<CastModel>(casts.cast[startIndex..<endIndex])
         return elements
     }
-        
+    
     init(_ network: MovieNetwork = MovieNetwork()) {
         self.network = network
     }
@@ -82,5 +83,15 @@ final class MovieViewModel: ObservableObject {
         } catch {
             ()
         }
+    }
+    
+    func getDetail(movieId: Int) async {
+        Task {
+            let data = try await network.getDetail(movieId)
+            await MainActor.run {
+                self.movieDetail = data
+            }
+        }
+        
     }
 }
