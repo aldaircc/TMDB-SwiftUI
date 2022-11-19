@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    let movieTile: String
     @ObservedObject var vm: MovieViewModel
-    @ObservedObject var detailVM = MovieDetailViewModel()
+    var movie: MovieTrending?
     
     var movieHeaderView: some View {
         ZStack(alignment: .trailing) {
@@ -18,14 +17,14 @@ struct MovieDetailView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             
-            CircularProgressView(progress: .constant(80))
+            CircularProgressView(progress: .constant(movie?.percetageRate ?? 0))
                 .offset(x: -5, y: 110)
         }
     }
     
     var movieOverView: some View {
         VStack(alignment: .leading) {
-            Text("\(movieTile)")
+            Text(movie?.title ?? "")
                 .fontWeight(.bold)
             
             Text("Overview")
@@ -106,7 +105,7 @@ struct MovieDetailView: View {
                     }
                 }
                 .ignoresSafeArea(edges: .bottom)
-                .navigationTitle(movieTile)
+                .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
                 .onAppear {
                     let appearance = UINavigationBarAppearance()
@@ -116,7 +115,7 @@ struct MovieDetailView: View {
                 }
             }
             .task {
-                vm.getCasts(movieId: 779782,
+                vm.getCasts(movieId: movie?.id ?? 0,
                             mediaType: .movie)
             }
         }
@@ -125,6 +124,6 @@ struct MovieDetailView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(movieTile: "The Simpsons", vm: MovieViewModel())
+        MovieDetailView(vm: MovieViewModel(), movie: .testValue)
     }
 }
