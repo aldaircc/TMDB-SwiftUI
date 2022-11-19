@@ -42,7 +42,7 @@ struct MovieDetailView: View {
                 VStack(alignment: .leading) {
                     Text("Status")
                         .fontWeight(.bold)
-                    Text("Released")
+                    Text(vm.movieDetail?.status ?? "")
                 }
                 Spacer()
                 VStack(alignment: .leading) {
@@ -56,13 +56,13 @@ struct MovieDetailView: View {
                 VStack(alignment: .leading) {
                     Text("Budget")
                         .fontWeight(.bold)
-                    Text("$2,80")
+                    Text("\(vm.movieDetail?.budget ?? 0)")
                 }
                 Spacer()
                 VStack(alignment: .leading) {
                     Text("Revenue")
                         .fontWeight(.bold)
-                    Text("$14,575")
+                    Text("\(vm.movieDetail?.revenue ?? 0)")
                 }
             }
             
@@ -118,6 +118,7 @@ struct MovieDetailView: View {
                 }
             }
             .task {
+                await vm.getDetail(movieId: movie?.id ?? 0)
                 vm.getCasts(movieId: movie?.id ?? 0,
                             mediaType: .movie)
             }
