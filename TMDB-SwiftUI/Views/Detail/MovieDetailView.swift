@@ -26,7 +26,7 @@ struct MovieDetailView: View {
     }
     
     var movieOverView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 10) {
             Text(movie?.title ?? "")
                 .fontWeight(.bold)
             
@@ -56,13 +56,13 @@ struct MovieDetailView: View {
                 VStack(alignment: .leading) {
                     Text("Budget")
                         .fontWeight(.bold)
-                    Text("\(vm.movieDetail?.budget ?? 0)")
+                    Text(vm.movieDetail?.budget ?? 0, format: .currency(code: "USD"))
                 }
                 Spacer()
                 VStack(alignment: .leading) {
                     Text("Revenue")
                         .fontWeight(.bold)
-                    Text("\(vm.movieDetail?.revenue ?? 0)")
+                    Text(vm.movieDetail?.revenue ?? 0, format: .currency(code: "USD"))
                 }
             }
             
@@ -73,7 +73,7 @@ struct MovieDetailView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 10) {
                     movieHeaderView
                     
                     movieOverView
@@ -120,7 +120,7 @@ struct MovieDetailView: View {
             .task {
                 await vm.getDetail(movieId: movie?.id ?? 0)
                 vm.getCasts(movieId: movie?.id ?? 0,
-                            mediaType: .movie)
+                            mediaType: movie?.mediaType ?? .movie)
             }
         }
     }
