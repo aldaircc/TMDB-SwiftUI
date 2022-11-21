@@ -97,14 +97,14 @@ struct MovieTrending: Codable, Identifiable {
     }
     
     let adult: Bool?
-    let backdropPath: String? //"/Yc9q6QuWrMp9nuDm5R8ExNqbEq.jpg",
+    let backdropPath: String?
     let id: Int?
     let title: String?
     let originalLanguage: String?
     let originalTitle: String?
     let overview: String?
-    let posterPath: String? //"/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg",
-    let mediaType: String?
+    let posterPath: String?
+    let mediaType: MediaType? // String?
     let genreIds: [Int]?
     let popularity: Double?
     let releaseDate: String?
@@ -115,6 +115,19 @@ struct MovieTrending: Codable, Identifiable {
     var posterUrl: URL {
         URL(string: "\(baseImagePath)\(posterPath ?? "")")!
     }
+    var percetageRate: Double {
+        guard let voteAverage = voteAverage else {
+            return 0.0
+        }
+        
+        return voteAverage * 10
+    }
+    
+    static let testValue = MovieTrending(adult: false, backdropPath: "/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg", id: 505642,
+                                     title: "Black Panther: Wakanda Forever", originalLanguage: "en", originalTitle: "Black Panther: Wakanda Forever",
+                                         overview: "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.", posterPath: "/sv1xJUazXeYqALzczSZ3O6nkH75.jpg", mediaType: .init(rawValue: "movied"),
+                                     genreIds: [28, 12, 878], popularity: 3441.331, releaseDate: "2022-11-09",
+                                     video: false, voteAverage: 7.508, voteCount: 750)
 }
 
 struct TrendingResult: Codable {
