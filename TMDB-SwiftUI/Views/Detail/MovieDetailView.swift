@@ -11,7 +11,7 @@ struct MovieDetailView: View {
     @ObservedObject var vm: MovieViewModel
     var movie: MovieTrending?
     
-    var movieHeaderView: some View {
+    var movieHeaderView: some View  {
         ZStack(alignment: .bottomTrailing) {
             AsyncImage(url: movie?.posterUrl) { image in
                 image.resizable()
@@ -35,37 +35,31 @@ struct MovieDetailView: View {
             
             Text(movie?.overview ?? "")
                 .multilineTextAlignment(.leading)
-            
-            Divider()
-            
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Status")
-                        .fontWeight(.bold)
-                    Text(vm.movieDetail?.status ?? "")
-                }
+        }
+        .padding(.horizontal)
+    }
+    
+    var detailOverview: some View {
+        VStack(spacing: 10) {
+            HStack  {
+                MovieInfoView(fieldTitle: "Status",
+                              fieldValue: vm.movieDetail?.status ?? "",
+                              isCurrencyFormat: false)
                 Spacer()
-                VStack(alignment: .leading) {
-                    Text("Original Language")
-                        .fontWeight(.bold)
-                    Text("English")
-                }
+                MovieInfoView(fieldTitle: "Original Language",
+                              fieldValue: "English",
+                              isCurrencyFormat: false)
             }
             
             HStack {
-                VStack(alignment: .leading) {
-                    Text("Budget")
-                        .fontWeight(.bold)
-                    Text(vm.movieDetail?.budget ?? 0, format: .currency(code: "USD"))
-                }
+                MovieInfoView(fieldTitle: "Budget",
+                              fieldValue: String(vm.movieDetail?.budget ?? 0),
+                              isCurrencyFormat: true)
                 Spacer()
-                VStack(alignment: .leading) {
-                    Text("Revenue")
-                        .fontWeight(.bold)
-                    Text(vm.movieDetail?.revenue ?? 0, format: .currency(code: "USD"))
-                }
+                MovieInfoView(fieldTitle: "Revenue",
+                              fieldValue: String(vm.movieDetail?.revenue ?? 0),
+                              isCurrencyFormat: true)
             }
-            
         }
         .padding(.horizontal)
     }
@@ -75,8 +69,12 @@ struct MovieDetailView: View {
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 10) {
                     movieHeaderView
-                    
+
                     movieOverView
+                    
+                    Divider()
+                    
+                    detailOverview
                     
                     Divider()
                     
@@ -121,6 +119,25 @@ struct MovieDetailView: View {
                 await vm.getDetail(movieId: movie?.id ?? 0)
                 vm.getCasts(movieId: movie?.id ?? 0,
                             mediaType: movie?.mediaType ?? .movie)
+            }
+        }
+    }
+}
+
+struct MovieInfoView: View {
+    let fieldTitle: String
+    let fieldValue: String
+    let isCurrencyFormat: Bool
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(fieldTitle)
+                .fontWeight(.bold)
+            
+            if isCurrencyFormat {
+                Text(Int(fieldValue) ?? 0, format: .currency(code: "USD"))
+            } else {
+                Text(fieldValue)
             }
         }
     }
