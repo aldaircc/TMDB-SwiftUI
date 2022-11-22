@@ -78,6 +78,8 @@ enum OriginalLanguage: String, Codable {
         case "fr": self = .fr
         case "de": self = .de
         case "ta": self = .ta
+        case "ko": self = .ko
+        case "es": self = .es
         default: self = .unknown
         }
     }
