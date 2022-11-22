@@ -64,6 +64,34 @@ struct MovieDetailView: View {
         .padding(.horizontal)
     }
     
+    var castBilledSection: some View {
+        Section {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Top Billed Cast")
+                        .fontWeight(.bold)
+                }
+                
+                ScrollView(.horizontal) {
+                    HStack(spacing: 5) {
+                        ForEach(vm.castImages, id:\.id) { cast in
+                            ActorCardView(cast: cast)
+                        }
+                        Button(action: { print("Show more image") }) {
+                            HStack(spacing: 2) {
+                                Text("View more")
+                                    .font(.system(size: 11, weight: .semibold, design: .rounded))
+                                Image(systemName: "arrow.right.square.fill")
+                            }
+                            .foregroundColor(.black)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal)
+        }
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
@@ -78,32 +106,7 @@ struct MovieDetailView: View {
                     
                     Divider()
                     
-                    /// Top Billed cast
-                    Section {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text("Top Billed Cast")
-                                    .fontWeight(.bold)
-                            }
-                            
-                            ScrollView(.horizontal) {
-                                HStack(spacing: 5) {
-                                    ForEach(vm.castImages, id:\.id) { cast in
-                                        ActorCardView(cast: cast)
-                                    }
-                                    Button(action: { print("Show more image") }) {
-                                        HStack(spacing: 2) {
-                                            Text("View more")
-                                                .font(.system(size: 11, weight: .semibold, design: .rounded))
-                                            Image(systemName: "arrow.right.square.fill")
-                                        }
-                                        .foregroundColor(.black)
-                                    }
-                                }
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
+                    castBilledSection
                 }
                 .ignoresSafeArea(edges: .bottom)
                 .navigationTitle("")
