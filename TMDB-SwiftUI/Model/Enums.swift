@@ -61,7 +61,7 @@ enum KnownForDepartment: String, Codable {
     }
 }
 
-enum OriginalLanguage: String, Codable {
+enum OriginalLanguage: String, CustomStringConvertible, Codable {
     case en = "en"
     case ja = "ja"
     case fr = "fr"
@@ -81,6 +81,27 @@ enum OriginalLanguage: String, Codable {
         case "ko": self = .ko
         case "es": self = .es
         default: self = .unknown
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .en:
+            return "English"
+        case .ja:
+            return "Japanese"
+        case .fr:
+            return "French"
+        case .de:
+            return "German"
+        case .ta:
+            return ""
+        case .ko:
+            return "Korean"
+        case .es:
+            return "Spanish"
+        case .unknown:
+            return "Unknown"
         }
     }
 }
