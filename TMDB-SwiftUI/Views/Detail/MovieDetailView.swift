@@ -47,7 +47,7 @@ struct MovieDetailView: View {
                               isCurrencyFormat: false)
                 Spacer()
                 MovieInfoView(fieldTitle: "Original Language",
-                              fieldValue: "English",
+                              fieldValue: vm.movieDetail?.originalLanguage?.description ?? "",
                               isCurrencyFormat: false)
             }
             
