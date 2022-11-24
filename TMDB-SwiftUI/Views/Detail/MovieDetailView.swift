@@ -77,7 +77,9 @@ struct MovieDetailView: View {
                         ForEach(vm.castImages, id:\.id) { cast in
                             ActorCardView(cast: cast)
                         }
-                        Button(action: { print("Show more image") }) {
+                        Button(action: {
+                            /// TODO
+                        }) {
                             HStack(spacing: 2) {
                                 Text("View more")
                                     .font(.system(size: 11, weight: .semibold, design: .rounded))
