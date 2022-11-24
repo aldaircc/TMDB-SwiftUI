@@ -15,7 +15,8 @@ struct MovieDetailModel: Codable {
     let genres: [Genre]
     let homepage: String
     let id: Int
-    let imdbID, originalLanguage, originalTitle, overview: String
+    let imdbID, originalTitle, overview: String
+    let originalLanguage: OriginalLanguage?
     let popularity: Double
     let posterPath: String
     let productionCompanies: [ProductionCompany]

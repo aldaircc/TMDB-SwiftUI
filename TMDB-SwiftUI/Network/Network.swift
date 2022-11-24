@@ -7,7 +7,33 @@
 
 import Foundation
 
-struct Network {
+protocol NetworkProtocol {
+    func callApi<T: Decodable>(url: URL, object: T.Type, completion: @escaping (Result<T, Error>)->())
+}
+
+struct Network: NetworkProtocol {
+    
+    func callApi<T>(url: URL, object: T.Type, completion: @escaping (Result<T, Error>) -> ()) where T : Decodable {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data,
+                  let status = response as? HTTPURLResponse,
+                  error == nil else {
+                return
+            }
+            
+            if status.statusCode >= 200 && status.statusCode < 300 {
+                do {
+                    let objectDecoded = try JSONDecoder().decode(T.self, from: data)
+                    completion(.success(objectDecoded))
+                } catch {
+                    return
+                }
+            } else {
+                return
+            }
+        }
+        .resume()
+    }
     
     func getGenres(_ language: Languages = .english) async throws -> Genres? {
         
@@ -44,7 +70,7 @@ struct Network {
     
     func getTrendings(_ page: Int, mediaType: String, timeWindow: String) async -> TrendingResult? {
         let queryItems = [
-            URLQueryItem(name: "api_key", value: "457aa6528c2f6fe3ff02984ae2058d6d"),
+            URLQueryItem(name: "api_key", value: ""),
             URLQueryItem(name: "page", value: String(describing: page))
         ]
         

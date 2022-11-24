@@ -8,95 +8,110 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    let movieTile: String
-    @ObservedObject var detailVM = MovieDetailViewModel()
+    @ObservedObject var vm: MovieViewModel
+    var movie: MovieTrending?
     
-    var logos: [ImageModel] {
-        detailVM.imagesResponse?.logos ?? []
+    var movieHeaderView: some View  {
+        ZStack(alignment: .bottomTrailing) {
+            AsyncImage(url: movie?.posterUrl) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .aspectRatio(contentMode: .fit)
+            
+            CircularProgressView(progress: .constant(movie?.percetageRate ?? 0))
+                .offset(x: -5, y: 15)
+        }
     }
     
-    var posters: [ImageModel] {
-        detailVM.imagesResponse?.posters ?? []
+    var movieOverView: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(movie?.title ?? "")
+                .fontWeight(.bold)
+            
+            Text("Overview")
+                .fontWeight(.bold)
+            
+            Text(movie?.overview ?? "")
+                .multilineTextAlignment(.leading)
+        }
+        .padding(.horizontal)
     }
     
-    var backdrops: [ImageModel] {
-        detailVM.imagesResponse?.backdrops ?? []
+    var detailOverview: some View {
+        VStack(spacing: 10) {
+            HStack  {
+                MovieInfoView(fieldTitle: "Status",
+                              fieldValue: vm.movieDetail?.status ?? "",
+                              isCurrencyFormat: false)
+                Spacer()
+                MovieInfoView(fieldTitle: "Original Language",
+                              fieldValue: vm.movieDetail?.originalLanguage?.description ?? "",
+                              isCurrencyFormat: false)
+            }
+            
+            HStack {
+                MovieInfoView(fieldTitle: "Budget",
+                              fieldValue: String(vm.movieDetail?.budget ?? 0),
+                              isCurrencyFormat: true)
+                Spacer()
+                MovieInfoView(fieldTitle: "Revenue",
+                              fieldValue: String(vm.movieDetail?.revenue ?? 0),
+                              isCurrencyFormat: true)
+            }
+        }
+        .padding(.horizontal)
+    }
+    
+    var castBilledSection: some View {
+        Section {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Top Billed Cast")
+                        .fontWeight(.bold)
+                }
+                
+                ScrollView(.horizontal) {
+                    HStack(spacing: 5) {
+                        ForEach(vm.castImages, id:\.id) { cast in
+                            ActorCardView(cast: cast)
+                        }
+                        Button(action: {
+                            /// TODO
+                        }) {
+                            HStack(spacing: 2) {
+                                Text("View more")
+                                    .font(.system(size: 11, weight: .semibold, design: .rounded))
+                                Image(systemName: "arrow.right.square.fill")
+                            }
+                            .foregroundColor(.black)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal)
+        }
     }
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
-                VStack(alignment: .leading) {
-                    /// Image
-                    ZStack(alignment: .trailing) {
-                        Image("example_detail_pic")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        
-                        CircularProgressView(progress: .constant(80))
-                            .offset(x: -5, y: 110)
-                    }
+                VStack(alignment: .leading, spacing: 10) {
+                    movieHeaderView
+
+                    movieOverView
                     
-                    /// Category - year - duration (hours and minutes)
-                    /// details/description of movie
+                    Divider()
                     
-                    VStack(alignment: .leading) {
-                        Text("\(movieTile)")
-                            .fontWeight(.bold)
-                        
-                        Text("Overview")
-                            .fontWeight(.bold)
-                        
-                        Text("A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.")
-                            .multilineTextAlignment(.leading)
-                        
-                        Divider()
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Status")
-                                    .fontWeight(.bold)
-                                Text("Released")
-                            }
-                            Spacer()
-                            VStack(alignment: .leading) {
-                                Text("Original Language")
-                                    .fontWeight(.bold)
-                                Text("English")
-                            }
-                        }
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Budget")
-                                    .fontWeight(.bold)
-                                Text("$2,80")
-                            }
-                            Spacer()
-                            VStack(alignment: .leading) {
-                                Text("Revenue")
-                                    .fontWeight(.bold)
-                                Text("$14,575")
-                            }
-                        }
-                        
-                    }
-                    .padding(.horizontal)
+                    detailOverview
                     
+                    Divider()
                     
-                    /// Score Breakdown
-                    Section {
-                        CustomTopBar(sectionName: "Demo", images: [
-                            .backdrop: backdrops,
-                            .poster: posters,
-                            .logo: logos
-                        ])
-                        
-                        Spacer()
-                    }
+                    castBilledSection
                 }
                 .ignoresSafeArea(edges: .bottom)
-                .navigationTitle(movieTile)
+                .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
                 .onAppear {
                     let appearance = UINavigationBarAppearance()
@@ -106,7 +121,9 @@ struct MovieDetailView: View {
                 }
             }
             .task {
-                await detailVM.getImages(movieId: 894205)
+                await vm.getDetail(movieId: movie?.id ?? 0)
+                vm.getCasts(movieId: movie?.id ?? 0,
+                            mediaType: movie?.mediaType ?? .movie)
             }
         }
     }
@@ -114,6 +131,6 @@ struct MovieDetailView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(movieTile: "The Simpsons")
+        MovieDetailView(vm: MovieViewModel(), movie: .testValue)
     }
 }

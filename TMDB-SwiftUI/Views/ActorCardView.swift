@@ -8,61 +8,31 @@
 import SwiftUI
 
 struct ActorCardView: View {
-    let name: String
-    let character: String
+    let cast: CastModel
     
     var body: some View {
-//        ZStack(alignment: .bottomLeading) {
-//            Image(name)
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: 117, height: 175, alignment: .center)
-//                .background(.yellow)
-//                .cornerRadius(10)
-//
-//            ZStack(alignment: .leading) {
-//                Rectangle()
-//                    .fill(.white)
-//                    .frame(width: 117, height: 35)
-//                VStack(alignment: .leading) {
-//                    HStack {
-//                        Text(name)
-//                            .font(.system(size: 12))
-//                            .fontWeight(.semibold)
-//                    }
-//                    .background(Color.white)
-//                    HStack {
-//                        Text(character)
-//                            .font(.system(size: 10))
-//                            .fontWeight(.light)
-//
-//                    }
-//                }
-//                .padding(.horizontal, 5)
-//            }
-//            .cornerRadius(1)
-//        }
-//        .overlay(
-//            RoundedRectangle(cornerRadius: 9, style: .continuous)
-//                .stroke(.black.opacity(0.1), lineWidth: 0.4)
-//                .shadow(color: .black, radius: 10, x: 0, y: 0)
-//        )
-        
         ZStack(alignment: .bottomLeading) {
-            Image("tom_cruise")
-                .resizable()
-                .cornerRadius(10)
-                .aspectRatio(contentMode: .fit)
-            
-            ActorInformationBox(actorName: name, character: character)
+            AsyncImage(url: cast.imagePath) { image in
+                image.resizable()
+                    .frame(width: 120, height: 180, alignment: .center)
+                    .cornerRadius(10)
+                    .scaledToFit()
+            } placeholder: {
+                ProgressView()
+            }
+
+            ActorInformationBox(actorName: cast.name ?? "",
+                                character: cast.character ?? "")
         }
-        .frame(width: 100, height: 250)
     }
 }
 
 struct ActorCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ActorCardView(name: "Gillian Jacobs", character: "Brianne")
+        ActorCardView(cast: CastModel(adult: false, gender: 1, id: 1,
+                                      knownForDepartment: nil, name: "Tom", originalName: "Tom",
+                                      popularity: 8, profilePath: "/asdasd.jpg", castId: 1,
+                                      character: "Tom Cruise", creditId: "1", order: 1))
     }
 }
 
@@ -91,5 +61,21 @@ struct ActorInformationBox: View {
 struct ActorInformationBox_Previews: PreviewProvider {
     static var previews: some View {
         ActorInformationBox(actorName: "Aldair Cosetito", character: "iOS Engineer")
+    }
+}
+
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        Text("xx")
+    }
+}
+
+struct RoundedCorner: Shape {
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
     }
 }

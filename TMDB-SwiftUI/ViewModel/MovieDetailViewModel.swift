@@ -13,6 +13,11 @@ final class MovieDetailViewModel: ObservableObject {
     @Published var videoResponse: VideoResponseModel?
     @Published var imagesResponse: ImageResult?
     let videoNetwork = VideoNetwork()
+    let movie: MovieTrending?
+    
+    init(movie: MovieTrending? = nil) {
+        self.movie = movie
+    }
     
     func getMovieVideos(movieId: Int) {
         videoNetwork.getVideo(movieId: movieId) { response in

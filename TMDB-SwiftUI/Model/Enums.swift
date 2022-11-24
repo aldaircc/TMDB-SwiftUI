@@ -15,11 +15,34 @@ enum CustomError: Error {
     case errorApiResponse(Int, Codable)
 }
 
+enum TimeWindow: String {
+    case week
+    case today
+    
+    init?(rawValue: RawValue) {
+        switch rawValue.lowercased() {
+        case "week": self = .week
+        case "today": self = .today
+        default: return nil
+        }
+    }
+}
+
 enum MediaType: String, Codable {
     case all
     case movie
     case tv
     case person
+    
+    init?(rawValue: String) {
+        switch rawValue.lowercased() {
+        case "all": self = .all
+        case "movie": self = .movie
+        case "tv": self = .tv
+        case "person": self = .person
+        default: return nil
+        }
+    }
 }
 
 enum KnownForDepartment: String, Codable {
@@ -38,7 +61,7 @@ enum KnownForDepartment: String, Codable {
     }
 }
 
-enum OriginalLanguage: String, Codable {
+enum OriginalLanguage: String, CustomStringConvertible, Codable {
     case en = "en"
     case ja = "ja"
     case fr = "fr"
@@ -55,7 +78,30 @@ enum OriginalLanguage: String, Codable {
         case "fr": self = .fr
         case "de": self = .de
         case "ta": self = .ta
+        case "ko": self = .ko
+        case "es": self = .es
         default: self = .unknown
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .en:
+            return "English"
+        case .ja:
+            return "Japanese"
+        case .fr:
+            return "French"
+        case .de:
+            return "German"
+        case .ta:
+            return ""
+        case .ko:
+            return "Korean"
+        case .es:
+            return "Spanish"
+        case .unknown:
+            return "Unknown"
         }
     }
 }
