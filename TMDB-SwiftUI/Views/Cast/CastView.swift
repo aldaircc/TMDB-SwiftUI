@@ -9,9 +9,14 @@ import SwiftUI
 
 struct CastView: View {
     var body: some View {
-        VStack {
-            HStack {
-                VStack {
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
+                Image("tom_cruise")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                
+                VStack(alignment: .leading) {
                     Text("Name")
                     Text("Character")
                 }
