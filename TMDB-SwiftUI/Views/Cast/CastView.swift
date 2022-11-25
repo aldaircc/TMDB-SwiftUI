@@ -15,10 +15,13 @@ struct CastView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 100)
+                    .cornerRadius(10)
                 
                 VStack(alignment: .leading) {
                     Text("Name")
+                        .fontWeight(.semibold)
                     Text("Character")
+                        .fontWeight(.semibold)
                 }
             }
         }
