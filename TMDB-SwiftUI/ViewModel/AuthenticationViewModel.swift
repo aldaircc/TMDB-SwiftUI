@@ -19,7 +19,7 @@ final class AuthenticationViewModel: ObservableObject {
         self.network = network
     }
     
-    func authenticateUser(userName: String, password: String) async {
+    func authenticateUser() async {
         do {
             let result = try await network.startLoginProcess(username: userName, password: password)
             DispatchQueue.main.async {
