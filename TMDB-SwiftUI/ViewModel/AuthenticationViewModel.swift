@@ -11,6 +11,9 @@ final class AuthenticationViewModel: ObservableObject {
     
     let network: Network
     @Published var isAuthenticated = false
+    @Published var isEditing = false
+    @Published var userName = ""
+    @Published var password = ""
     
     init(_ network: Network = Network()) {
         self.network = network
