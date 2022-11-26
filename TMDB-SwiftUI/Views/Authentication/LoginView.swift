@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var authenticationVM = AuthenticationViewModel()
-    @State var isEditing = false
-    @State var userName = ""
-    @State var password = ""
+    @ObservedObject var vm = AuthenticationViewModel()
     
     var body: some View {
         NavigationView {
@@ -21,28 +18,28 @@ struct LoginView: View {
                     .resizable()
                     .scaledToFit()
                 
-                TextField("Username", text: $userName) { value in
-                    _isEditing.wrappedValue = value
+                TextField("Username", text: $vm.userName) { value in
+                    vm.isEditing = value
                 }
-                .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
+                .textFieldStyle(RoundedTextFieldStyle(isEditing: vm.isEditing))
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
                 
-                SecureField("Password", text: $password)
-                    .textFieldStyle(RoundedTextFieldStyle(isEditing: isEditing))
+                SecureField("Password", text: $vm.password)
+                    .textFieldStyle(RoundedTextFieldStyle(isEditing: vm.isEditing))
                 
                 Spacer()
                     .frame(maxHeight: 100)
                 
                 Button("Login") {
                     Task {
-                        await authenticationVM.authenticateUser(userName: userName,
-                                                          password: password)
+                        await vm.authenticateUser(userName: vm.userName,
+                                                  password: vm.password)
                     }
                 }
-                .disabled(userName.isEmpty || password.isEmpty)
-                .buttonStyle(RoundedButtonStyle(isActive: .constant(!userName.isEmpty && !password.isEmpty)))
+                .disabled(vm.userName.isEmpty || vm.password.isEmpty)
+                .buttonStyle(RoundedButtonStyle(isActive: .constant(!vm.userName.isEmpty && !vm.password.isEmpty)))
                 
-                NavigationLink("", isActive: $authenticationVM.isAuthenticated) {
+                NavigationLink("", isActive: $vm.isAuthenticated) {
                     ContentView()
                 }
                 
