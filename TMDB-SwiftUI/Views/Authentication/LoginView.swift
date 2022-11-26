@@ -32,8 +32,7 @@ struct LoginView: View {
                 
                 Button("Login") {
                     Task {
-                        await vm.authenticateUser(userName: vm.userName,
-                                                  password: vm.password)
+                        await vm.authenticateUser()
                     }
                 }
                 .disabled(vm.userName.isEmpty || vm.password.isEmpty)
