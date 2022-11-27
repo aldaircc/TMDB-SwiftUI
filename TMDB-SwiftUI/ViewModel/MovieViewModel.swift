@@ -15,6 +15,7 @@ final class MovieViewModel: ObservableObject {
     @Published var videoResult: VideoResponseModel?
     @Published var imageResult: ImageResult?
     @Published var error = ""
+    @Published var isGoCast = false
     let network: MovieNetwork
     var trendMovies: [MovieTrending] {
         return trendingResult?.results ?? []
@@ -93,5 +94,9 @@ final class MovieViewModel: ObservableObject {
             }
         }
         
+    }
+    
+    func goFullCasts() {
+        isGoCast = true
     }
 }

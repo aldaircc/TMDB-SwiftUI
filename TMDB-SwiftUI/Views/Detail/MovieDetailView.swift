@@ -78,7 +78,7 @@ struct MovieDetailView: View {
                             ActorCardView(cast: cast)
                         }
                         Button(action: {
-                            /// TODO
+                            vm.isGoCast = true
                         }) {
                             HStack(spacing: 2) {
                                 Text("View more")
@@ -95,36 +95,32 @@ struct MovieDetailView: View {
     }
     
     var body: some View {
-        NavigationView {
-            ScrollView(.vertical) {
-                VStack(alignment: .leading, spacing: 10) {
-                    movieHeaderView
+        ScrollView(.vertical) {
+            VStack(alignment: .leading, spacing: 10) {
+                movieHeaderView
 
-                    movieOverView
-                    
-                    Divider()
-                    
-                    detailOverview
-                    
-                    Divider()
-                    
-                    castBilledSection
-                }
-                .ignoresSafeArea(edges: .bottom)
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
-                .onAppear {
-                    let appearance = UINavigationBarAppearance()
-                    appearance.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
-                    UINavigationBar.appearance().standardAppearance = appearance
-                    UINavigationBar.appearance().scrollEdgeAppearance = appearance
+                movieOverView
+                
+                Divider()
+                
+                detailOverview
+                
+                Divider()
+                
+                castBilledSection
+                
+                NavigationLink("", isActive: $vm.isGoCast) {
+                    CastView(vm: vm)
                 }
             }
-            .task {
-                await vm.getDetail(movieId: movie?.id ?? 0)
-                vm.getCasts(movieId: movie?.id ?? 0,
-                            mediaType: movie?.mediaType ?? .movie)
-            }
+            .ignoresSafeArea(edges: .bottom)
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        .task {
+            await vm.getDetail(movieId: movie?.id ?? 0)
+            vm.getCasts(movieId: movie?.id ?? 0,
+                        mediaType: movie?.mediaType ?? .movie)
         }
     }
 }
