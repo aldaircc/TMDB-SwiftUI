@@ -45,7 +45,7 @@ struct CastModel: Codable, Identifiable {
 
 typealias Casts = CastResult
 
-struct CastResult: Codable {
+struct CastResult: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case cast = "cast"
