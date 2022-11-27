@@ -39,7 +39,7 @@ struct LoginView: View {
                 .buttonStyle(RoundedButtonStyle(isActive: .constant(!vm.userName.isEmpty && !vm.password.isEmpty)))
                 
                 NavigationLink("", isActive: $vm.isAuthenticated) {
-                    ContentView()
+                    HomeView()
                 }
                 
                 Button("Reset password") {
