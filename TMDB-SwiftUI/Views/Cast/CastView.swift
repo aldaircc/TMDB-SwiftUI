@@ -14,7 +14,7 @@ struct CastView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 ForEach(vm.casts.cast) { cast in
-                    CastItemView(cast: cast)
+                    CastItemView(cast: cast, vm: vm)
                 }
             }
         }
@@ -29,15 +29,12 @@ struct CastView_Previews: PreviewProvider {
 
 struct CastItemView: View {
     let cast: CastModel
+    @ObservedObject var vm = MovieViewModel()
+    @State var image: UIImage = UIImage()
     
     var body: some View {
         HStack(alignment: .center) {
-            Image("tom_cruise")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 100, alignment: .center)
-                .cornerRadius(10)
-            
+            ImageView(withURL: cast.imagePath)
             VStack(alignment: .leading) {
                 Text("\(cast.originalName ?? "")")
                     .fontWeight(.semibold)
