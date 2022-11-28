@@ -43,5 +43,8 @@ struct CastItemView: View {
             Spacer()
         }
         .padding(5)
+        .onTapGesture {
+            print("Tapped: \(cast.name ?? "")")
+        }
     }
 }
