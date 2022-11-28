@@ -8,7 +8,6 @@
 import Foundation
 
 final class MovieViewModel: ObservableObject {
-    
     @Published var casts: Casts = Casts(id: 0, cast: [])
     @Published var trendingResult: TrendingResult?
     @Published var movieDetail: MovieDetailModel?
