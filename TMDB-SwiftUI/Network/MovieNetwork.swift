@@ -114,4 +114,21 @@ struct MovieNetwork {
             }
         }
     }
+    
+    func getDetailPerson(_ personId: Int, completion: @escaping (Result<Person, Error>) -> Void) {
+        let components = URLComponents(string: URL.personDetail.absoluteString.replacingOccurrences(of: "person_id",
+                                                                                                  with: String(personId)))
+        guard let url = components?.url?.addApiKey() else {
+            return
+        }
+        
+        Network().callApi(url: url, object: Person.self) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
