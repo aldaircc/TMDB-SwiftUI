@@ -9,18 +9,22 @@ import SwiftUI
 
 struct CastDetailView: View {
     var body: some View {
-        HStack(alignment: .top) {
-            VStack(alignment: .leading) {
-                Text("Hello, World!")
-                
-                Section("Biography") {
-                    Text("Content")
+        ScrollView {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Image(systemName: "play.fill")
+                    
+                    Section("Biography") {
+                        Text("Content")
+                    }
+                    
+                    Section("Personal Info") {
+                        Text("Know for")
+                        Text("Content")
+                    }
                 }
-                
-                Section("Personal Info") {
-                    Text("Know for")
-                    Text("Content")
-                }
+//                .frame(width: 390)
+                Spacer()
             }
         }
     }
