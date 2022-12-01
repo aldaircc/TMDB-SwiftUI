@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CastDetailView: View {
+    @ObservedObject var vm = MovieViewModel()
+    
     var body: some View {
         ScrollView {
             HStack(alignment: .top) {
@@ -21,11 +23,15 @@ struct CastDetailView: View {
                     Section("Personal Info") {
                         Text("Know for")
                         Text("Content")
+                        Text("Id: \(vm.personIdSelected)")
                     }
                 }
 //                .frame(width: 390)
                 Spacer()
             }
+        }
+        .onAppear {
+            vm.getDetailPerson()
         }
     }
 }
