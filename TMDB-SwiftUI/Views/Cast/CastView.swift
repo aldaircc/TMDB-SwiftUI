@@ -17,6 +17,9 @@ struct CastView: View {
                     CastItemView(cast: cast, vm: vm)
                 }
             }
+            NavigationLink("", isActive: $vm.isNavigateToCastDetail) {
+                CastDetailView(vm: vm)
+            }
         }
     }
 }
@@ -45,6 +48,7 @@ struct CastItemView: View {
         .padding(5)
         .onTapGesture {
             print("Tapped: \(cast.name ?? "")")
+            vm.goToCastDetail(cast.id)
         }
     }
 }
