@@ -107,6 +107,13 @@ final class MovieViewModel: ObservableObject {
     }
     
     func getDetailPerson() {
-        
+        network.getDetailPerson(personIdSelected) { response in
+            switch response {
+            case .success(let value):
+                
+            case .failure(let error):
+                
+            }
+        }
     }
 }
