@@ -17,7 +17,7 @@ struct CastDetailView: View {
                     Image(systemName: "play.fill")
                     
                     Section("Biography") {
-                        Text("Content")
+                        Text(vm.personDetail?.biography ?? "")
                     }
                     
                     Section("Personal Info") {

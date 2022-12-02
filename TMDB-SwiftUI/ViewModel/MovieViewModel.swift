@@ -111,7 +111,9 @@ final class MovieViewModel: ObservableObject {
         network.getDetailPerson(personIdSelected) { response in
             switch response {
             case .success(let value):
-                self.personDetail = value
+                DispatchQueue.main.async {
+                    self.personDetail = value
+                }
             case .failure(let error):
                 self.error = error.localizedDescription
             }
