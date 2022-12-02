@@ -13,6 +13,7 @@ final class MovieViewModel: ObservableObject {
     @Published var movieDetail: MovieDetailModel?
     @Published var videoResult: VideoResponseModel?
     @Published var imageResult: ImageResult?
+    @Published var personDetail: Person?
     @Published var error = ""
     @Published var isGoCast = false
     @Published var isNavigateToCastDetail = false
@@ -110,9 +111,9 @@ final class MovieViewModel: ObservableObject {
         network.getDetailPerson(personIdSelected) { response in
             switch response {
             case .success(let value):
-                
+                self.personDetail = value
             case .failure(let error):
-                
+                self.error = error.localizedDescription
             }
         }
     }
