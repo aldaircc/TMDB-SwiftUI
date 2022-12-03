@@ -22,7 +22,12 @@ struct CastDetailView: View {
                     
                     Section("Personal Info") {
                         Text("Know for")
-                        Text("Content")
+                        Text("Known Credits")
+                        Text("Gender")
+                        Text("Adult Actor")
+                        Text("Birthday")
+                        Text("Place of birth")
+                        Text("Also Known As")
                         Text("Id: \(vm.personIdSelected)")
                     }
                 }
