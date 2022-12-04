@@ -35,34 +35,8 @@ struct CastModel: Codable, Identifiable {
     let character: String?
     let creditId: String?
     let order: Int?
-    
     var imagePath: URL {
         return URL(string: "https://image.tmdb.org/t/p/w200\(profilePath ?? "")") ?? URL(string: "https://google.com")!
-    }
-}
-
-enum CastGender: RawRepresentable {
-    case male
-    case female
-    case nonDefined
-    
-    var rawValue: Int? {
-        switch self {
-        case .male:
-            return 1
-        case .female:
-            return 2
-        case .nonDefined:
-            return nil
-        }
-    }
-    
-    init(rawValue: Int?) {
-        switch rawValue {
-        case 1: self = .male
-        case 2: self = .female
-        default: self = .nonDefined
-        }
     }
 }
 

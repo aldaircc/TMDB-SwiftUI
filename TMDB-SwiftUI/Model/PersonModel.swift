@@ -38,7 +38,10 @@ struct Person: Codable {
     let name: String?
     let place_of_birth: String?
     let popularity: Double?
-    let profile_path: String? // "/mJMpsADPpt0bmXEzs3ywrUiCkpD.jpg
+    let profile_path: String?
+    var genderType: CastGender {
+        CastGender(rawValue: gender)
+    }
     var path: URL? {
         guard let profilePath = profile_path,
               let url = URL(string: profilePath) else {
@@ -46,5 +49,41 @@ struct Person: Codable {
         }
         
         return url
+    }
+}
+
+enum CastGender: RawRepresentable, CustomStringConvertible {
+    case male
+    case female
+    case nonDefined
+    
+    var description: String {
+        switch self {
+        case .male:
+            return "Male"
+        case .female:
+            return "Female"
+        case .nonDefined:
+            return "Not defined"
+        }
+    }
+    
+    var rawValue: Int? {
+        switch self {
+        case .female:
+            return 1
+        case .male:
+            return 2
+        case .nonDefined:
+            return nil
+        }
+    }
+    
+    init(rawValue: Int?) {
+        switch rawValue {
+        case 1: self = .female
+        case 2: self = .male
+        default: self = .nonDefined
+        }
     }
 }
