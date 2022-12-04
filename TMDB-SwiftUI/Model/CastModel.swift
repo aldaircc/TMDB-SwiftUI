@@ -41,7 +41,30 @@ struct CastModel: Codable, Identifiable {
     }
 }
 
-
+enum CastGender: RawRepresentable {
+    case male
+    case female
+    case nonDefined
+    
+    var rawValue: Int? {
+        switch self {
+        case .male:
+            return 1
+        case .female:
+            return 2
+        case .nonDefined:
+            return nil
+        }
+    }
+    
+    init(rawValue: Int?) {
+        switch rawValue {
+        case 1: self = .male
+        case 2: self = .female
+        default: self = .nonDefined
+        }
+    }
+}
 
 typealias Casts = CastResult
 
