@@ -13,40 +13,28 @@ struct CastDetailView: View {
     var body: some View {
         ScrollView {
             HStack(alignment: .top) {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 10) {
                     Image(systemName: "play.fill")
                     
-                    Section("Biography") {
-                        Text(vm.personDetail?.biography ?? "")
+                    Section {
+                        PersonalFieldView(title: "Biography", value: vm.personDetail?.biography ?? "")
                     }
                     
-                    Section("Personal Info") {
-                        VStack {
-                            Text("Know for")
-                                .fontWeight(.semibold)
-                            Text(vm.personDetail?.known_for_department ?? "")
-                        }
-                        
-                        VStack {
-                            Text("Gender")
-                                .fontWeight(.semibold)
-                            Text("\(vm.personDetail?.gender ?? 0)")
-                        }
-                        Text("Birthday")
-                            .fontWeight(.semibold)
-                        Text(vm.personDetail?.birthday ?? "")
-                        Text("Place of birth")
-                            .fontWeight(.semibold)
-                        Text(vm.personDetail?.place_of_birth ?? "")
-                        Text("Also Known As")
-                            .fontWeight(.semibold)
-                        Text("\(vm.personDetail?.also_known_as?.first ?? "")")
-                    }
+                    Divider()
                     
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Personal Info")
+                            .fontWeight(.bold)
+                        PersonalFieldView(title: "Know for", value: vm.personDetail?.known_for_department ?? "")
+                        PersonalFieldView(title: "Gender", value: String(vm.personDetail?.gender ?? 0))
+                        PersonalFieldView(title: "Birthday", value: vm.personDetail?.birthday ?? "")
+                        PersonalFieldView(title: "Place of birth", value: vm.personDetail?.place_of_birth ?? "")
+                        PersonalFieldView(title: "Also Known As", value: vm.personDetail?.also_known_as?.first ?? "")
+                    }
                 }
-//                .frame(width: 390)
                 Spacer()
             }
+            .padding(.horizontal)
         }
         .onAppear {
             vm.getDetailPerson()
@@ -57,5 +45,18 @@ struct CastDetailView: View {
 struct CastDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CastDetailView()
+    }
+}
+
+struct PersonalFieldView: View {
+    let title: String
+    let value: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(title)
+                .fontWeight(.semibold)
+            Text(value)
+        }
     }
 }
