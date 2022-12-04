@@ -23,20 +23,26 @@ struct CastDetailView: View {
                     Section("Personal Info") {
                         VStack {
                             Text("Know for")
+                                .fontWeight(.semibold)
                             Text(vm.personDetail?.known_for_department ?? "")
                         }
                         
                         VStack {
                             Text("Gender")
+                                .fontWeight(.semibold)
                             Text("\(vm.personDetail?.gender ?? 0)")
                         }
                         Text("Birthday")
+                            .fontWeight(.semibold)
                         Text(vm.personDetail?.birthday ?? "")
                         Text("Place of birth")
+                            .fontWeight(.semibold)
                         Text(vm.personDetail?.place_of_birth ?? "")
                         Text("Also Known As")
+                            .fontWeight(.semibold)
                         Text("\(vm.personDetail?.also_known_as?.first ?? "")")
                     }
+                    
                 }
 //                .frame(width: 390)
                 Spacer()
