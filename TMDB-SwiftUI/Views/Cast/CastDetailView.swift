@@ -26,7 +26,7 @@ struct CastDetailView: View {
                         Text("Personal Info")
                             .fontWeight(.bold)
                         PersonalFieldView(title: "Know for", value: vm.personDetail?.known_for_department ?? "")
-                        PersonalFieldView(title: "Gender", value: String(vm.personDetail?.gender ?? 0))
+                        PersonalFieldView(title: "Gender", value: vm.personDetail?.genderType.description ?? "")
                         PersonalFieldView(title: "Birthday", value: vm.personDetail?.birthday ?? "")
                         PersonalFieldView(title: "Place of birth", value: vm.personDetail?.place_of_birth ?? "")
                         PersonalFieldView(title: "Also Known As", value: vm.personDetail?.also_known_as?.first ?? "")
