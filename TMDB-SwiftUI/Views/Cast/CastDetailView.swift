@@ -21,14 +21,21 @@ struct CastDetailView: View {
                     }
                     
                     Section("Personal Info") {
-                        Text("Know for")
-                        Text("Known Credits")
-                        Text("Gender")
-                        Text("Adult Actor")
+                        VStack {
+                            Text("Know for")
+                            Text(vm.personDetail?.known_for_department ?? "")
+                        }
+                        
+                        VStack {
+                            Text("Gender")
+                            Text("\(vm.personDetail?.gender ?? 0)")
+                        }
                         Text("Birthday")
+                        Text(vm.personDetail?.birthday ?? "")
                         Text("Place of birth")
+                        Text(vm.personDetail?.place_of_birth ?? "")
                         Text("Also Known As")
-                        Text("Id: \(vm.personIdSelected)")
+                        Text("\(vm.personDetail?.also_known_as?.first ?? "")")
                     }
                 }
 //                .frame(width: 390)
