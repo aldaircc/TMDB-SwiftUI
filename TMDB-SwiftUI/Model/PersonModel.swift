@@ -42,10 +42,10 @@ struct Person: Codable {
     var genderType: CastGender {
         CastGender(rawValue: gender)
     }
-    var path: URL? {
+    var path: URL {
         guard let profilePath = profile_path,
-              let url = URL(string: profilePath) else {
-            return nil
+              let url = URL(string: "https://image.tmdb.org/t/p/w200\(profilePath)") else {
+            return .baseURL
         }
         
         return url
