@@ -14,7 +14,7 @@ struct CastDetailView: View {
         ScrollView {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 10) {
-                    ImageView(withURL: vm.personDetail?.path ?? .baseURL)
+                    ImageView(withURL: vm.personDetail?.path ?? .baseURL, pictureMode: .none)
                     
                     Section {
                         PersonalFieldView(title: "Biography", value: vm.personDetail?.biography ?? "")
