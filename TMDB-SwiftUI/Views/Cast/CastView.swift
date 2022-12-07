@@ -38,6 +38,7 @@ struct CastItemView: View {
     var body: some View {
         HStack(alignment: .center) {
             ImageView(withURL: cast.imagePath)
+                .cornerRadius(10)
             VStack(alignment: .leading) {
                 Text("\(cast.originalName ?? "")")
                     .fontWeight(.semibold)
