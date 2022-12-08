@@ -15,10 +15,10 @@ struct CastDetailView: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 10) {
                     ImageView(withURL: vm.personDetail?.path ?? .baseURL, pictureMode: .none)
-                    
                     Section {
                         PersonalFieldView(title: "Biography", value: vm.personDetail?.biography ?? "")
                     }
+                    .padding(.horizontal)
                     
                     Divider()
                     
@@ -31,10 +31,9 @@ struct CastDetailView: View {
                         PersonalFieldView(title: "Place of birth", value: vm.personDetail?.place_of_birth ?? "")
                         PersonalFieldView(title: "Also Known As", value: vm.personDetail?.also_known_as?.first ?? "-")
                     }
+                    .padding(.horizontal)
                 }
-                Spacer()
             }
-            .padding(.horizontal)
         }
         .onAppear {
             vm.getDetailPerson()
