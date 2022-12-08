@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol RatingControlDelegate: AnyObject {
+    func sendMessage(_ message: String)
+}
+
 final class RatingControl: UIView {
  
     lazy var containerView: UIView = {
@@ -18,6 +22,7 @@ final class RatingControl: UIView {
     
     lazy var startButton: UIButton = {
         let button = UIButton(frame: .zero)
+        button.translatesAutoresizingMaskIntoConstraints = false
         guard let image = UIImage(named: "ic-change") else {
             return button
         }
@@ -26,6 +31,7 @@ final class RatingControl: UIView {
         return button
     }()
     
+    weak var delegate: RatingControlDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -49,11 +55,20 @@ final class RatingControl: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            startButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            startButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+            startButton.heightAnchor.constraint(equalToConstant: 50),
+            startButton.widthAnchor.constraint(equalToConstant: 50)
         ])
         
         containerView.backgroundColor = .systemGreen
+    }
+    
+    func setupMethod() {
+        startButton.addTarget(self, action: #selector(startButtonTapped(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func startButtonTapped(sender: UIButton) {
+        let numberRandom = Int.random(in: 1...1000)
+        delegate?.sendMessage("\(numberRandom)")
     }
     
     func updateBackground(_ title: String, _ color: UIColor) {
