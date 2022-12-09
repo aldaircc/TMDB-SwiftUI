@@ -37,7 +37,6 @@ class RatingCoordinator: NSObject, RatingControlDelegate {
     }
     
     func sendMessage(_ message: String) {
-        print("message", message)
         parent.message = "Hello \(message)"
     }
 }
