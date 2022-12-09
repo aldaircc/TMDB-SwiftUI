@@ -76,6 +76,9 @@ struct MovieDetailView: View {
                     HStack(spacing: 5) {
                         ForEach(vm.castImages, id:\.id) { cast in
                             ActorCardView(cast: cast)
+                                .onTapGesture {
+                                    vm.goToCastDetail(cast.id)
+                                }
                         }
                         Button(action: {
                             vm.isGoCast = true
@@ -111,6 +114,10 @@ struct MovieDetailView: View {
                 
                 NavigationLink("", isActive: $vm.isGoCast) {
                     CastView(vm: vm)
+                }
+                
+                NavigationLink("", isActive: $vm.isNavigateToCastDetail) {
+                    CastDetailView(vm: vm)
                 }
             }
             .ignoresSafeArea(edges: .bottom)
