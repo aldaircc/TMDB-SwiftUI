@@ -8,10 +8,16 @@
 import Foundation
 import SwiftUI
 
+enum ActivityState {
+    case notSet
+    case loading
+    case ended
+}
+
 struct ActivityIndicatorView: UIViewRepresentable {
     typealias UIViewType = UIActivityIndicatorView
-    
     var activityIndicatorView: UIActivityIndicatorView?
+    @Binding var state: ActivityState
     
     func makeUIView(context: Context) -> UIActivityIndicatorView {
         guard let activityIndicatorView = activityIndicatorView else {
@@ -22,6 +28,11 @@ struct ActivityIndicatorView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
-        
+        switch state {
+        case .notSet, .ended:
+            uiView.stopAnimating()
+        case .loading:
+            uiView.startAnimating()
+        }
     }
 }
