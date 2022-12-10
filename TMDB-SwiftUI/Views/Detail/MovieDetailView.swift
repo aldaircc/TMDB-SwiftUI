@@ -13,12 +13,7 @@ struct MovieDetailView: View {
     
     var movieHeaderView: some View  {
         ZStack(alignment: .bottomTrailing) {
-            AsyncImage(url: movie?.posterUrl) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
-            .aspectRatio(contentMode: .fit)
+            ImageView(withURL: movie?.posterUrl ?? .baseURL, pictureMode: .landScape)
             
             CircularProgressView(progress: .constant(movie?.percetageRate ?? 0))
                 .offset(x: -5, y: 15)
