@@ -16,14 +16,11 @@ enum ActivityState {
 
 struct ActivityIndicatorView: UIViewRepresentable {
     typealias UIViewType = UIActivityIndicatorView
-    var activityIndicatorView: UIActivityIndicatorView?
+    var activityIndicatorView = UIViewType(style: .medium)
     @Binding var state: ActivityState
     
     func makeUIView(context: Context) -> UIActivityIndicatorView {
-        guard let activityIndicatorView = activityIndicatorView else {
-            return UIActivityIndicatorView()
-        }
-        
+        activityIndicatorView.color = .white
         return activityIndicatorView
     }
     
