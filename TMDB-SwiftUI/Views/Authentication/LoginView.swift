@@ -12,43 +12,49 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 10) {
-                
-                Image("tmdbLogo")
-                    .resizable()
-                    .scaledToFit()
-                
-                TextField("Username", text: $vm.userName) { value in
-                    vm.isEditing = value
-                }
-                .textFieldStyle(RoundedTextFieldStyle(isEditing: vm.isEditing))
-                .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
-                
-                SecureField("Password", text: $vm.password)
-                    .textFieldStyle(RoundedTextFieldStyle(isEditing: vm.isEditing))
-                
-                Spacer()
-                    .frame(maxHeight: 100)
-                
-                Button("Login") {
-                    Task {
-                        await vm.authenticateUser()
+            ZStack {
+                VStack(spacing: 10) {
+                    Image("tmdbLogo")
+                        .resizable()
+                        .scaledToFit()
+                    
+                    TextField("Username", text: $vm.userName) { value in
+                        vm.isEditing = value
                     }
+                    .textFieldStyle(RoundedTextFieldStyle(isEditing: vm.isEditing))
+                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+                    
+                    SecureField("Password", text: $vm.password)
+                        .textFieldStyle(RoundedTextFieldStyle(isEditing: vm.isEditing))
+                    
+                    Spacer()
+                        .frame(maxHeight: 100)
+                    
+                    Button("Login") {
+                        Task {
+                            await vm.authenticateUser()
+                        }
+                    }
+                    .disabled(vm.userName.isEmpty || vm.password.isEmpty)
+                    .buttonStyle(RoundedButtonStyle(isActive: .constant(!vm.userName.isEmpty && !vm.password.isEmpty)))
+                    
+                    NavigationLink("", isActive: $vm.isAuthenticated) {
+                        MovieDetailView(vm: MovieViewModel(), movie: .testValue)
+                    }
+                    
+                    Button("Reset password") {
+                        ///To do
+                    }
+                    .buttonStyle(LinkButtonStyle())
                 }
-                .disabled(vm.userName.isEmpty || vm.password.isEmpty)
-                .buttonStyle(RoundedButtonStyle(isActive: .constant(!vm.userName.isEmpty && !vm.password.isEmpty)))
+                .padding(.horizontal)
+                .ignoresSafeArea(.all)
                 
-                NavigationLink("", isActive: $vm.isAuthenticated) {
-                    HomeView()
-                }
-                
-                Button("Reset password") {
-                    ///To do
-                }
-                .buttonStyle(LinkButtonStyle())
+                ActivityIndicatorView(state: $vm.state)
+                    .frame(minWidth: 100, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
+                    .background(.black.opacity(0.7))
+                    .opacity(vm.state == .loading ? 1.0 : 0.0)
             }
-            .padding(.horizontal)
-        .ignoresSafeArea(.all)
         }
     }
 }
