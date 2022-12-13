@@ -16,6 +16,7 @@ enum PictureMode {
 struct ImageView: View {
     @ObservedObject var imageLoader: ImageLoader
     @State var image = UIImage()
+    @State private var isLoaded = false
     let defaultImage = UIImage(named: "none-image")!
     let pictureMode: PictureMode
     
@@ -30,10 +31,11 @@ struct ImageView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             ProgressView()
-                .opacity(1)
+                .opacity(isLoaded ? 0 : 1)
         }
         .onReceive(imageLoader.didChange) { data in
             self.image = UIImage(data: data) ?? defaultImage
+            self.isLoaded = true
         }
     }
     
