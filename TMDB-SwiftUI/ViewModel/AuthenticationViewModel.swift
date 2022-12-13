@@ -14,6 +14,7 @@ final class AuthenticationViewModel: ObservableObject {
     @Published var isEditing = false
     @Published var userName = ""
     @Published var password = ""
+    @Published var state: ActivityState = .notSet
     
     init(_ network: Network = Network()) {
         self.network = network
@@ -21,9 +22,11 @@ final class AuthenticationViewModel: ObservableObject {
     
     func authenticateUser() async {
         do {
+            state = .loading
             let result = try await network.startLoginProcess(username: userName, password: password)
             DispatchQueue.main.async {
                 self.isAuthenticated = (result != nil)
+                self.state = .ended
             }
         } catch {
             fatalError("Authentication error: \(error.localizedDescription)")
