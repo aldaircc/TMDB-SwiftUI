@@ -9,17 +9,19 @@ import SwiftUI
 
 struct CastView: View {
     @ObservedObject var vm = MovieViewModel()
+    @State var filter = ""
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
+                TextField("", text: $filter, prompt: Text("Search..."))
                 ForEach(vm.casts.cast) { cast in
                     CastItemView(cast: cast, vm: vm)
                 }
             }
-            NavigationLink("", isActive: $vm.isNavigateToCastDetail) {
-                CastDetailView(vm: vm)
-            }
+//            NavigationLink("", isActive: $vm.isNavigateToCastDetail) {
+//                CastDetailView(vm: vm)
+//            }
         }
     }
 }
