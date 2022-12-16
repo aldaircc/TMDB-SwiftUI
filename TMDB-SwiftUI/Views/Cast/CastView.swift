@@ -9,12 +9,11 @@ import SwiftUI
 
 struct CastView: View {
     @ObservedObject var vm = MovieViewModel()
-    @State var filter = ""
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                TextField("", text: $filter, prompt: Text("Search..."))
+                TextField("", text: $vm.castFilter, prompt: Text("Search..."))
                 ForEach(vm.casts.cast) { cast in
                     CastItemView(cast: cast, vm: vm)
                 }
