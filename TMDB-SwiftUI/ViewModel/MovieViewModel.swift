@@ -18,6 +18,7 @@ final class MovieViewModel: ObservableObject {
     @Published var isGoCast = false
     @Published var isNavigateToCastDetail = false
     @Published var personIdSelected = 0
+    @Published var castFilter = ""
     let network: MovieNetwork
     var trendMovies: [MovieTrending] {
         return trendingResult?.results ?? []
@@ -33,6 +34,11 @@ final class MovieViewModel: ObservableObject {
         
         let elements = Array<CastModel>(casts.cast[startIndex..<endIndex])
         return elements
+    }
+    
+    var castFiltered: [CastModel] {
+        let x = casts.cast.filter { $0.originalName == castFilter }
+        return x
     }
     
     init(_ network: MovieNetwork = MovieNetwork()) {
