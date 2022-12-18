@@ -37,8 +37,7 @@ final class MovieViewModel: ObservableObject {
     }
     
     var castFiltered: [CastModel] {
-        let x = casts.cast.filter { $0.originalName == castFilter }
-        return x
+        return casts.cast.filter { ($0.originalName ?? "").contains(castFilter) }
     }
     
     init(_ network: MovieNetwork = MovieNetwork()) {
