@@ -13,11 +13,11 @@ struct CastView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                TextField("", text: $vm.castFilter, prompt: Text("Search..."))
-                ForEach(vm.casts.cast) { cast in
+                ForEach(vm.castFiltered) { cast in
                     CastItemView(cast: cast, vm: vm)
                 }
             }
+            .searchable(text: $vm.castFilter, prompt: Text("Type name..."))
 //            NavigationLink("", isActive: $vm.isNavigateToCastDetail) {
 //                CastDetailView(vm: vm)
 //            }
