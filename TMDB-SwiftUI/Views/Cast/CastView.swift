@@ -15,12 +15,13 @@ struct CastView: View {
             VStack(alignment: .leading) {
                 ForEach(vm.castFiltered) { cast in
                     CastItemView(cast: cast, vm: vm)
+                        .onTapGesture {
+                            vm.goToCastDetail(cast.id)
+                        }
                 }
             }
-            .searchable(text: $vm.castFilter, prompt: Text("Type name..."))
-//            NavigationLink("", isActive: $vm.isNavigateToCastDetail) {
-//                CastDetailView(vm: vm)
-//            }
+            .searchable(text: $vm.castFilter,
+                        prompt: Text("Type name..."))
         }
     }
 }
@@ -48,8 +49,5 @@ struct CastItemView: View {
             Spacer()
         }
         .padding(5)
-        .onTapGesture {
-            vm.goToCastDetail(cast.id)
-        }
     }
 }
