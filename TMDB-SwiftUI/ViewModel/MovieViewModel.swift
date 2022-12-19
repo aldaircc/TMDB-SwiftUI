@@ -37,6 +37,10 @@ final class MovieViewModel: ObservableObject {
     }
     
     var castFiltered: [CastModel] {
+        guard !castFilter.isEmpty else {
+            return casts.cast
+        }
+        
         return casts.cast.filter { ($0.originalName ?? "").contains(castFilter) }
     }
     
