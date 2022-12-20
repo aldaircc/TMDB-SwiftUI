@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CastView: View {
-    @ObservedObject var vm = MovieViewModel()
+    @ObservedObject var vm: MovieViewModel
     
     var body: some View {
         ScrollView {
@@ -28,7 +28,7 @@ struct CastView: View {
 
 struct CastView_Previews: PreviewProvider {
     static var previews: some View {
-        CastView()
+        CastView(vm: MovieViewModel())
     }
 }
 
